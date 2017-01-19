@@ -1,0 +1,2 @@
+# diffeqs
+Differenciálegyenletek Számítógéppel
