@@ -1,7 +1,7 @@
 # Differenciálegyenletek Számítógéppel
+A tárgy célja, hogy a hallgatóknak betekintést adjon a differenciálegyenletek alkalmazásába erősen támaszkodva a Wolfram Mathematica szoftver használatára.
 
-## A tárgy célja
-A tárgy célja, hogy a hallgatóknak betekintést adjon a matematikai modellezés és elemzés &ndash; nagy hangsúlyt fektetve a dinamikai modellekre &ndash; számítógépes módszereibe a Wolfram Language nyelvet használva.
+A tárgy nem követel programozási előismeretet. A tárgy olyanoknak ajánlott, akik már találkoztak differenciálegyenletekkel, vagy éppen most tanulnak differenciálegyenleteket.
 
 A Matematika Intézet minden hallgató számára ingyen biztosít licenszet a legújabb verziójú Wolfram Mathematica szoftverhez.
 
