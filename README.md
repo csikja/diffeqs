@@ -14,12 +14,19 @@ Az írásos beszámoló leadási határideje: 2017.05.08.
 ### Választható projektek
 
 - Szikronizáció
+  - Metronómok szinkronizációja
 - Neuronmodellek
+  - Egy neuron modell
+  - Több neuron interakciója
 - Dinamikus gazdasági modellek
+  - Növekedési modellek
 - Kaotikus dinamika
+  - Ljapunov exponens
+  - Szimbolikus dinamika
 - Paraméterbecslés
-- Motorszabályozás
+  - Inga paraméterbecslése videó felvétel alapján
 - Model Prediktív szabályozás
-- Járműmodellek
+  - Kétkerekű mobilis robot irányítása
+  - Mobilis robot pályatervezése megszorításokkal
 - Hibrid dinamikai rendszerek
 - Nemlineáris áramkörök
