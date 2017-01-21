@@ -5,6 +5,21 @@ A tárgy azoknak ajánlott, akik már találkoztak differenciálegyenletekkel, v
 
 A Matematika Intézet minden hallgató számára ingyen biztosít hallgatói licenszet a legújabb verziójú Wolfram Mathematica szoftverhez.
 
+## Tematika
+  1. Matematikai alapismeretek áttekintése _Mathematica_ segítségével
+  2. A wolfram nyelv alapjai
+  3. Differenciálegyenletek szimbolikus megoldása
+  4. Differenciálegyenletek numerikus megoldása
+  5. Közelítő megoldások, perturbációs módszerek
+  6. Lineáris rendszerek, stabilitás
+  7. Klasszikus és modern irányításelmélet alkalmazása
+  8. Paraméterbecslés
+  9. Nem lineáris rendszerek kvalitatív analízise
+  10. Bifurkációk
+  11. Poincaré metszett, diszkrét dinamika
+  12. Kaotikus dinamika
+
+
 ## Számonkérés
 Egy tudományos cikk, könyv fejezet, stb. feldolgozása és bemutatása _írásban_ és _szóban_.
 
@@ -28,7 +43,6 @@ Egy tudományos cikk, könyv fejezet, stb. feldolgozása és bemutatása _írás
 - Paraméterbecslés
   - Inga paraméterbecslése videó felvétel alapján
 - Model Prediktív szabályozás
-  - Kétkerekű mobilis robot irányítása
-  - Mobilis robot pályatervezése megszorításokkal
+  - Mobilis robot irányítása
 - Hibrid dinamikai rendszerek
 - Nemlineáris áramkörök
