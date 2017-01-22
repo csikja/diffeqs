@@ -14,10 +14,15 @@ A tárgy azoknak ajánlott, akik már találkoztak differenciálegyenletekkel, v
   9. Nemlineáris rendszerek kvalitatív analízise
   
 ## Referencia
+### Differenciálegyenletek
   1. M. W. Hirsch, S. Smale, R. L. Devaney: [Differential Equations, Dynamical Systems & An Introduction to Chaos (PDF)](https://www.math.upatras.gr/~bountis/files/def-eq.pdf)
   2. Tóth J., Simon L. P.: [Differenciálegyenletek](http://www.interkonyv.hu/konyvek/?isbn=978-963-2790-57-2)
   3. Gerard Teschl: [Ordinary Differential Equations and Dynamical Systems (PDF)](https://www.mat.univie.ac.at/~gerald/ftp/book-ode/ode.pdf)
   4. Jirí Lebl: [Differential Equations for Engineers (PDF)](http://www.jirka.org/diffyqs/diffyqs.pdf)
+### Wolfram Mathematica
+  1. Szili L., Tóth J.: [Matematika és Mathematica (PDF)](http://math.bme.hu/~jtoth/pubtexts/SziliTothMma.pdf)
+  2. Stepen Wolfram: [Elementary Introduction to the Wolfram Language](http://www.wolfram.com/language/elementary-introduction/)
+  3. John Boccio: [Mathematica Tutorials](http://www.johnboccio.com/MathematicaTutorials/)
 
 ## Számonkérés
 Egy tudományos cikk, könyv fejezet, saját téma, stb. feldolgozása és bemutatása _írásban_ és _szóban_.
