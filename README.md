@@ -21,7 +21,8 @@ A tárgy azoknak ajánlott, akik már találkoztak differenciálegyenletekkel, v
 Az alábbi könyvekben sokkal több minden megtalálható, mint amire szükségünk lesz, de főként ezekből fogunk szemezgetni:
   1. M. W. Hirsch, S. Smale, R. L. Devaney: Differential Equations, Dynamical Systems & An Introduction to Chaos
   2. Tóth J., Simon L. P.: Differenciálegyenletek
-  3. Gerard Teschl: Ordinary Differential Equations and Dynamical Systems
+  3. Gerard Teschl: [Ordinary Differential Equations and Dynamical Systems](https://www.mat.univie.ac.at/~gerald/ftp/book-ode/ode.pdf)
+  4. Jirí Lebl: Differential Equations for Engineersasas
 
 ## Számonkérés
 Egy tudományos cikk, könyv fejezet, saját téma, stb. feldolgozása és bemutatása _írásban_ és _szóban_.
