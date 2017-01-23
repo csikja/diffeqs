@@ -30,12 +30,9 @@ A tárgy azoknak ajánlott, akik már találkoztak differenciálegyenletekkel, v
 ## Számonkérés
 Egy tudományos cikk, könyv fejezet, saját téma, stb. feldolgozása és bemutatása _írásban_ és _szóban_.
 
-### Határidők
-  1. Az írásos beszámoló absztraktjának leadási határideje: 2017.04.03.
-  2. Az írásos beszámoló leadási határideje: 2017.05.08. (Különeljárási díj mellett leadható 2017.05.15-ig).
-  3. A szóbeli beszámoló a pótlásokra szolgáló időszakban lesz: 2017.05.15.&ndash;2017.05.19.
+### Témaválasztás
+A témát velem egyeztetve évközben kell kiválasztani. A téma lehet egy diploma téma, TDK vagy egyéb saját téma. Néhány lehetséges témekör:
 
-### Lehetséges témák
 - Kinematika, Dinamika
 - Dinamikus gazdasági modellek
 - Reakciókinetika
@@ -47,3 +44,8 @@ Egy tudományos cikk, könyv fejezet, saját téma, stb. feldolgozása és bemut
 - Paraméterbecslés
 - Modern szabályozási módszerek
 - Hibrid dinamikai rendszerek
+
+### Határidők
+  1. Az írásos beszámoló absztraktjának leadási határideje: 2017.04.03.
+  2. Az írásos beszámoló leadási határideje: 2017.05.08. (Különeljárási díj mellett leadható 2017.05.15-ig).
+  3. A szóbeli beszámoló a pótlásokra szolgáló időszakban lesz: 2017.05.15.&ndash;2017.05.19.
