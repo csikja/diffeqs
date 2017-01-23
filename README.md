@@ -18,7 +18,8 @@ A tárgy azoknak ajánlott, akik már találkoztak differenciálegyenletekkel, v
   1. M. W. Hirsch, S. Smale, R. L. Devaney: [Differential Equations, Dynamical Systems & An Introduction to Chaos (PDF)](https://www.math.upatras.gr/~bountis/files/def-eq.pdf)
   2. Tóth J., Simon L. P.: [Differenciálegyenletek](http://www.interkonyv.hu/konyvek/?isbn=978-963-2790-57-2)
   3. Gerard Teschl: [Ordinary Differential Equations and Dynamical Systems (PDF)](https://www.mat.univie.ac.at/~gerald/ftp/book-ode/ode.pdf)
-  4. Jirí Lebl: [Differential Equations for Engineers (PDF)](http://www.jirka.org/diffyqs/diffyqs.pdf)
+  4. J. D. Meiss: [Differential Dynamical Systems (PDF)](http://users.uoa.gr/~pjioannou/nonlin/Meiss_Differential_dynamical_systems.pdf)
+  5. Jirí Lebl: [Differential Equations for Engineers (PDF)](http://www.jirka.org/diffyqs/diffyqs.pdf)
 
 ### Wolfram Mathematica
   1. Szili L., Tóth J.: [Matematika és Mathematica (PDF)](http://math.bme.hu/~jtoth/pubtexts/SziliTothMma.pdf)
