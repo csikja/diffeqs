@@ -20,7 +20,7 @@ A tárgy azoknak ajánlott, akik már találkoztak differenciálegyenletekkel, v
   3. Gerald Teschl: [Ordinary Differential Equations and Dynamical Systems (PDF)](https://www.mat.univie.ac.at/~gerald/ftp/book-ode/ode.pdf)
   4. J. D. Meiss: [Differential Dynamical Systems (PDF)](http://users.uoa.gr/~pjioannou/nonlin/Meiss_Differential_dynamical_systems.pdf)
   5. Jirí Lebl: [Differential Equations for Engineers (PDF)](http://www.jirka.org/diffyqs/diffyqs.pdf)
-  6. Tóth J., Simon L. P., Csikja R.: [Differenciálegyenletek példatár](http://tankonyvtar.ttk.bme.hu/pdf/166.pdf)
+  6. Tóth J., Simon L. P., Csikja R.: [Differenciálegyenletek példatár (PDF)](http://tankonyvtar.ttk.bme.hu/pdf/166.pdf)
 
 ### Wolfram Mathematica
   1. Szili L., Tóth J.: [Matematika és Mathematica (PDF)](http://math.bme.hu/~jtoth/pubtexts/SziliTothMma.pdf)
@@ -28,7 +28,11 @@ A tárgy azoknak ajánlott, akik már találkoztak differenciálegyenletekkel, v
   3. John Boccio: [Mathematica Tutorials](http://www.johnboccio.com/MathematicaTutorials/)
 
 ## Számonkérés
-Egy tudományos cikk, könyv fejezet, saját téma, stb. feldolgozása és bemutatása _írásban_ és _szóban_.
+A _Mathematica_ alkalmazásával egy tudományos cikk, könyv fejezet, diploma munka, TDK, stb. bemutatása __írásban__ és __szóban__.
+
+Az írásos beszámoló egy _Mathematica_ notebook, ami a program és dokumentáció egyben. Egyéb pl. mérési adatok, külső csomagok, saját csomagok, stb. külön csatolhatók.
+
+A szóbeli beszámoló egy 15 perces prezentáció, amit _Mathematica_ notebookként kell elkészíteni. 
 
 ### Témaválasztás
 A témát velem egyeztetve évközben kell kiválasztani. A téma lehet egy diploma téma, TDK vagy egyéb saját téma. Néhány lehetséges témekör:
@@ -36,7 +40,7 @@ A témát velem egyeztetve évközben kell kiválasztani. A téma lehet egy dipl
 - Kinematika, Dinamika
 - Dinamikus gazdasági modellek
 - Reakciókinetika
-- Populáció dinamika
+- Populációdinamika
 - Nemlineáris oszcillátorok
 - Szikronizáció
 - Neuronmodellek
