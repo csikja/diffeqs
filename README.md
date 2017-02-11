@@ -24,7 +24,7 @@ A tárgy azoknak ajánlott, akik már találkoztak differenciálegyenletekkel, v
 
 ### Wolfram Mathematica
   1. Szili L., Tóth J.: [Matematika és Mathematica (PDF)](http://math.bme.hu/~jtoth/pubtexts/SziliTothMma.pdf)
-  2. Stepen Wolfram: [Elementary Introduction to the Wolfram Language](http://www.wolfram.com/language/elementary-introduction/)
+  2. Stephen Wolfram: [Elementary Introduction to the Wolfram Language](http://www.wolfram.com/language/elementary-introduction/)
   3. John Boccio: [Mathematica Tutorials](http://www.johnboccio.com/MathematicaTutorials/)
 
 ## Számonkérés
