@@ -1,17 +1,15 @@
 # Differenciálegyenletek Számítógéppel
-A tárgy célja, hogy a hallgatóknak betekintést adjon a differenciálegyenletek alkalmazásába erősen támaszkodva a Wolfram Mathematica szoftver használatára. 
-
 A tárgy azoknak ajánlott, akik már találkoztak differenciálegyenletekkel, vagy éppen most tanulnak differenciálegyenleteket, viszont nem követel programozási előismeretet.
 
 ## Tematika
   1. Matematikai alapismeretek áttekintése _Mathematica_ segítségével
   2. A wolfram nyelv alapjai
   3. Differenciálegyenletek szimbolikus és numerikus megoldása
-  5. Perturbációs módszerek, aszimptotikus közelítések
-  6. Lineáris rendszerek, stabilitás
-  7. Klasszikus és modern irányításelmélet alkalmazása
-  8. Paraméterbecslés
-  9. Nemlineáris rendszerek kvalitatív analízise
+  4. Lineáris rendszerek, stabilitás
+  5. Paraméterbecslés
+  6. Klasszikus és modern szabályozások
+  7. Perturbációs módszerek, aszimptotikus közelítések
+  8. Nemlineáris rendszerek kvalitatív analízise
   
 ## Referencia
 ### Differenciálegyenletek
