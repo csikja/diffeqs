@@ -33,7 +33,7 @@ Az írásos beszámoló egy _Mathematica_ notebook, ami a program és dokumentá
 A szóbeli beszámoló egy 15 perces prezentáció, amit _Mathematica_ notebookként kell elkészíteni. 
 
 ### Témaválasztás
-A témát velem egyeztetve évközben kell kiválasztani. A téma lehet egy diploma téma, TDK vagy egyéb saját téma. Néhány lehetséges témekör:
+A témát velem egyeztetve évközben kell kiválasztani. A téma lehet egy diploma téma, TDK vagy egyéb saját téma. Néhány lehetséges témakör:
 
 - Kinematika, Dinamika
 - Dinamikus gazdasági modellek
@@ -49,5 +49,5 @@ A témát velem egyeztetve évközben kell kiválasztani. A téma lehet egy dipl
 
 ### Határidők
   1. Az írásos beszámoló absztraktjának leadási határideje: 2017.04.03.
-  2. Az írásos beszámoló leadási határideje: 2017.05.08. (Különeljárási díj mellett leadható 2017.05.15-ig).
+  2. Az írásos beszámoló leadási határideje: 2017.05.08. (Különeljárási díj ellenében leadható 2017.05.15-ig).
   3. A szóbeli beszámoló a pótlásokra szolgáló időszakban lesz: 2017.05.15.&ndash;2017.05.19.
