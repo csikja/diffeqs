@@ -1,6 +1,9 @@
 # Differenciálegyenletek Számítógéppel
 A tárgy azoknak ajánlott, akik már találkoztak differenciálegyenletekkel, vagy éppen most tanulnak differenciálegyenleteket, viszont nem követel programozási előismeretet.
 
+## Notebookok
+  1. [./diffegy_megoldas.nb](Differenciálegyenletek megoldása)
+
 ## Tematika
   1. Matematikai alapismeretek áttekintése _Mathematica_ segítségével
   2. A wolfram nyelv alapjai
