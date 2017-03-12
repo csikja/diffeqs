@@ -2,7 +2,7 @@
 A tárgy azoknak ajánlott, akik már találkoztak differenciálegyenletekkel, vagy éppen most tanulnak differenciálegyenleteket, viszont nem követel programozási előismeretet.
 
 ## Notebookok
-  1. [Differenciálegyenletek megoldása](./diffegy_megoldas.nb)
+  1. [Differenciálegyenletek megoldása](https://github.com/csikja/diffeqs/raw/master/diffegy_megoldas.nb)
 
 ## Tematika
   1. Matematikai alapismeretek áttekintése _Mathematica_ segítségével
