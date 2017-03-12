@@ -2,6 +2,7 @@
 A tárgy azoknak ajánlott, akik már találkoztak differenciálegyenletekkel, vagy éppen most tanulnak differenciálegyenleteket, viszont nem követel programozási előismeretet.
 
 ## Notebookok
+Ha máshogy nem megy a letöltés, akkor jobb gomb a linkre, aztán link mentése másként (save link as...).
   1. [Differenciálegyenletek megoldása](https://github.com/csikja/diffeqs/raw/master/diffegy_megoldas.nb)
 
 ## Tematika
