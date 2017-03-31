@@ -6,7 +6,7 @@ Ha máshogy nem megy a letöltés, akkor jobb gomb a linkre, aztán link mentés
 
   1. [Differenciálegyenletek megoldása](https://github.com/csikja/diffeqs/raw/master/diffegy_megoldas.nb)
   2. [Differenciálegyenletek megoldása feladatok megoldásokkal](https://github.com/csikja/diffeqs/raw/master/ex01.nb)
-  3. [Animáció és haladó grafika](https://github.com/csikja/diffeqs/raw/master/animacio.nb
+  3. [Animáció és haladó grafika](https://github.com/csikja/diffeqs/raw/master/animacio.nb)
   4. [Minta a beadandó dokumentációhoz](https://github.com/csikja/diffeqs/raw/master/template.nb)
   
 
