@@ -2,3 +2,4 @@
 
 1. __Forgács Tamás__: Keresztirányú normál- és nyírófeszültségek meghatározása lineárisan rugalmas, görbült tengelyű, hajlított és nyírt gerendákban
 2. __Nasli Alex Omár__: Gépi látás identifikációval
+3. __Fülöp Zsolt__: Gyógyszeradagolási modell
