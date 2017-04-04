@@ -1,0 +1,391 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     13100,        383]
+NotebookOptionsPosition[     10856,        305]
+NotebookOutlinePosition[     11217,        321]
+CellTagsIndexPosition[     11174,        318]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Keresztir\[AAcute]ny\[UAcute] norm\[AAcute]l- \[EAcute]s \
+ny\[IAcute]r\[OAcute]fesz\[UDoubleDot]lts\[EAcute]gek meghat\[AAcute]roz\
+\[AAcute]sa line\[AAcute]risan rugalmas, g\[ODoubleDot]rb\[UDoubleDot]lt \
+tengely\[UDoubleAcute], hajl\[IAcute]tott \[EAcute]s ny\[IAcute]rt gerend\
+\[AAcute]kban
+\
+\>", "Title",
+ CellChangeTimes->{{3.699977799823056*^9, 3.6999778351059837`*^9}, {
+  3.7001054367311907`*^9, 3.7001054456306996`*^9}}],
+
+Cell[TextData[StyleBox["Forg\[AAcute]cs Tam\[AAcute]s\n\[CapitalEAcute]p\
+\[IAcute]t\[ODoubleAcute]m\[EAcute]rn\[ODoubleDot]ki PhD", "Subtitle"]], \
+"Text",
+ CellChangeTimes->{{3.69997785832027*^9, 3.699977959846784*^9}, {
+  3.699977996690359*^9, 3.699978014881341*^9}, {3.7001054571243567`*^9, 
+  3.700105469556068*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Absztrakt", "Section",
+ CellChangeTimes->{{3.6999780464120293`*^9, 3.69997804976353*^9}}],
+
+Cell[TextData[{
+ "Az \[EAcute]p\[IAcute]t\[OTilde]m\[EAcute]rn\[ODoubleDot]ki gyakorlatban \
+\[AAcute]ltal\[AAcute]nosan alkalmazott, egyenes tengely\[UHat] rudak hajl\
+\[IAcute]t\[AAcute]sa sor\[AAcute]n a szerkezeti elemekben csak \
+r\[UAcute]dtengely ir\[AAcute]ny\[UAcute], norm\[AAcute]lfesz\[UDoubleDot]lts\
+\[EAcute]gek keletkeznek. G\[ODoubleDot]rb\[UDoubleDot]lt r\[UAcute]dtengely \
+eset\[EAcute]n azonban keresztir\[AAcute]ny\[UAcute] norm\[AAcute]lfesz\
+\[UDoubleDot]lts\[EAcute]gek is keletkeznek, melyek nagys\[AAcute]ga bizonyos \
+esetekben \[ODoubleDot]sszem\[EAcute]rhet\[OTilde] a r\[UAcute]dtengely ir\
+\[AAcute]ny\[UAcute] fesz\[UDoubleDot]lts\[EAcute]gek \
+nagys\[AAcute]g\[AAcute]val, \[IAcute]gy elhanyagol\[AAcute]suk a biztons\
+\[AAcute]g k\[AAcute]r\[AAcute]ra t\[ODoubleDot]rt\[EAcute]n\[OTilde] k\
+\[ODoubleDot]zel\[IAcute]t\[EAcute]st jelent. A jelen munka keret\[EAcute]ben \
+szimbolikusan levezet\[EAcute]sre ker\[UDoubleDot]l t\[EAcute]glalap \
+keresztmetszet eset\[EAcute]re a keresztir\[AAcute]ny\[UAcute] \
+norm\[AAcute]lfesz\[UDoubleDot]lts\[EAcute]gek \
+sz\[AAcute]m\[IAcute]t\[AAcute]s\[AAcute]ra alkalmazhat\[OAcute] formula, \
+amely egy m\[AAcute]sodfaj\[UAcute] Volterra t\[IAcute]pus\[UAcute] integr\
+\[AAcute]legyenlet megold\[AAcute]s\[AAcute]n alapszik. A \
+meghat\[AAcute]rozott formul\[AAcute]k seg\[IAcute]ts\[EAcute]g\[EAcute]vel \
+\[EAcute]p\[IAcute]t\[OTilde]m\[EAcute]rn\[ODoubleDot]ki gyakorlatban is \
+alkalmazott szerkezeti kialak\[IAcute]t\[AAcute]sok fesz\[UDoubleDot]lts\
+\[EAcute]geit \[AAcute]br\[AAcute]zoljuk a g\[ODoubleDot]rb\[UDoubleDot]lt r\
+\[UAcute]dtengely ment\[EAcute]n, a keresztmetszet \
+magass\[AAcute]g\[AAcute]nak f\[UDoubleDot]ggv\[EAcute]ny\[EAcute]ben.\n\n",
+ StyleBox["Kulcsszavak:",
+  FontWeight->"Bold"],
+ " g\[ODoubleDot]rb\[UDoubleDot]lt r\[UAcute]d, keresztir\[AAcute]ny\[UAcute] \
+norm\[AAcute]lfesz\[UDoubleDot]lts\[EAcute]g, Volterra t\[IAcute]pus\[UAcute] \
+integr\[AAcute]legyenlet\n\n"
+}], "Text",
+ CellChangeTimes->{{3.6999780534445972`*^9, 3.6999781113246202`*^9}, 
+   3.6999781457453127`*^9, 3.7001054840258956`*^9, {3.7001055587751713`*^9, 
+   3.7001055604762683`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Bevezet\[EAcute]s", "Section",
+ CellChangeTimes->{{3.699978160927883*^9, 3.699978162235931*^9}}],
+
+Cell["R\[EAcute]szletesebb le\[IAcute]r\[AAcute]s.", "Text",
+ CellChangeTimes->{{3.69997820086187*^9, 3.699978204291317*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Tov\[AAcute]bbi fejezetek", "Section",
+ CellChangeTimes->{{3.699978211661125*^9, 3.699978243730773*^9}, {
+  3.699978414910244*^9, 3.699978422821042*^9}}],
+
+Cell[TextData[{
+ "\[CapitalIAcute]gy \[IAcute]rhatunk a sz\[ODoubleDot]veg k\[ODoubleDot]z\
+\[EAcute] k\[EAcute]pletet: ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["r", "2"], "=", 
+    RowBox[{
+     SuperscriptBox["x", "2"], "+", 
+     SuperscriptBox["y", "2"]}]}], TraditionalForm]]],
+ ". Kiemelt k\[EAcute]pletet is \[IAcute]rhatunk a ",
+ StyleBox["DisplayFormula",
+  FontWeight->"Bold"],
+ " t\[IAcute]pus\[UAcute] cella haszn\[AAcute]lat\[AAcute]val:"
+}], "Text",
+ CellChangeTimes->{{3.6999784362592688`*^9, 3.6999785085463667`*^9}, {
+  3.699979217774228*^9, 3.699979234557954*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"x", "(", "t", ")"}], "=", 
+   RowBox[{
+    RowBox[{"x", "(", "\[Tau]", ")"}], "+", 
+    RowBox[{
+     SubsuperscriptBox["\[Integral]", "\[Tau]", "t"], 
+     RowBox[{
+      RowBox[{"f", "(", 
+       RowBox[{"s", ",", 
+        RowBox[{"x", "(", "s", ")"}]}], ")"}], 
+      RowBox[{"\[DifferentialD]", "s"}]}]}]}]}], 
+  TraditionalForm]], "DisplayFormula",
+ CellChangeTimes->{{3.6999785146547318`*^9, 3.699978599520615*^9}}],
+
+Cell[TextData[{
+ "Ha sz\[AAcute]mozni akarjuk a formul\[AAcute]t, akkor haszn\[AAcute]ljuk a ",
+ StyleBox["DisplayFormulaNumbered",
+  FontWeight->"Bold"],
+ " t\[IAcute]pus\[UAcute] cell\[AAcute]t."
+}], "Text",
+ CellChangeTimes->{{3.699978662187419*^9, 3.699978688361803*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"a", "+", "b"}], ")"}], "n"], "=", 
+   RowBox[{
+    UnderoverscriptBox["\[Sum]", 
+     RowBox[{"k", "=", "1"}], "n"], 
+    RowBox[{
+     RowBox[{"(", GridBox[{
+        {"n"},
+        {"k"}
+       }], ")"}], 
+     SuperscriptBox["a", "k"], " ", 
+     SuperscriptBox["b", 
+      RowBox[{"n", "-", "k"}]]}]}]}], 
+  TraditionalForm]], "DisplayFormulaNumbered",
+ CellChangeTimes->{{3.6999787416310062`*^9, 3.699978752489931*^9}, {
+  3.6999787867285767`*^9, 3.699978825499571*^9}, {3.6999788583381863`*^9, 
+  3.69997887336106*^9}}],
+
+Cell[TextData[{
+ "K\[UDoubleDot]l\[ODoubleDot]nb\[ODoubleDot]z\[ODoubleAcute] \
+t\[ODoubleDot]bb szint\[UDoubleAcute] list\[AAcute]t is \
+k\[EAcute]sz\[IAcute]thet\[UDoubleDot]nk az ",
+ StyleBox["Item, Subitem, Subsubitem",
+  FontWeight->"Bold"],
+ " t\[IAcute]pus\[UAcute] cell\[AAcute]k haszn\[AAcute]lat\[AAcute]val:"
+}], "Text",
+ CellChangeTimes->{{3.699978879947844*^9, 3.699978957687838*^9}, {
+  3.69997902117026*^9, 3.6999790273834677`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Els\[ODoubleAcute] elem", "Item",
+ CellChangeTimes->{{3.6999789379714317`*^9, 3.699978940558681*^9}}],
+
+Cell["M\[AAcute]sodik elem", "Item",
+ CellChangeTimes->{{3.6999789379714317`*^9, 3.699978945201252*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["M\[EAcute]g egy", "Subitem",
+ CellChangeTimes->{{3.6999789379714317`*^9, 3.6999789763626137`*^9}}],
+
+Cell["\[EAcute]s m\[EAcute]g egy", "Subitem",
+ CellChangeTimes->{{3.6999789379714317`*^9, 3.699978981232085*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["M\[EAcute]g beljebb is mehet\[UDoubleDot]nk", "Subsubitem",
+ CellChangeTimes->{{3.6999789379714317`*^9, 3.699978992369687*^9}}],
+
+Cell["M\[EAcute]g egy elem", "Subsubitem",
+ CellChangeTimes->{{3.6999789379714317`*^9, 3.6999789962375813`*^9}}]
+}, Open  ]],
+
+Cell["Itt folytatjuk", "Subitem",
+ CellChangeTimes->{{3.6999789379714317`*^9, 3.699979002225912*^9}}]
+}, Open  ]],
+
+Cell["Harmadik elem", "Item",
+ CellChangeTimes->{{3.6999789379714317`*^9, 3.699979012733119*^9}}]
+}, Open  ]],
+
+Cell[TextData[{
+ "Ha sz\[AAcute]mozott list\[AAcute]t szeretn\[EAcute]nk, haszn\[AAcute]ljuk \
+az ",
+ StyleBox["ItemNumered, SubitemNumbered, SubsubitemNumbered",
+  FontWeight->"Bold"],
+ " cell\[AAcute]kat."
+}], "Text",
+ CellChangeTimes->{{3.699979034375108*^9, 3.6999790833082027`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Sorz\[AAcute]mozott lista", "ItemNumbered",
+ CellChangeTimes->{{3.6999790937709303`*^9, 3.699979098734724*^9}}],
+
+Cell["A m\[AAcute]sodik elem", "ItemNumbered",
+ CellChangeTimes->{{3.6999790937709303`*^9, 3.6999791048066053`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\[CapitalIAcute]gy n\[EAcute]z ki a k\[ODoubleDot]vetkez\[ODoubleAcute] \
+szint", "SubitemNumbered",
+ CellChangeTimes->{{3.6999790937709303`*^9, 3.6999791274472322`*^9}}],
+
+Cell["M\[EAcute]g egy elem", "SubitemNumbered",
+ CellChangeTimes->{{3.6999790937709303`*^9, 3.699979131504072*^9}}]
+}, Open  ]],
+
+Cell["Harmadik", "ItemNumbered",
+ CellChangeTimes->{{3.6999790937709303`*^9, 3.6999791391285563`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Sz\[AAcute]mozott lista", "SubitemNumbered",
+ CellChangeTimes->{{3.6999790937709303`*^9, 3.699979154909758*^9}}],
+
+Cell["Sz\[AAcute]mozott lista", "SubitemNumbered",
+ CellChangeTimes->{{3.6999790937709303`*^9, 3.699979161780429*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Ez m\[AAcute]r itt a harmadik szint", "SubsubitemNumbered",
+ CellChangeTimes->{{3.6999790937709303`*^9, 3.699979174277883*^9}}],
+
+Cell["M\[EAcute]g egy elem", "SubsubitemNumbered",
+ CellChangeTimes->{{3.6999790937709303`*^9, 3.699979177319522*^9}}]
+}, Open  ]],
+
+Cell["Utols\[OAcute] elem", "SubitemNumbered",
+ CellChangeTimes->{{3.6999790937709303`*^9, 3.6999791838603697`*^9}}]
+}, Open  ]],
+
+Cell["Negyedik", "ItemNumbered",
+ CellChangeTimes->{{3.6999790937709303`*^9, 3.69997918725004*^9}}]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["\[CapitalODoubleDot]sszefoglal\[AAcute]s", "Section",
+ CellChangeTimes->{{3.699979342477171*^9, 3.699979350997841*^9}}],
+
+Cell["Ide j\[ODoubleDot]n az \[ODoubleDot]sszefoglal\[AAcute]s.", "Text",
+ CellChangeTimes->{{3.699979509715002*^9, 3.699979519890717*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Hivatkoz\[AAcute]sok", "Section",
+ CellChangeTimes->{{3.6999793781347237`*^9, 3.699979381051906*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["A.M. Yu, G.H. Nie:",
+  FontWeight->"Bold"],
+ " ",
+ StyleBox["Explicit solutions for shearing and radial stresses in curved \
+beams, ",
+  FontSlant->"Italic"],
+ "Mechanics Research Communications, 2005 32(3) pp. 323-331."
+}], "ItemNumbered",
+ CellChangeTimes->{{3.6999794107127037`*^9, 3.699979417737268*^9}, {
+  3.699979455067196*^9, 3.699979481039226*^9}, {3.7001056400678205`*^9, 
+  3.700105684428358*^9}, {3.700105715317125*^9, 3.700105754203349*^9}, {
+  3.700105815115833*^9, 3.700105816323902*^9}, {3.700106025019839*^9, 
+  3.700106035163419*^9}}],
+
+Cell[TextData[{
+ StyleBox["C.K. Cheung, H.C. Sorensen:",
+  FontWeight->"Bold"],
+ StyleBox[" Effect of axial loads on radial stress in curved beams, ",
+  FontSlant->"Italic"],
+ "Wood and Fiber Science, 2007 15(3), pp. 263-275."
+}], "ItemNumbered",
+ CellChangeTimes->{{3.6999794107127037`*^9, 3.699979417737268*^9}, {
+  3.699979455067196*^9, 3.6999795027790413`*^9}, {3.7001058796445236`*^9, 
+  3.7001059221229534`*^9}, {3.7001059877627077`*^9, 3.7001060400757*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowToolbars->"EditBar",
+WindowSize->{1920, 998},
+WindowMargins->{{0, Automatic}, {Automatic, 28}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 443, 9, 207, "Title"],
+Cell[1026, 33, 321, 5, 75, "Text"],
+Cell[CellGroupData[{
+Cell[1372, 42, 95, 1, 65, "Section"],
+Cell[1470, 45, 2164, 33, 187, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3671, 83, 102, 1, 65, "Section"],
+Cell[3776, 86, 125, 1, 30, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[3938, 92, 159, 2, 51, "Section"],
+Cell[4100, 96, 601, 16, 32, "Text"],
+Cell[4704, 114, 468, 14, 47, "DisplayFormula"],
+Cell[5175, 130, 275, 6, 30, "Text"],
+Cell[5453, 138, 610, 20, 55, "DisplayFormulaNumbered"],
+Cell[6066, 160, 447, 9, 30, "Text"],
+Cell[CellGroupData[{
+Cell[6538, 173, 107, 1, 29, "Item"],
+Cell[6648, 176, 104, 1, 29, "Item"],
+Cell[CellGroupData[{
+Cell[6777, 181, 104, 1, 25, "Subitem"],
+Cell[6884, 184, 113, 1, 25, "Subitem"],
+Cell[CellGroupData[{
+Cell[7022, 189, 133, 1, 25, "Subsubitem"],
+Cell[7158, 192, 112, 1, 25, "Subsubitem"]
+}, Open  ]],
+Cell[7285, 196, 101, 1, 25, "Subitem"]
+}, Open  ]],
+Cell[7401, 200, 97, 1, 29, "Item"]
+}, Open  ]],
+Cell[7513, 204, 287, 7, 30, "Text"],
+Cell[CellGroupData[{
+Cell[7825, 215, 117, 1, 30, "ItemNumbered"],
+Cell[7945, 218, 116, 1, 30, "ItemNumbered"],
+Cell[CellGroupData[{
+Cell[8086, 223, 176, 2, 24, "SubitemNumbered"],
+Cell[8265, 227, 115, 1, 24, "SubitemNumbered"]
+}, Open  ]],
+Cell[8395, 231, 102, 1, 30, "ItemNumbered"],
+Cell[CellGroupData[{
+Cell[8522, 236, 118, 1, 24, "SubitemNumbered"],
+Cell[8643, 239, 118, 1, 24, "SubitemNumbered"],
+Cell[CellGroupData[{
+Cell[8786, 244, 133, 1, 24, "SubsubitemNumbered"],
+Cell[8922, 247, 118, 1, 24, "SubsubitemNumbered"]
+}, Open  ]],
+Cell[9055, 251, 116, 1, 24, "SubitemNumbered"]
+}, Open  ]],
+Cell[9186, 255, 99, 1, 30, "ItemNumbered"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[9334, 262, 125, 1, 51, "Section"],
+Cell[9462, 265, 139, 1, 30, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[9638, 271, 107, 1, 51, "Section"],
+Cell[CellGroupData[{
+Cell[9770, 276, 579, 13, 33, "ItemNumbered"],
+Cell[10352, 291, 464, 9, 33, "ItemNumbered"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
