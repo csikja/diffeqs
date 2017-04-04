@@ -1,4 +1,4 @@
-##Gyógyszeradagolási modell
+## Gyógyszeradagolási modell
 _Fülöp Zsolt_  
 _Vegyészmérnöki BSc_
 
