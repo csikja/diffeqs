@@ -1,0 +1,142 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4776,        134]
+NotebookOptionsPosition[      4031,        103]
+NotebookOutlinePosition[      4393,        119]
+CellTagsIndexPosition[      4350,        116]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Bicikli dinamik\[AAcute]ja", "Title",
+ CellChangeTimes->{{3.699977799823056*^9, 3.6999778351059837`*^9}, {
+  3.69998798842032*^9, 3.69998799707054*^9}}],
+
+Cell[TextData[StyleBox["Csala Hunor\nG\[EAcute]p\[EAcute]szm\[EAcute]rn\
+\[ODoubleDot]ki BSc", "Subtitle"]], "Text",
+ CellChangeTimes->{{3.69997785832027*^9, 3.699977959846784*^9}, {
+  3.699977996690359*^9, 3.699978014881341*^9}, {3.6999878362592406`*^9, 
+  3.699987838711031*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Absztrakt", "Section",
+ CellChangeTimes->{{3.6999780464120293`*^9, 3.69997804976353*^9}}],
+
+Cell["\<\
+Egy ember \[EAcute]s ir\[AAcute]ny\[IAcute]t\[AAcute]s n\[EAcute]lk\
+\[UDoubleDot]li, v\[IAcute]zszintes s\[IAcute]kon mozg\[OAcute] bicikli \
+dinamik\[AAcute]j\[AAcute]nak vizsg\[AAcute]lata a c\[EAcute]l. A bicikli le\
+\[IAcute]r\[AAcute]s\[AAcute]hoz a Whipple-modellt haszn\[AAcute]lom, mely \
+szerint n\[EAcute]gy merev testb\[ODoubleAcute]l \[EAcute]p\[UDoubleDot]l fel \
+a bicikli: a k\[EAcute]t ker\[EAcute]k, az els\[ODoubleAcute] villa \
+\[EAcute]s a v\[AAcute]z. A rendszernek k\[EAcute]t szabads\[AAcute]gi foka \
+lesz, az els\[ODoubleAcute] villa elfordul\[AAcute]si sz\[ODoubleDot]ge \
+\[EAcute]s a talajhoz k\[EAcute]pesti d\[ODoubleAcute]l\[EAcute]ssz\
+\[ODoubleDot]g. A halad\[AAcute]si sebess\[EAcute]g \
+f\[UDoubleDot]ggv\[EAcute]ny\[EAcute]ben \[IAcute]rjuk le a bicikli mozg\
+\[AAcute]s\[AAcute]t, stabil \[EAcute]s instabil \[AAcute]llapotokat keresve.\
+\
+\>", "Text",
+ CellChangeTimes->{{3.6999780534445972`*^9, 3.6999781113246202`*^9}, 
+   3.6999781457453127`*^9, {3.700232780871448*^9, 3.7002327822643957`*^9}, 
+   3.7002440325997467`*^9, {3.700244713220257*^9, 3.700244739646447*^9}, {
+   3.7002448251830587`*^9, 3.7002448386650376`*^9}, {3.7002449199914603`*^9, 
+   3.7002449565395217`*^9}, {3.700245003456065*^9, 3.7002453212881374`*^9}, {
+   3.700245354767885*^9, 3.7002453661069255`*^9}, {3.700245439013636*^9, 
+   3.7002455011413946`*^9}, {3.7002455407886195`*^9, 3.7002455654767323`*^9}}]
+}, Open  ]],
+
+Cell["Bevezet\[EAcute]s", "Section",
+ CellChangeTimes->{{3.699978160927883*^9, 3.699978162235931*^9}}],
+
+Cell["Tov\[AAcute]bbi fejezetek", "Section",
+ CellChangeTimes->{{3.699978211661125*^9, 3.699978243730773*^9}, {
+  3.699978414910244*^9, 3.699978422821042*^9}}],
+
+Cell["\[CapitalODoubleDot]sszefoglal\[AAcute]s", "Section",
+ CellChangeTimes->{{3.699979342477171*^9, 3.699979350997841*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Hivatkoz\[AAcute]sok", "Section",
+ CellChangeTimes->{{3.6999793781347237`*^9, 3.699979381051906*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["J.P. Meijaard, J.M. Papadopoulos, A. Ruina, A. L. Schwab:",
+  FontWeight->"Bold"],
+ " ",
+ StyleBox["Linearized dynamics equations for the balance and steer of a \
+bicycle: a benchmark and review",
+  FontSlant->"Italic"]
+}], "ItemNumbered",
+ CellChangeTimes->{{3.6999794107127037`*^9, 3.699979417737268*^9}, {
+  3.699979455067196*^9, 3.699979481039226*^9}, {3.699987866622185*^9, 
+  3.6999879649460397`*^9}, {3.6999881610654926`*^9, 3.6999881610654926`*^9}}],
+
+Cell[TextData[{
+ StyleBox["J.K. Moore: ",
+  FontWeight->"Bold"],
+ StyleBox["Human Control of a Bicycle",
+  FontSlant->"Italic"]
+}], "ItemNumbered",
+ CellChangeTimes->{{3.6999794107127037`*^9, 3.699979417737268*^9}, {
+  3.699979455067196*^9, 3.699979481039226*^9}, {3.699987866622185*^9, 
+  3.6999879649460397`*^9}, {3.6999881610654926`*^9, 3.6999881909321914`*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowToolbars->"EditBar",
+WindowSize->{944, 981},
+WindowMargins->{{Automatic, 351}, {25, Automatic}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 158, 2, 93, "Title"],
+Cell[741, 26, 281, 4, 75, "Text"],
+Cell[CellGroupData[{
+Cell[1047, 34, 95, 1, 65, "Section"],
+Cell[1145, 37, 1430, 21, 99, "Text"]
+}, Open  ]],
+Cell[2590, 61, 102, 1, 65, "Section"],
+Cell[2695, 64, 159, 2, 51, "Section"],
+Cell[2857, 68, 125, 1, 51, "Section"],
+Cell[CellGroupData[{
+Cell[3007, 73, 107, 1, 51, "Section"],
+Cell[CellGroupData[{
+Cell[3139, 78, 484, 10, 54, "ItemNumbered"],
+Cell[3626, 90, 365, 8, 33, "ItemNumbered"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
