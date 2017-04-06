@@ -1,0 +1,124 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4162,        116]
+NotebookOptionsPosition[      3496,         88]
+NotebookOutlinePosition[      3857,        104]
+CellTagsIndexPosition[      3814,        101]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Csavart labda trajekt\[OAcute]ri\[AAcute]ja", "Title",
+ CellChangeTimes->{{3.699977799823056*^9, 3.6999778351059837`*^9}, {
+  3.7002440913249316`*^9, 3.7002441107110815`*^9}, {3.700244464813851*^9, 
+  3.7002444930196705`*^9}, {3.70024453347246*^9, 3.700244546278532*^9}}],
+
+Cell[TextData[StyleBox["Er\[ODoubleAcute]sdi Zakair\[AAcute]s\nMechatronika \
+BSc", "Subtitle"]], "Text",
+ CellChangeTimes->{{3.69997785832027*^9, 3.699977959846784*^9}, {
+  3.699977996690359*^9, 3.699978014881341*^9}, {3.7002380658560543`*^9, 
+  3.700238083961213*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Absztrakt", "Section",
+ CellChangeTimes->{{3.6999780464120293`*^9, 3.69997804976353*^9}}],
+
+Cell["\<\
+A projektemben egy, a leveg\[ODoubleAcute]ben \
+rep\[UDoubleDot]l\[ODoubleAcute], csavart labda \[AAcute]ltal megtett utat \
+fogom vizsg\[AAcute]lni. Egy egyenesen rep\[UDoubleDot]l\[ODoubleAcute] labda \
+eset\[EAcute]n, a labd\[AAcute]ra hat\[OAcute] er\[ODoubleAcute] a gravit\
+\[AAcute]ci\[OAcute]b\[OAcute]l \[EAcute]s a l\[EAcute]gellen\[AAcute]ll\
+\[AAcute]sb\[OAcute]l tev\[ODoubleAcute]dik \[ODoubleDot]ssze. Ezzel szemben, \
+egy csavart labd\[AAcute]ra hat az \[UAcute]gynevezett Magnus-effektus is, \
+amely nemcsak a labda v\[IAcute]zszintes, hanem a f\[UDoubleDot]gg\
+\[ODoubleAcute]leges ir\[AAcute]ny\[AAcute]ra is hat\[AAcute]ssal van. Ezt a \
+hat\[AAcute]st fogom vizsg\[AAcute]lni \[EAcute]s modellezni.\
+\>", "Text",
+ CellChangeTimes->{{3.6999780534445972`*^9, 3.6999781113246202`*^9}, 
+   3.6999781457453127`*^9, {3.70024506197663*^9, 3.7002450763408813`*^9}, {
+   3.7002453029825263`*^9, 3.700245358810882*^9}, {3.700245883149441*^9, 
+   3.7002459053053803`*^9}, {3.7002459650486794`*^9, 3.70024613605075*^9}, {
+   3.7002462409974823`*^9, 3.7002462821933975`*^9}, {3.7002463142579913`*^9, 
+   3.700246341615466*^9}, {3.7002464852642126`*^9, 3.700246486095565*^9}, {
+   3.7002465189755926`*^9, 3.7002465511390214`*^9}, {3.7002466557926903`*^9, 
+   3.7002466663259697`*^9}}]
+}, Open  ]],
+
+Cell["Bevezet\[EAcute]s", "Section",
+ CellChangeTimes->{{3.699978160927883*^9, 3.699978162235931*^9}}],
+
+Cell["Tov\[AAcute]bbi fejezetek", "Section",
+ CellChangeTimes->{{3.699978211661125*^9, 3.699978243730773*^9}, {
+  3.699978414910244*^9, 3.699978422821042*^9}}],
+
+Cell["\[CapitalODoubleDot]sszefoglal\[AAcute]s", "Section",
+ CellChangeTimes->{{3.699979342477171*^9, 3.699979350997841*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Hivatkoz\[AAcute]sok", "Section",
+ CellChangeTimes->{{3.6999793781347237`*^9, 3.699979381051906*^9}}],
+
+Cell[TextData[{
+ StyleBox["T.G. Myers, S.L. Mitchell:",
+  FontWeight->"Bold"],
+ " ",
+ StyleBox["Mathematical analysis of the motion of an in flight soccer ball",
+  FontSlant->"Italic"]
+}], "ItemNumbered",
+ CellChangeTimes->{{3.6999794107127037`*^9, 3.699979417737268*^9}, {
+  3.699979455067196*^9, 3.699979481039226*^9}, {3.700243871386586*^9, 
+  3.7002439565036125`*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowToolbars->"EditBar",
+WindowSize->{1920, 997},
+WindowMargins->{{0, Automatic}, {Automatic, 28}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 277, 3, 93, "Title"],
+Cell[860, 27, 270, 4, 75, "Text"],
+Cell[CellGroupData[{
+Cell[1155, 35, 95, 1, 65, "Section"],
+Cell[1253, 38, 1301, 19, 55, "Text"]
+}, Open  ]],
+Cell[2569, 60, 102, 1, 65, "Section"],
+Cell[2674, 63, 159, 2, 51, "Section"],
+Cell[2836, 67, 125, 1, 51, "Section"],
+Cell[CellGroupData[{
+Cell[2986, 72, 107, 1, 51, "Section"],
+Cell[3096, 75, 372, 9, 33, "ItemNumbered"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
