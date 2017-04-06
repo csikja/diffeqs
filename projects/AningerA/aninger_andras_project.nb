@@ -1,0 +1,135 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5758,        127]
+NotebookOptionsPosition[      5168,        102]
+NotebookOutlinePosition[      5529,        118]
+CellTagsIndexPosition[      5486,        115]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["J\[AAcute]rm\[UDoubleAcute]vek kanyarod\[AAcute]si \
+tulajdons\[AAcute]gainak vizsg\[AAcute]lata", "Title",
+ CellChangeTimes->{{3.699977799823056*^9, 3.6999778351059837`*^9}, {
+  3.7002384907493606`*^9, 3.7002385101109943`*^9}}],
+
+Cell[TextData[StyleBox["Aninger Andr\[AAcute]s\nG\[EAcute]p\[EAcute]szm\
+\[EAcute]rn\[ODoubleDot]ki BSc", "Subtitle"]], "Text",
+ CellChangeTimes->{{3.69997785832027*^9, 3.699977959846784*^9}, {
+  3.699977996690359*^9, 3.699978014881341*^9}, {3.7002383460260744`*^9, 
+  3.7002383510007095`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Absztrakt", "Section",
+ CellChangeTimes->{{3.6999780464120293`*^9, 3.69997804976353*^9}}],
+
+Cell["\<\
+A g\[EAcute]p\[EAcute]szeti alkot\[AAcute]sok igen jelent\[ODoubleAcute]s h\
+\[AAcute]nyad\[AAcute]t teszik ki a ker\[EAcute]ken g\[ODoubleDot]rd\
+\[UDoubleDot]l\[ODoubleAcute], szem\[EAcute]ly vagy tehersz\[AAcute]ll\
+\[IAcute]t\[AAcute]sra alkalmas j\[AAcute]rm\[UDoubleAcute]vek, melyek elt\
+\[EAcute]r\[ODoubleAcute] k\[ODoubleDot]rnyezeti param\[EAcute]terek mellett \
+val\[OAcute] mozg\[AAcute]s k\[ODoubleDot]zbeni \
+viselked\[EAcute]s\[EAcute]nek vizsg\[AAcute]lat\[AAcute]ra sz\[EAcute]les k\
+\[ODoubleDot]rben alkalmazott az \[UAcute]n. dinamikus biciklimodell, mint a \
+val\[OAcute]s\[AAcute]g adott szempontrendszer szerinti kiel\[EAcute]g\
+\[IAcute]t\[ODoubleAcute] k\[ODoubleDot]zel\[IAcute]t\[EAcute]se. Minthogy a \
+k\[ODoubleDot]z\[UAcute]ti balasetek kiemelked\[ODoubleAcute] h\[AAcute]nyada \
+a j\[AAcute]rm\[UDoubleAcute]vek kanyarod\[AAcute]sa k\[ODoubleDot]zben, \
+\[AAcute]ltal\[AAcute]ban a vezet\[ODoubleAcute] \[AAcute]ltal az aktu\
+\[AAcute]lis k\[ODoubleDot]rnyezeti t\[EAcute]nyez\[ODoubleAcute]k mellett \
+helytelen\[UDoubleDot]l megv\[AAcute]lasztott sebess\[EAcute]g vagy kanyarod\
+\[AAcute]si \[IAcute]v miatt k\[ODoubleDot]vetkezik be, napjaink egyik \
+kiemelt kutat\[AAcute]si t\[EAcute]m\[AAcute]ja a kisodrod\[AAcute]s kock\
+\[AAcute]zat\[AAcute]t cs\[ODoubleDot]kkent\[ODoubleAcute], a sof\
+\[ODoubleAcute]rt akt\[IAcute]van t\[AAcute]mogat\[OAcute], a j\[AAcute]rm\
+\[UDoubleAcute] ir\[AAcute]ny\[IAcute]t\[AAcute]s\[AAcute]ba beavatkozni k\
+\[EAcute]pes, korrig\[AAcute]l\[OAcute] rendszerek fejleszt\[EAcute]se. Az \
+ilyen jelleg\[UDoubleAcute] rendszerek kialak\[IAcute]t\[AAcute]s\[AAcute]hoz \
+azonban elengedhetetlen a j\[AAcute]rm\[UDoubleAcute] k\[UDoubleDot]l\
+\[ODoubleDot]nb\[ODoubleDot]z\[ODoubleAcute] k\[ODoubleDot]r\[UDoubleDot]lm\
+\[EAcute]nyek melletti kanyarod\[AAcute]si tulajdons\[AAcute]gainak \
+r\[EAcute]szletes mechanikai elemz\[EAcute]se. Jelen dolgozatban az eml\
+\[IAcute]tett dinamikai modellt alkalmazva vizsg\[AAcute]lom majd k\
+\[UDoubleDot]l\[ODoubleDot]nb\[ODoubleDot]z\[ODoubleAcute] jelleg\
+\[UDoubleAcute] gumik\[ODoubleDot]peny-\[UAcute]t kapcsolatokra a m\[EAcute]g \
+biztons\[AAcute]ggal k\[ODoubleDot]vethet\[ODoubleAcute] g\[ODoubleDot]rb\
+\[UDoubleDot]let\[UDoubleAcute] p\[AAcute]ly\[AAcute]kat.\
+\>", "Text",
+ CellChangeTimes->{{3.6999780534445972`*^9, 3.6999781113246202`*^9}, 
+   3.6999781457453127`*^9, {3.7002385270019035`*^9, 3.7002385360025473`*^9}, {
+   3.700238856532377*^9, 3.7002388791561995`*^9}, {3.700239011973252*^9, 
+   3.7002390805300264`*^9}, {3.7002391554503098`*^9, 
+   3.7002392436912575`*^9}, {3.7002392840596247`*^9, 3.70023931469302*^9}, {
+   3.700239345983004*^9, 3.7002393646597977`*^9}, {3.700239401117242*^9, 
+   3.700239463138651*^9}, {3.700239516923156*^9, 3.700239553808959*^9}, {
+   3.700239647346188*^9, 3.700239674536056*^9}, {3.7002397426014547`*^9, 
+   3.7002397686424484`*^9}, {3.70023988472943*^9, 3.700239900061761*^9}, {
+   3.7002399370469265`*^9, 3.70024001347543*^9}, {3.700240070407336*^9, 
+   3.7002401315426564`*^9}, {3.7002401779052253`*^9, 3.700240203320451*^9}, {
+   3.700240234094801*^9, 3.700240505215028*^9}, {3.7002406225737333`*^9, 
+   3.7002407802544365`*^9}, {3.700240839327598*^9, 3.7002408709490056`*^9}, {
+   3.70024094297501*^9, 3.700240952006384*^9}, {3.700241007932872*^9, 
+   3.700241037464645*^9}, {3.7002410825550003`*^9, 3.700241085320664*^9}}]
+}, Open  ]],
+
+Cell["Bevezet\[EAcute]s", "Section",
+ CellChangeTimes->{{3.699978160927883*^9, 3.699978162235931*^9}}],
+
+Cell["Tov\[AAcute]bbi fejezetek", "Section",
+ CellChangeTimes->{{3.699978211661125*^9, 3.699978243730773*^9}, {
+  3.699978414910244*^9, 3.699978422821042*^9}}],
+
+Cell["\[CapitalODoubleDot]sszefoglal\[AAcute]s", "Section",
+ CellChangeTimes->{{3.699979342477171*^9, 3.699979350997841*^9}}],
+
+Cell["Hivatkoz\[AAcute]sok", "Section",
+ CellChangeTimes->{{3.6999793781347237`*^9, 3.699979381051906*^9}}]
+}, Open  ]]
+},
+WindowToolbars->"EditBar",
+WindowSize->{1920, 997},
+WindowMargins->{{0, Automatic}, {Automatic, 28}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 234, 3, 93, "Title"],
+Cell[817, 27, 294, 4, 75, "Text"],
+Cell[CellGroupData[{
+Cell[1136, 35, 95, 1, 65, "Section"],
+Cell[1234, 38, 3401, 47, 121, "Text"]
+}, Open  ]],
+Cell[4650, 88, 102, 1, 65, "Section"],
+Cell[4755, 91, 159, 2, 51, "Section"],
+Cell[4917, 95, 125, 1, 51, "Section"],
+Cell[5045, 98, 107, 1, 51, "Section"]
+}, Open  ]]
+}
+]
+*)
+
