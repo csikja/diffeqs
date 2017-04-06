@@ -9,3 +9,4 @@
 7. __Baranyi Máté__: Carrying an inverted pendulum on a bumpy road
 8. __Vécsi István Áron__: Pontkinetikai egyenlet megoldása
 9. __Venczel Zsombor__: A van der Pol oszcillátor és a Hopf bifurkáció
+10. __Kerényi Bence__: Ragadozó-préda modell vizsgálata három faj esetén
