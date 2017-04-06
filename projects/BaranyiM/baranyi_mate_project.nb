@@ -1,0 +1,444 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     14766,        436]
+NotebookOptionsPosition[     13414,        390]
+NotebookOutlinePosition[     13784,        406]
+CellTagsIndexPosition[     13741,        403]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Carrying an inverted pendulum on a bumpy road", "Title",
+ CellChangeTimes->{{3.699977799823056*^9, 3.6999778351059837`*^9}, {
+  3.700132457802877*^9, 3.700132471129161*^9}}],
+
+Cell[TextData[StyleBox["M\[AAcute]t\[EAcute] Baranyi\nMSc in Applied \
+Mathematics", "Subtitle"]], "Text",
+ CellChangeTimes->{{3.69997785832027*^9, 3.699977959846784*^9}, {
+   3.699977996690359*^9, 3.699978014881341*^9}, {3.700132479589911*^9, 
+   3.700132493902232*^9}, 3.700132619729239*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Abstract", "Section",
+ CellChangeTimes->{{3.6999780464120293`*^9, 3.69997804976353*^9}, {
+  3.700132628485177*^9, 3.700132630301977*^9}}],
+
+Cell["\<\
+The referenced article studies the stabilization of an unstable linear \
+oscillator by means of random impulses. Almost sure exponential stability is \
+proved for some combination of the parameter values.\
+\>", "Text",
+ CellChangeTimes->{{3.6999780534445972`*^9, 3.6999781113246202`*^9}, 
+   3.6999781457453127`*^9, {3.70013283856749*^9, 3.700132932869932*^9}, {
+   3.7001491229617*^9, 3.700149130270359*^9}}],
+
+Cell["\<\
+The article remarks that it is not possible to obtain almost sure stability \
+for the nonlinear situation.\
+\>", "Text",
+ CellChangeTimes->{{3.7001557025981207`*^9, 3.70015575687395*^9}}],
+
+Cell["\<\
+My goal is to understand the mathematical background of the article and with \
+the given tools provided by the Wolfram Mathematica, reproduce some of the \
+simulation results presented in the article. \
+\>", "Text",
+ CellChangeTimes->{{3.70015937496596*^9, 3.7001595212003508`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Introduction", "Section",
+ CellChangeTimes->{{3.699978160927883*^9, 3.699978162235931*^9}, {
+   3.7001326368767433`*^9, 3.70013264066803*^9}, {3.700148467652813*^9, 
+   3.7001484676615133`*^9}, 3.7001485689214487`*^9}],
+
+Cell["\<\
+The following equation describes the motion of a linearized mathematical \
+pendulum with friction:\
+\>", "Text",
+ CellChangeTimes->{{3.700149163557384*^9, 3.700149223622274*^9}, {
+  3.700150661249815*^9, 3.7001506615713654`*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      FractionBox[
+       SuperscriptBox["\[DifferentialD]", "2"], 
+       RowBox[{"\[DifferentialD]", 
+        SuperscriptBox["t", "2"]}]], "q"}], 
+     RowBox[{"(", "t", ")"}]}], "+", 
+    RowBox[{"\[Nu]", " ", 
+     RowBox[{
+      FractionBox["\[DifferentialD]", 
+       RowBox[{"\[DifferentialD]", "t"}]], "q"}], 
+     RowBox[{"(", "t", ")"}]}], "+", 
+    RowBox[{
+     FractionBox["g", "l"], " ", "q", 
+     RowBox[{"(", "t", ")"}]}]}], "=", "0"}], 
+  "DisplayFormula"]], "DisplayFormula",
+ CellChangeTimes->{{3.69997820086187*^9, 3.699978204291317*^9}, {
+   3.700135908484172*^9, 3.700135977745331*^9}, 3.7001484341392097`*^9, {
+   3.700148473161338*^9, 3.700148484968768*^9}, 3.700148538734524*^9, {
+   3.7001485914801807`*^9, 3.700148624258906*^9}, {3.7001487003759203`*^9, 
+   3.700148715056872*^9}, {3.700148745914261*^9, 3.700148773294901*^9}, {
+   3.700148814746241*^9, 3.700148859345708*^9}, {3.7001489059342413`*^9, 
+   3.7001489075497017`*^9}, {3.700149019139709*^9, 3.7001490786823063`*^9}, {
+   3.7001568468986893`*^9, 3.700156848238153*^9}}],
+
+Cell[TextData[{
+ "Here ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Nu]", ">", "0"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " is a friction coefficient, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"l", ">", "0"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " the pendulum length, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"g", ">", "0"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " the acceleration of gravity and q the angle between the pendulum rod and \
+the vertical axis."
+}], "Text",
+ CellChangeTimes->{{3.7001506715350857`*^9, 3.700150680967911*^9}, {
+   3.70015073819401*^9, 3.7001509000441837`*^9}, 3.7001558214774513`*^9, {
+   3.7001572722668533`*^9, 3.700157279767098*^9}}],
+
+Cell[TextData[{
+ "Unstable oscillator may become stable when the system is subjected to a \
+vibrating external force. It was discovered experimentally by Stephenson in \
+1908 for the case of an inverted\npendulum whose rod is subjected to fast \
+vertical vibrations. Stochastic forcing terms have been known since the 1960s \
+to possess similar\nstabilizing properties.\nThe article considers impulsive \
+external forces of random amplitude that act on the pendulum after random \
+waiting times. Their analysis  showed almost sure exponential stability on ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"0", " ", "<", " ", "t", " ", "<", " ", "\[Infinity]"}], 
+   TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ StyleBox[", not only on a bounded time period.", "InlineFormula"]
+}], "Text",
+ CellChangeTimes->{{3.700153793537743*^9, 3.7001538829703007`*^9}, {
+   3.700153934748852*^9, 3.7001539423515587`*^9}, {3.7001539866512203`*^9, 
+   3.70015425370909*^9}, {3.7001543818066807`*^9, 3.7001543842996264`*^9}, 
+   3.700155858893291*^9, {3.700155961904256*^9, 3.700155988795171*^9}, 
+   3.700157265389021*^9}],
+
+Cell["\<\
+The title of the article comes from the visual description of the problem. \
+The problem is re-imagined as an inverted pendulum that is carried on a \
+carriage on a road. The external forces are represented as bumps on the road. \
+These randomly popping shocks are instantly influence the vertical velocity \
+of the carriage, and therefore the suspension of the pendulum.\
+\>", "Text",
+ CellChangeTimes->{{3.70015485068503*^9, 3.700155112766906*^9}, {
+  3.700155220431375*^9, 3.700155228760285*^9}, {3.7001553037017593`*^9, 
+  3.7001554451720123`*^9}}],
+
+Cell[TextData[{
+ "The vertical shocks (bumps) that occur at random times are assumed to \
+follow a Poisson process with rate ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"1", "/", "\[Tau]"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ StyleBox[".", "InlineFormula"]
+}], "Text",
+ CellChangeTimes->{{3.700156142265574*^9, 3.700156216349334*^9}, {
+   3.7001563178064632`*^9, 3.70015635505407*^9}, {3.700156503102334*^9, 
+   3.700156507227077*^9}, 3.7001572605373373`*^9}],
+
+Cell[TextData[{
+ "They described the motion of the carriage, whose vertical movement (",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"s", 
+    RowBox[{"(", "t", ")"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ") from the stability and the corresponding velocity (",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"v", 
+    RowBox[{"(", "t", ")"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ")  obey the DE of a damped harmonic oscillator (between bumps): "
+}], "Text",
+ CellChangeTimes->{{3.700156526217606*^9, 3.7001566889100237`*^9}, {
+  3.700156748899328*^9, 3.700156791285285*^9}, {3.700157863327833*^9, 
+  3.7001578653648453`*^9}, {3.700158070241949*^9, 3.700158107717409*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       FractionBox["\[DifferentialD]", 
+        RowBox[{"\[DifferentialD]", "t"}]], "v"}], 
+      RowBox[{"(", "t", ")"}]}], "+", 
+     RowBox[{"\[Gamma]", " ", "v", 
+      RowBox[{"(", "t", ")"}]}], "+", 
+     RowBox[{"k", " ", "s", 
+      RowBox[{"(", "t", ")"}]}]}], "=", "0"}], ",", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      FractionBox["\[DifferentialD]", 
+       RowBox[{"\[DifferentialD]", "t"}]], "s"}], 
+     RowBox[{"(", "t", ")"}]}], "=", 
+    RowBox[{"v", 
+     RowBox[{"(", "t", ")"}]}]}]}], "DisplayFormula"]], "DisplayFormula",
+ CellChangeTimes->{{3.700156856234724*^9, 3.700157007034712*^9}}],
+
+Cell[TextData[{
+ "At ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["t", 
+     RowBox[{"n", " "}]], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"n", "=", " ", "0"}], ",", "1", ",", "2", ",", "..."}], ")"}]}],
+    TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " shocking times ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"s", 
+    RowBox[{"(", "t", ")"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " remains continuous, but ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"v", 
+    RowBox[{"(", "t", ")"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " possesses jump continuities."
+}], "Text",
+ CellChangeTimes->{{3.7001570495799513`*^9, 3.700157176836355*^9}, {
+  3.700157223287134*^9, 3.7001572501295233`*^9}, {3.700157808888376*^9, 
+  3.7001578118891497`*^9}}],
+
+Cell["\<\
+They described the motion of the pendulum (between bumps), whose DE reads as:\
+\
+\>", "Text",
+ CellChangeTimes->{{3.700157875686953*^9, 3.700157894742049*^9}, {
+  3.700157944738513*^9, 3.70015795737834*^9}, {3.700158137283696*^9, 
+  3.700158142096077*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      FractionBox[
+       SuperscriptBox["\[DifferentialD]", "2"], 
+       RowBox[{"\[DifferentialD]", 
+        SuperscriptBox["t", "2"]}]], "q"}], 
+     RowBox[{"(", "t", ")"}]}], "+", 
+    RowBox[{"\[Nu]", " ", 
+     RowBox[{
+      FractionBox["\[DifferentialD]", 
+       RowBox[{"\[DifferentialD]", "t"}]], "q"}], 
+     RowBox[{"(", "t", ")"}]}], "+", 
+    RowBox[{
+     FractionBox[
+      RowBox[{"(", 
+       RowBox[{"g", "+", 
+        RowBox[{"a", 
+         RowBox[{"(", "t", ")"}]}]}], ")"}], "l"], " ", "q", 
+     RowBox[{"(", "t", ")"}]}]}], "=", "0"}], 
+  "DisplayFormula"]], "DisplayFormula",
+ CellChangeTimes->{{3.700158005211431*^9, 3.7001580395683193`*^9}}],
+
+Cell[TextData[{
+ "Here ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"a", "(", "t", ")"}], "=", 
+    RowBox[{
+     FractionBox["\[DifferentialD]", 
+      RowBox[{"\[DifferentialD]", "t"}]], 
+     RowBox[{"v", "(", "t", ")"}]}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " is the acceleration of the carriage.\nAt the impulse times the angular \
+velocity (",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"p", "(", "t", ")"}], "=", 
+    RowBox[{
+     FractionBox["\[DifferentialD]", 
+      RowBox[{"\[DifferentialD]", "t"}]], 
+     RowBox[{"q", "(", "t", ")"}]}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ") follows the random jumps of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"v", "(", "t", ")"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.700158161183165*^9, 3.70015824017695*^9}, {
+  3.700158278088977*^9, 3.7001582799168158`*^9}, {3.700158312379602*^9, 
+  3.700158413395278*^9}}],
+
+Cell[TextData[{
+ "The main result of the article is that for a specific ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"v", "(", "t", ")"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " stationary process (described in the article) and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"p", "(", 
+     RowBox[{"0", "-"}], ")"}], ",", " ", 
+    RowBox[{"q", "(", "0", ")"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " initial values and other assumptions there exists a constant ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Tau]", "0"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " (depending on the constants given so far and the distribution of the \
+random force) such that for ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Tau]", "<", 
+    SubscriptBox["\[Tau]", "0"]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ": "
+}], "Text",
+ CellChangeTimes->{{3.700158531320243*^9, 3.700158545686922*^9}, {
+  3.700158650966443*^9, 3.7001588568559227`*^9}, {3.7001588959441767`*^9, 
+  3.700158991324567*^9}}],
+
+Cell[TextData[{
+ StyleBox[Cell[BoxData[
+  FormBox[
+   UnderscriptBox["limsup", 
+    RowBox[{"t", "\[Rule]", "\[Infinity]"}]], TraditionalForm]], 
+  "DisplayFormula",
+  FormatType->"TraditionalForm"], "DisplayFormula"],
+ StyleBox[" ", "DisplayFormula"],
+ StyleBox[Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      FractionBox["1", "t"], " ", "log"}], "|", 
+     RowBox[{"q", "(", "t", ")"}], "|", 
+     RowBox[{"<", "0"}]}], ",", " ", 
+    RowBox[{"a", ".", "s", "."}]}], TraditionalForm]], "DisplayFormula",
+  FormatType->"TraditionalForm"], "DisplayFormula"]
+}], "Text",
+ CellChangeTimes->{{3.700159004281406*^9, 3.7001593193538427`*^9}}]
+}, Open  ]],
+
+Cell["Sections", "Section",
+ CellChangeTimes->{{3.700159736061989*^9, 3.7001597589188643`*^9}}],
+
+Cell["Conclusions", "Section",
+ CellChangeTimes->{{3.699979342477171*^9, 3.699979350997841*^9}, {
+  3.700132809675556*^9, 3.70013281171714*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["References", "Section",
+ CellChangeTimes->{{3.6999793781347237`*^9, 3.699979381051906*^9}, {
+  3.70013267336017*^9, 3.70013267538734*^9}}],
+
+Cell[TextData[{
+ StyleBox["Mari Paz Calvo, Jes\[UAcute]s Mar\[IAcute]a Sanz-Serna:",
+  FontWeight->"Bold"],
+ " Carrying an inverted pendulum on a bumpy road"
+}], "ItemNumbered",
+ CellChangeTimes->{{3.6999794107127037`*^9, 3.699979417737268*^9}, {
+  3.699979455067196*^9, 3.699979481039226*^9}, {3.700132700841255*^9, 
+  3.7001327570067053`*^9}, {3.700159582881444*^9, 3.700159582881939*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowToolbars->"EditBar",
+WindowSize->{683, 713},
+WindowMargins->{{-509, Automatic}, {-183, Automatic}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 179, 2, 150, "Title"],
+Cell[762, 26, 293, 4, 75, "Text"],
+Cell[CellGroupData[{
+Cell[1080, 34, 143, 2, 65, "Section"],
+Cell[1226, 38, 419, 7, 71, "Text"],
+Cell[1648, 47, 197, 4, 51, "Text"],
+Cell[1848, 53, 292, 5, 71, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2177, 63, 224, 3, 65, "Section"],
+Cell[2404, 68, 239, 5, 51, "Text"],
+Cell[2646, 75, 1134, 27, 57, "DisplayFormula"],
+Cell[3783, 104, 715, 21, 71, "Text"],
+Cell[4501, 127, 1107, 19, 213, "Text"],
+Cell[5611, 148, 562, 9, 131, "Text"],
+Cell[6176, 159, 474, 11, 52, "Text"],
+Cell[6653, 172, 694, 17, 71, "Text"],
+Cell[7350, 191, 707, 22, 51, "DisplayFormula"],
+Cell[8060, 215, 804, 28, 51, "Text"],
+Cell[8867, 245, 266, 6, 51, "Text"],
+Cell[9136, 253, 746, 24, 57, "DisplayFormula"],
+Cell[9885, 279, 971, 31, 93, "Text"],
+Cell[10859, 312, 1045, 30, 111, "Text"],
+Cell[11907, 344, 659, 19, 50, "Text"]
+}, Open  ]],
+Cell[12581, 366, 95, 1, 65, "Section"],
+Cell[12679, 369, 144, 2, 51, "Section"],
+Cell[CellGroupData[{
+Cell[12848, 375, 144, 2, 51, "Section"],
+Cell[12995, 379, 391, 7, 49, "ItemNumbered"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

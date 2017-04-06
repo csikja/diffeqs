@@ -6,3 +6,4 @@
 4. __Nádházi Tünde__: Féljármű modell vizsgálata
 5. __Horváth Sándor__: Szerelem dinamika
 6. __Csala Hunor__: Bicikli dinamikája
+7. __Baranyi Máté__: Carrying an inverted pendulum on a bumpy road
