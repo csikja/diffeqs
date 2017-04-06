@@ -1,0 +1,368 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11834,        360]
+NotebookOptionsPosition[      9596,        282]
+NotebookOutlinePosition[      9957,        298]
+CellTagsIndexPosition[      9914,        295]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["A van der Pol oszcill\[AAcute]tor \[EAcute]s a Hopf bifurk\[AAcute]ci\
+\[OAcute]", "Title",
+ CellChangeTimes->{{3.699977799823056*^9, 3.6999778351059837`*^9}, {
+  3.700221154628451*^9, 3.7002212064616637`*^9}, {3.7002213189262953`*^9, 
+  3.7002213243711596`*^9}, {3.7002214191465015`*^9, 3.700221448608252*^9}}],
+
+Cell[TextData[StyleBox["Venczel Zsombor\nG\[EAcute]p\[EAcute]szm\[EAcute]rn\
+\[ODoubleDot]ki BSc", "Subtitle"]], "Text",
+ CellChangeTimes->{{3.69997785832027*^9, 3.699977959846784*^9}, {
+  3.699977996690359*^9, 3.699978014881341*^9}, {3.700221209772948*^9, 
+  3.700221222304285*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Absztrakt", "Section",
+ CellChangeTimes->{{3.6999780464120293`*^9, 3.69997804976353*^9}}],
+
+Cell["\<\
+El\[ODoubleAcute]sz\[ODoubleDot]r elmagyar\[AAcute]zom \[EAcute]s szeml\
+\[EAcute]ltetem a k\[UDoubleDot]l\[ODoubleDot]nb\[ODoubleDot]z\[ODoubleAcute] \
+(1 kodimenzi\[OAcute]j\[UAcute], lok\[AAcute]lis) \
+bifurk\[AAcute]ci\[OAcute]kat (nyereg-csom\[OAcute]-, vasvilla-, \
+Hopf-Andronov-bifurk\[AAcute]ci\[OAcute]), majd az RLC rezg\[ODoubleAcute]k\
+\[ODoubleDot]r\[ODoubleDot]ket le\[IAcute]r\[OAcute] \
+differenci\[AAcute]legyenletek megold\[AAcute]s\[AAcute]t \[EAcute]s stabilit\
+\[AAcute]s vizsg\[AAcute]lat\[AAcute]t mutatom be a v\[AAcute]ltoz\[OAcute] \
+param\[EAcute]ter\[UDoubleAcute] nemline\[AAcute]ris tag (az Ohm-f\[EAcute]le \
+ellen\[AAcute]ll\[AAcute]s) f\[UDoubleDot]ggv\[EAcute]ny\[EAcute]ben, ezen \
+kereszt\[UDoubleDot]l egy r\[EAcute]szletes esettanulm\[AAcute]nyt adva a \
+Hopf-bifurk\[AAcute]cir\[OAcute]l. (Ha marad id\[ODoubleAcute] esetleg besz\
+\[EAcute]lek a Hodgkin-Huxley neuron modellr\[ODoubleAcute]l, tulajdonk\
+\[EAcute]ppen a Smale-Hirsch-Devaney k\[ODoubleDot]nyvb\[ODoubleAcute]l a 12. \
+fejezetet szeretn\[EAcute]m feldolgozni.) \
+\>", "Text",
+ CellChangeTimes->{{3.6999780534445972`*^9, 3.6999781113246202`*^9}, 
+   3.6999781457453127`*^9, {3.700221227916374*^9, 3.7002212302248497`*^9}, {
+   3.700221313848342*^9, 3.7002213161669226`*^9}, {3.700221356390835*^9, 
+   3.7002214029368973`*^9}, {3.7002214555913887`*^9, 
+   3.7002221653627234`*^9}, {3.7002222065411143`*^9, 3.700222308130457*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Bevezet\[EAcute]s", "Section",
+ CellChangeTimes->{{3.699978160927883*^9, 3.699978162235931*^9}}],
+
+Cell["R\[EAcute]szletesebb le\[IAcute]r\[AAcute]s.", "Text",
+ CellChangeTimes->{{3.69997820086187*^9, 3.699978204291317*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tov\[AAcute]bbi fejezetek", "Section",
+ CellChangeTimes->{{3.699978211661125*^9, 3.699978243730773*^9}, {
+  3.699978414910244*^9, 3.699978422821042*^9}}],
+
+Cell[TextData[{
+ "\[CapitalIAcute]gy \[IAcute]rhatunk a sz\[ODoubleDot]veg k\[ODoubleDot]z\
+\[EAcute] k\[EAcute]pletet: ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["r", "2"], "=", 
+    RowBox[{
+     SuperscriptBox["x", "2"], "+", 
+     SuperscriptBox["y", "2"]}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ". Kiemelt k\[EAcute]pletet is \[IAcute]rhatunk a ",
+ StyleBox["DisplayFormula",
+  FontWeight->"Bold"],
+ " t\[IAcute]pus\[UAcute] cella haszn\[AAcute]lat\[AAcute]val:"
+}], "Text",
+ CellChangeTimes->{{3.6999784362592688`*^9, 3.6999785085463667`*^9}, {
+  3.699979217774228*^9, 3.699979234557954*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"x", "(", "t", ")"}], "=", 
+   RowBox[{
+    RowBox[{"x", "(", "\[Tau]", ")"}], "+", 
+    RowBox[{
+     SubsuperscriptBox["\[Integral]", "\[Tau]", "t"], 
+     RowBox[{
+      RowBox[{"f", "(", 
+       RowBox[{"s", ",", 
+        RowBox[{"x", "(", "s", ")"}]}], ")"}], 
+      RowBox[{"\[DifferentialD]", "s"}]}]}]}]}], 
+  TraditionalForm]], "DisplayFormula",
+ CellChangeTimes->{{3.6999785146547318`*^9, 3.699978599520615*^9}}],
+
+Cell[TextData[{
+ "Ha sz\[AAcute]mozni akarjuk a formul\[AAcute]t, akkor haszn\[AAcute]ljuk a ",
+ StyleBox["DisplayFormulaNumbered",
+  FontWeight->"Bold"],
+ " t\[IAcute]pus\[UAcute] cell\[AAcute]t."
+}], "Text",
+ CellChangeTimes->{{3.699978662187419*^9, 3.699978688361803*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"a", "+", "b"}], ")"}], "n"], "=", 
+   RowBox[{
+    UnderoverscriptBox["\[Sum]", 
+     RowBox[{"k", "=", "1"}], "n"], 
+    RowBox[{
+     RowBox[{"(", GridBox[{
+        {"n"},
+        {"k"}
+       }], ")"}], 
+     SuperscriptBox["a", "k"], " ", 
+     SuperscriptBox["b", 
+      RowBox[{"n", "-", "k"}]]}]}]}], 
+  TraditionalForm]], "DisplayFormulaNumbered",
+ CellChangeTimes->{{3.6999787416310062`*^9, 3.699978752489931*^9}, {
+  3.6999787867285767`*^9, 3.699978825499571*^9}, {3.6999788583381863`*^9, 
+  3.69997887336106*^9}}],
+
+Cell[TextData[{
+ "K\[UDoubleDot]l\[ODoubleDot]nb\[ODoubleDot]z\[ODoubleAcute] \
+t\[ODoubleDot]bb szint\[UDoubleAcute] list\[AAcute]t is \
+k\[EAcute]sz\[IAcute]thet\[UDoubleDot]nk az ",
+ StyleBox["Item, Subitem, Subsubitem",
+  FontWeight->"Bold"],
+ " t\[IAcute]pus\[UAcute] cell\[AAcute]k haszn\[AAcute]lat\[AAcute]val:"
+}], "Text",
+ CellChangeTimes->{{3.699978879947844*^9, 3.699978957687838*^9}, {
+  3.69997902117026*^9, 3.6999790273834677`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Els\[ODoubleAcute] elem", "Item",
+ CellChangeTimes->{{3.6999789379714317`*^9, 3.699978940558681*^9}}],
+
+Cell["M\[AAcute]sodik elem", "Item",
+ CellChangeTimes->{{3.6999789379714317`*^9, 3.699978945201252*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["M\[EAcute]g egy", "Subitem",
+ CellChangeTimes->{{3.6999789379714317`*^9, 3.6999789763626137`*^9}}],
+
+Cell["\[EAcute]s m\[EAcute]g egy", "Subitem",
+ CellChangeTimes->{{3.6999789379714317`*^9, 3.699978981232085*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["M\[EAcute]g beljebb is mehet\[UDoubleDot]nk", "Subsubitem",
+ CellChangeTimes->{{3.6999789379714317`*^9, 3.699978992369687*^9}}],
+
+Cell["M\[EAcute]g egy elem", "Subsubitem",
+ CellChangeTimes->{{3.6999789379714317`*^9, 3.6999789962375813`*^9}}]
+}, Open  ]],
+
+Cell["Itt folytatjuk", "Subitem",
+ CellChangeTimes->{{3.6999789379714317`*^9, 3.699979002225912*^9}}]
+}, Open  ]],
+
+Cell["Harmadik elem", "Item",
+ CellChangeTimes->{{3.6999789379714317`*^9, 3.699979012733119*^9}}]
+}, Open  ]],
+
+Cell[TextData[{
+ "Ha sz\[AAcute]mozott list\[AAcute]t szeretn\[EAcute]nk, haszn\[AAcute]ljuk \
+az ",
+ StyleBox["ItemNumered, SubitemNumbered, SubsubitemNumbered",
+  FontWeight->"Bold"],
+ " cell\[AAcute]kat."
+}], "Text",
+ CellChangeTimes->{{3.699979034375108*^9, 3.6999790833082027`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Sorz\[AAcute]mozott lista", "ItemNumbered",
+ CellChangeTimes->{{3.6999790937709303`*^9, 3.699979098734724*^9}}],
+
+Cell["A m\[AAcute]sodik elem", "ItemNumbered",
+ CellChangeTimes->{{3.6999790937709303`*^9, 3.6999791048066053`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\[CapitalIAcute]gy n\[EAcute]z ki a k\[ODoubleDot]vetkez\[ODoubleAcute] \
+szint", "SubitemNumbered",
+ CellChangeTimes->{{3.6999790937709303`*^9, 3.6999791274472322`*^9}}],
+
+Cell["M\[EAcute]g egy elem", "SubitemNumbered",
+ CellChangeTimes->{{3.6999790937709303`*^9, 3.699979131504072*^9}}]
+}, Open  ]],
+
+Cell["Harmadik", "ItemNumbered",
+ CellChangeTimes->{{3.6999790937709303`*^9, 3.6999791391285563`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Sz\[AAcute]mozott lista", "SubitemNumbered",
+ CellChangeTimes->{{3.6999790937709303`*^9, 3.699979154909758*^9}}],
+
+Cell["Sz\[AAcute]mozott lista", "SubitemNumbered",
+ CellChangeTimes->{{3.6999790937709303`*^9, 3.699979161780429*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Ez m\[AAcute]r itt a harmadik szint", "SubsubitemNumbered",
+ CellChangeTimes->{{3.6999790937709303`*^9, 3.699979174277883*^9}}],
+
+Cell["M\[EAcute]g egy elem", "SubsubitemNumbered",
+ CellChangeTimes->{{3.6999790937709303`*^9, 3.699979177319522*^9}}]
+}, Open  ]],
+
+Cell["Utols\[OAcute] elem", "SubitemNumbered",
+ CellChangeTimes->{{3.6999790937709303`*^9, 3.6999791838603697`*^9}}]
+}, Open  ]],
+
+Cell["Negyedik", "ItemNumbered",
+ CellChangeTimes->{{3.6999790937709303`*^9, 3.69997918725004*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\[CapitalODoubleDot]sszefoglal\[AAcute]s", "Section",
+ CellChangeTimes->{{3.699979342477171*^9, 3.699979350997841*^9}}],
+
+Cell["Ide j\[ODoubleDot]n az \[ODoubleDot]sszefoglal\[AAcute]s.", "Text",
+ CellChangeTimes->{{3.699979509715002*^9, 3.699979519890717*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Hivatkoz\[AAcute]sok", "Section",
+ CellChangeTimes->{{3.6999793781347237`*^9, 3.699979381051906*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["M. W. Hirsch, S. Smale, R. L. Devaney:",
+  FontWeight->"Bold"],
+ " ",
+ StyleBox["Differential Equations, Dynamical Systems & An Introduction to \
+Chaos",
+  FontSlant->"Italic"]
+}], "ItemNumbered",
+ CellChangeTimes->{{3.6999794107127037`*^9, 3.699979417737268*^9}, {
+  3.699979455067196*^9, 3.699979481039226*^9}}],
+
+Cell[TextData[{
+ StyleBox["Gerald Teschl:",
+  FontWeight->"Bold"],
+ StyleBox[" Ordinary Differential Equations and Dynamical Systems",
+  FontSlant->"Italic"]
+}], "ItemNumbered",
+ CellChangeTimes->{{3.6999794107127037`*^9, 3.699979417737268*^9}, {
+  3.699979455067196*^9, 3.6999795027790413`*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowToolbars->"EditBar",
+WindowSize->{1366, 744},
+WindowMargins->{{0, Automatic}, {Automatic, 28}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 317, 4, 93, "Title"],
+Cell[900, 28, 283, 4, 75, "Text"],
+Cell[CellGroupData[{
+Cell[1208, 36, 95, 1, 65, "Section"],
+Cell[1306, 39, 1442, 21, 99, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2785, 65, 102, 1, 65, "Section"],
+Cell[2890, 68, 125, 1, 33, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3052, 74, 159, 2, 65, "Section"],
+Cell[3214, 78, 634, 17, 33, "Text"],
+Cell[3851, 97, 468, 14, 47, "DisplayFormula"],
+Cell[4322, 113, 275, 6, 33, "Text"],
+Cell[4600, 121, 610, 20, 57, "DisplayFormulaNumbered"],
+Cell[5213, 143, 447, 9, 33, "Text"],
+Cell[CellGroupData[{
+Cell[5685, 156, 107, 1, 31, "Item"],
+Cell[5795, 159, 104, 1, 31, "Item"],
+Cell[CellGroupData[{
+Cell[5924, 164, 104, 1, 27, "Subitem"],
+Cell[6031, 167, 113, 1, 27, "Subitem"],
+Cell[CellGroupData[{
+Cell[6169, 172, 133, 1, 26, "Subsubitem"],
+Cell[6305, 175, 112, 1, 26, "Subsubitem"]
+}, Open  ]],
+Cell[6432, 179, 101, 1, 27, "Subitem"]
+}, Open  ]],
+Cell[6548, 183, 97, 1, 31, "Item"]
+}, Open  ]],
+Cell[6660, 187, 287, 7, 33, "Text"],
+Cell[CellGroupData[{
+Cell[6972, 198, 117, 1, 33, "ItemNumbered"],
+Cell[7092, 201, 116, 1, 33, "ItemNumbered"],
+Cell[CellGroupData[{
+Cell[7233, 206, 176, 2, 27, "SubitemNumbered"],
+Cell[7412, 210, 115, 1, 27, "SubitemNumbered"]
+}, Open  ]],
+Cell[7542, 214, 102, 1, 33, "ItemNumbered"],
+Cell[CellGroupData[{
+Cell[7669, 219, 118, 1, 27, "SubitemNumbered"],
+Cell[7790, 222, 118, 1, 27, "SubitemNumbered"],
+Cell[CellGroupData[{
+Cell[7933, 227, 133, 1, 26, "SubsubitemNumbered"],
+Cell[8069, 230, 118, 1, 26, "SubsubitemNumbered"]
+}, Open  ]],
+Cell[8202, 234, 116, 1, 27, "SubitemNumbered"]
+}, Open  ]],
+Cell[8333, 238, 99, 1, 33, "ItemNumbered"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8481, 245, 125, 1, 65, "Section"],
+Cell[8609, 248, 139, 1, 33, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8785, 254, 107, 1, 65, "Section"],
+Cell[CellGroupData[{
+Cell[8917, 259, 340, 9, 33, "ItemNumbered"],
+Cell[9260, 270, 296, 7, 33, "ItemNumbered"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
