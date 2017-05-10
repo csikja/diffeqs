@@ -10,281 +10,2174 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     11834,        360]
-NotebookOptionsPosition[      9596,        282]
-NotebookOutlinePosition[      9957,        298]
-CellTagsIndexPosition[      9914,        295]
+NotebookDataLength[     72178,       2199]
+NotebookOptionsPosition[     71487,       2174]
+NotebookOutlinePosition[     71914,       2191]
+CellTagsIndexPosition[     71871,       2188]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 
 Cell[CellGroupData[{
-Cell["A van der Pol oszcill\[AAcute]tor \[EAcute]s a Hopf bifurk\[AAcute]ci\
-\[OAcute]", "Title",
- CellChangeTimes->{{3.699977799823056*^9, 3.6999778351059837`*^9}, {
-  3.700221154628451*^9, 3.7002212064616637`*^9}, {3.7002213189262953`*^9, 
-  3.7002213243711596`*^9}, {3.7002214191465015`*^9, 3.700221448608252*^9}}],
-
-Cell[TextData[StyleBox["Venczel Zsombor\nG\[EAcute]p\[EAcute]szm\[EAcute]rn\
-\[ODoubleDot]ki BSc", "Subtitle"]], "Text",
- CellChangeTimes->{{3.69997785832027*^9, 3.699977959846784*^9}, {
-  3.699977996690359*^9, 3.699978014881341*^9}, {3.700221209772948*^9, 
-  3.700221222304285*^9}}],
-
-Cell[CellGroupData[{
-
-Cell["Absztrakt", "Section",
- CellChangeTimes->{{3.6999780464120293`*^9, 3.69997804976353*^9}}],
+Cell[TextData[{
+ StyleBox["\t",
+  FontSize->24],
+ StyleBox["A van der Pol oszcill\[AAcute]tor \[EAcute]s a Hopf - bifurk\
+\[AAcute]ci\[OAcute]",
+  FontSize->24,
+  FontWeight->"Plain",
+  FontColor->GrayLevel[0]]
+}], "Title",
+ CellChangeTimes->{{3.703131115755001*^9, 3.7031311394182606`*^9}, 
+   3.70313441750873*^9, 3.7031345843259025`*^9}],
 
 Cell["\<\
-El\[ODoubleAcute]sz\[ODoubleDot]r elmagyar\[AAcute]zom \[EAcute]s szeml\
-\[EAcute]ltetem a k\[UDoubleDot]l\[ODoubleDot]nb\[ODoubleDot]z\[ODoubleAcute] \
-(1 kodimenzi\[OAcute]j\[UAcute], lok\[AAcute]lis) \
-bifurk\[AAcute]ci\[OAcute]kat (nyereg-csom\[OAcute]-, vasvilla-, \
-Hopf-Andronov-bifurk\[AAcute]ci\[OAcute]), majd az RLC rezg\[ODoubleAcute]k\
-\[ODoubleDot]r\[ODoubleDot]ket le\[IAcute]r\[OAcute] \
-differenci\[AAcute]legyenletek megold\[AAcute]s\[AAcute]t \[EAcute]s stabilit\
-\[AAcute]s vizsg\[AAcute]lat\[AAcute]t mutatom be a v\[AAcute]ltoz\[OAcute] \
-param\[EAcute]ter\[UDoubleAcute] nemline\[AAcute]ris tag (az Ohm-f\[EAcute]le \
-ellen\[AAcute]ll\[AAcute]s) f\[UDoubleDot]ggv\[EAcute]ny\[EAcute]ben, ezen \
-kereszt\[UDoubleDot]l egy r\[EAcute]szletes esettanulm\[AAcute]nyt adva a \
-Hopf-bifurk\[AAcute]cir\[OAcute]l. (Ha marad id\[ODoubleAcute] esetleg besz\
-\[EAcute]lek a Hodgkin-Huxley neuron modellr\[ODoubleAcute]l, tulajdonk\
-\[EAcute]ppen a Smale-Hirsch-Devaney k\[ODoubleDot]nyvb\[ODoubleAcute]l a 12. \
-fejezetet szeretn\[EAcute]m feldolgozni.) \
+\t\[LineSeparator]\tABSTRACT. A szimpl\[AAcute]n line\[AAcute]ris \
+\[AAcute]ramk\[ODoubleDot]ri elemeket tartalmaz\[OAcute] RLC rezg\
+\[ODoubleAcute]k\[ODoubleDot]r\[ODoubleDot]kkel szemben, a van der Pol \
+\[AAcute]ltal vizsg\[AAcute]lt\[LineSeparator]\t\[AAcute]ramk\[ODoubleDot]r, \
+amely egy nemline\[AAcute]ris \
+karakterisztik\[AAcute]j\[UAcute]ellen\[AAcute]ll\[AAcute]st - egy \
+v\[AAcute]kuumcs\[ODoubleDot]vet - is tartalmaz, \
+k\[UDoubleDot]l\[ODoubleDot]n\[ODoubleDot]s viselked\[EAcute]st mutat.\
+\[LineSeparator]\tVan der Pol a v\[AAcute]kuumcs\[ODoubleAcute] \
+ellen\[AAcute]l\[AAcute]s\[AAcute]t, vagyis a csillap\[IAcute]t\[AAcute]s er\
+\[ODoubleAcute]ss\[EAcute]g\[EAcute]t v\[AAcute]ltoztatva, azt figyelte meg, \
+hogy egy bizonyos\[LineSeparator]\tk\[UDoubleDot]sz\[ODoubleDot]b\[EAcute]rt\
+\[EAcute]k felett, hasonl\[OAcute]an a line\[AAcute]ris \
+oszcill\[AAcute]torhoz, az \[AAcute]ramk\[ODoubleDot]rben nem alakul ki rezg\
+\[EAcute]s semmilyen kezdetben r\[AAcute]vitt\[LineSeparator]\tfesz\
+\[UDoubleDot]lts\[EAcute]g hat\[AAcute]s\[AAcute]ra, m\[IAcute]g e k\
+\[UDoubleDot]sz\[ODoubleDot]b\[EAcute]rt\[EAcute]k alatt, adott csillap\
+\[IAcute]t\[AAcute]s mellett, b\[AAcute]rmilyen kezdetben r\[AAcute]vitt fesz\
+\[UDoubleDot]lts\[EAcute]g eset\[EAcute]n az\[LineSeparator]\t\
+oszcill\[AAcute]tor egy id\[ODoubleAcute] ut\[AAcute]n ugyanann\[AAcute]l a \
+stabilis rezg\[EAcute]sn\[EAcute]l \[AAcute]llapodott meg.\[LineSeparator]\t\
+\[LineSeparator]\
 \>", "Text",
- CellChangeTimes->{{3.6999780534445972`*^9, 3.6999781113246202`*^9}, 
-   3.6999781457453127`*^9, {3.700221227916374*^9, 3.7002212302248497`*^9}, {
-   3.700221313848342*^9, 3.7002213161669226`*^9}, {3.700221356390835*^9, 
-   3.7002214029368973`*^9}, {3.7002214555913887`*^9, 
-   3.7002221653627234`*^9}, {3.7002222065411143`*^9, 3.700222308130457*^9}}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Bevezet\[EAcute]s", "Section",
- CellChangeTimes->{{3.699978160927883*^9, 3.699978162235931*^9}}],
-
-Cell["R\[EAcute]szletesebb le\[IAcute]r\[AAcute]s.", "Text",
- CellChangeTimes->{{3.69997820086187*^9, 3.699978204291317*^9}}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Tov\[AAcute]bbi fejezetek", "Section",
- CellChangeTimes->{{3.699978211661125*^9, 3.699978243730773*^9}, {
-  3.699978414910244*^9, 3.699978422821042*^9}}],
+ CellChangeTimes->{{3.703134643231534*^9, 3.703134659694975*^9}, {
+  3.7031349018310432`*^9, 3.7031349046327305`*^9}},
+ TextJustification->0.],
 
 Cell[TextData[{
- "\[CapitalIAcute]gy \[IAcute]rhatunk a sz\[ODoubleDot]veg k\[ODoubleDot]z\
-\[EAcute] k\[EAcute]pletet: ",
+ StyleBox["\t",
+  FontSize->24,
+  FontWeight->"Bold"],
+ StyleBox["Tartalom",
+  FontSize->24],
+ "\n\n",
+ StyleBox["\t\t",
+  FontSize->16,
+  FontWeight->"Bold"],
+ StyleBox["1.",
+  FontSize->16],
+ StyleBox[" ",
+  FontSize->16,
+  FontWeight->"Bold"],
+ StyleBox["Stabilit\[AAcute]s",
+  FontSize->16],
+ "\n",
+ StyleBox["\t\t\t1.1. Line\[AAcute]ris rendszerek stabilit\[AAcute]sa",
+  FontSize->16],
+ "\n",
+ StyleBox["\t\t\t1.2. Nemline\[AAcute]ris rendszerek stabilit\[AAcute]sa\n\t\t\
+\t1.3. A Ljapunov-f\[UDoubleDot]ggv\[EAcute]ny",
+  FontSize->16],
+ "\n",
+ StyleBox["\t\t2. Bifurk\[AAcute]ci\[OAcute]k",
+  FontSize->16],
+ "\n",
+ StyleBox["\t\t\t2.1. Nyereg-csom\[OAcute] bifurk\[AAcute]ci\[OAcute]",
+  FontSize->16],
+ "\n",
+ StyleBox["\t\t\t2.2. Transzkritikus bifurk\[AAcute]ci\[OAcute]",
+  FontSize->16],
+ "\n\t\t",
+ StyleBox["\t\t2.3. Vasvilla bifurk\[AAcute]ci\[OAcute]",
+  FontSize->16],
+ "\n",
+ StyleBox["\t\t\t2.4. Hopf-bifurk\[AAcute]ci\[OAcute]",
+  FontSize->16],
+ "\n",
+ StyleBox["\t\t3. RLC rezg\[ODoubleAcute]k\[ODoubleDot]r\[ODoubleDot]k",
+  FontSize->16],
+ "\n",
+ StyleBox["\t\t\t3.1. Az egyenlet fel\[AAcute]llat\[AAcute]sa",
+  FontSize->16],
+ "\n",
+ StyleBox["\t\t\t3.2. Az egyenlet megold\[AAcute]sa",
+  FontSize->16],
+ "\n",
+ StyleBox["\t\t4. A van der Pol oszcill\[AAcute]tor\[LineSeparator]\
+\[LineSeparator]",
+  FontSize->16]
+}], "Text",
+ CellChangeTimes->{{3.7031313177670364`*^9, 3.7031313782989664`*^9}, {
+   3.7031314810237913`*^9, 3.703131507671772*^9}, {3.70313175410986*^9, 
+   3.703131781738271*^9}, {3.703131864481015*^9, 3.7031318731240697`*^9}, {
+   3.7031319194585147`*^9, 3.703131974763115*^9}, {3.703132027952094*^9, 
+   3.7031321700272293`*^9}, {3.7031322097692256`*^9, 3.703132332309662*^9}, {
+   3.7031323659880877`*^9, 3.7031323754039335`*^9}, {3.703132407303466*^9, 
+   3.7031327457671175`*^9}, {3.7031328824637585`*^9, 
+   3.7031328879770174`*^9}, {3.7031329380903597`*^9, 
+   3.7031329585818014`*^9}, {3.7031330110295343`*^9, 3.70313319362033*^9}, {
+   3.7031333349957504`*^9, 3.7031333410048094`*^9}, {3.7031334599293118`*^9, 
+   3.7031335150885687`*^9}, {3.703134065117118*^9, 3.703134081144332*^9}, 
+   3.703134339146204*^9, {3.7031344982728257`*^9, 3.7031345607320094`*^9}, {
+   3.7031346088170795`*^9, 3.7031346116579523`*^9}, {3.7031347128018513`*^9, 
+   3.703134715615919*^9}, {3.7031348923108807`*^9, 3.7031348946629195`*^9}, {
+   3.703151912122963*^9, 3.703151932816518*^9}},
+ TextAlignment->AlignmentMarker,
+ TextJustification->0.],
+
+Cell[TextData[{
+ StyleBox["\t",
+  FontSize->18],
+ StyleBox["1. Stabilit\[AAcute]s\[LineSeparator]\[LineSeparator]",
+  FontSize->24],
+ StyleBox["\tA stabilit\[AAcute]s modern fogalma Alekszander Ljapunovt\
+\[OAcute]l sz\[AAcute]rmazik. Ljapunov-\[EAcute]rtelemben vett stabilit\
+\[AAcute]sr\[OAcute]l\[LineSeparator]\tKDE-k k\[ODoubleDot]r\[EAcute]ben besz\
+\[EAcute]lhet\[UDoubleDot]nk, egy KDE rendszer adott \
+megold\[AAcute]s\[AAcute]nak stabilit\[AAcute]s\[AAcute]t szoktuk vizsg\
+\[AAcute]lni.\[LineSeparator]\t(PDE-k k\[ODoubleDot]r\[EAcute]ben az \
+Hadamard-\[EAcute]rtelemben vett stabilit\[AAcute]s mag\[AAcute]nak az \
+egyenletnek a stabilit\[AAcute]s\[AAcute]r\[OAcute]l sz\[OAcute]l.)\
+\[LineSeparator]\tEgy KDE rendszernek egy \
+megold\[AAcute]s\[AAcute]r\[OAcute]l (integr\[AAcute]l g\[ODoubleDot]rb\
+\[EAcute]j\[EAcute]r\[ODoubleAcute]l) akkor mondjuk, hogy stabilis, ha b\
+\[AAcute]rmely\[LineSeparator]\tpontj\[AAcute]nak \
+k\[ODoubleDot]zel\[EAcute]ben halad\[OAcute] megold\[AAcute]sok a \
+p\[AAcute]lya t\[ODoubleDot]bbi pontj\[AAcute]ban is k\[ODoubleDot]zel \
+maradnak hozz\[AAcute]. Ha nem stabilis,\n\takkor labilis. Besz\[EAcute]lhet\
+\[UDoubleDot]nk m\[EAcute]g vonz\[OAcute] megold\[AAcute]sr\[OAcute]l. Egy \
+KDE rendszer adott integr\[AAcute]l g\[ODoubleDot]rb\[EAcute]je akkor vonz\
+\[OAcute],\n\tha b\[AAcute]rmely pontj\[AAcute]hoz el\[EAcute]g \
+k\[ODoubleDot]zel halad\[OAcute] t\[ODoubleDot]bbi integr\[AAcute]l g\
+\[ODoubleDot]rbe mind ehhez a g\[ODoubleDot]rb\[EAcute]hez fog tartani. Egy \
+integr\[AAcute]l\n\tg\[ODoubleDot]rbe aszimptotikusan stabilis, ha stabilis \
+\[EAcute]s vonz\[OAcute].\n\t\n\tLegyen ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"\[CapitalOmega]", "\[Subset]", 
+     SuperscriptBox["\[DoubleStruckCapitalR]", 
+      StyleBox["n",
+       FontSlant->"Plain"]]}],
+    FontSize->16], TraditionalForm]]],
+ StyleBox[" korl\[AAcute]tos \[EAcute]s z\[AAcute]rt halmaz, ",
+  FontSize->16],
  Cell[BoxData[
   FormBox[
    RowBox[{
-    SuperscriptBox["r", "2"], "=", 
+    StyleBox["f",
+     FontSize->16], 
+    StyleBox["\[Element]",
+     FontSize->16], 
     RowBox[{
-     SuperscriptBox["x", "2"], "+", 
-     SuperscriptBox["y", "2"]}]}], TraditionalForm]],
-  FormatType->"TraditionalForm"],
- ". Kiemelt k\[EAcute]pletet is \[IAcute]rhatunk a ",
- StyleBox["DisplayFormula",
+     SuperscriptBox[
+      StyleBox["C",
+       FontSize->16], "1"], 
+     StyleBox["(",
+      FontSize->16], 
+     StyleBox[
+      RowBox[{"\[CapitalOmega]", ",", 
+       SuperscriptBox["\[DoubleStruckCapitalR]", 
+        StyleBox["n",
+         FontSlant->"Plain"]]}],
+      FontSize->16], 
+     StyleBox[")",
+      FontSize->16]}]}], TraditionalForm]]],
+ StyleBox[".\[LineSeparator]\t\n\t",
+  FontSize->16],
+ StyleBox["Defin\[IAcute]ci\[OAcute].",
+  FontSize->16,
   FontWeight->"Bold"],
- " t\[IAcute]pus\[UAcute] cella haszn\[AAcute]lat\[AAcute]val:"
-}], "Text",
- CellChangeTimes->{{3.6999784362592688`*^9, 3.6999785085463667`*^9}, {
-  3.699979217774228*^9, 3.699979234557954*^9}}],
-
-Cell[BoxData[
- FormBox[
-  RowBox[{
-   RowBox[{"x", "(", "t", ")"}], "=", 
-   RowBox[{
-    RowBox[{"x", "(", "\[Tau]", ")"}], "+", 
+ StyleBox[" Legyen ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
     RowBox[{
-     SubsuperscriptBox["\[Integral]", "\[Tau]", "t"], 
+     RowBox[{
+      RowBox[{"-", "\[Infinity]"}], "<", 
+      SuperscriptBox["t", "-"]}], "\[Element]", "\[DoubleStruckCapitalR]"}],
+    FontSize->16], TraditionalForm]]],
+ ". ",
+ StyleBox["Az ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    OverscriptBox["x", 
+     StyleBox[".",
+      FontWeight->"Bold"]], "=", 
+    RowBox[{"f", "\[SmallCircle]", 
+     RowBox[{"(", 
+      RowBox[{"id", ",", "x"}], ")"}]}]}], TraditionalForm]],
+  FontSize->16],
+ StyleBox[" rendszer ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[Mu]", ":", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["t", "-"], ",", 
+       RowBox[{"+", "\[Infinity]"}]}], ")"}]}], "\[Rule]", 
+    SuperscriptBox["\[DoubleStruckCapitalR]", "n"]}], TraditionalForm]],
+  FontSize->16],
+ StyleBox[" megold\[AAcute]sa (Ljapunov-\[EAcute]rtelemben)\[LineSeparator]\t\
+stabilis, ha ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{
+     RowBox[{"\[Exists]", 
+      RowBox[{"\[Tau]", "\[Element]", 
+       RowBox[{"Dom", " ", 
+        RowBox[{"(", "\[Mu]", ")"}]}]}]}], ":", 
+     RowBox[{"\[ForAll]", 
+      RowBox[{"\[Epsilon]", ">", "0"}]}], ":", 
+     RowBox[{"\[Exists]", 
+      RowBox[{"\[Delta]", ">", "0"}]}], ":", 
+     RowBox[{"\[ForAll]", 
+      RowBox[{"\[Xi]", "\[Element]", 
+       SuperscriptBox["\[DoubleStruckCapitalR]", 
+        StyleBox["n",
+         FontSlant->"Plain"]]}]}], ":"}],
+    FontSize->16], TraditionalForm]]],
+ StyleBox["\[LineSeparator]\[LineSeparator]\t\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{
+     RowBox[{
+      RowBox[{"[", 
+       RowBox[{"\[Tau]", ",", 
+        RowBox[{"+", "\[Infinity]"}]}]}], ")"}], "\[Subset]", 
+     RowBox[{"I", "(", 
+      RowBox[{"\[Tau]", ",", "\[Xi]"}], ")"}]}],
+    FontSize->16], TraditionalForm]]],
+ StyleBox["\t\t\[EAcute]s\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{
+     RowBox[{"||", 
+      RowBox[{"\[Xi]", "-", 
+       RowBox[{"\[Mu]", " ", 
+        RowBox[{"(", "\[Tau]", ")"}]}]}], "||", 
+      RowBox[{"<", "\[Delta]"}]}], "\[Implies]", 
+     RowBox[{"||", 
+      RowBox[{
+       RowBox[{"\[Phi]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"t", ";", "\[Tau]"}], ",", "\[Xi]"}], ")"}]}], "-", 
+       RowBox[{"\[Mu]", " ", 
+        RowBox[{"(", "t", ")"}]}]}], "||", 
+      RowBox[{"<", 
+       RowBox[{"\[Epsilon]", "   ", 
+        RowBox[{"(", 
+         RowBox[{"t", ">", "\[Tau]"}], ")"}]}]}]}]}],
+    FontSize->16], TraditionalForm]]],
+ StyleBox[",\[LineSeparator]\[LineSeparator]\tahol ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"\[Phi]", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"t", ";", "\[Tau]"}], ",", "\[Xi]"}], ")"}]}],
+    FontSize->16], TraditionalForm]]],
+ StyleBox[" a \[Tau]-ban \[Xi]-t felvev\[ODoubleAcute] megold\[AAcute]st jel\
+\[ODoubleDot]li, \[EAcute]s ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"I", "(", 
+     RowBox[{"\[Tau]", ",", "\[Xi]"}], ")"}],
+    FontSize->16], TraditionalForm]]],
+ StyleBox[" ennek a maxim\[AAcute]lis \[EAcute]rtelmez\[EAcute]si tartom\
+\[AAcute]nya.\[LineSeparator]\[LineSeparator]\t",
+  FontSize->16],
+ StyleBox["Defin\[IAcute]ci\[OAcute]. ",
+  FontSize->16,
+  FontWeight->"Bold"],
+ StyleBox["Az ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{
+     RowBox[{
+      OverscriptBox["x", 
+       StyleBox[".",
+        FontWeight->"Bold"]], "=", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"f", "\[SmallCircle]", 
+         RowBox[{"(", 
+          RowBox[{"id", ",", "x"}], ")"}]}], " ", "rendszer", " ", 
+        RowBox[{"\[Mu]", ":", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["t", "-"], ",", 
+           RowBox[{"+", "\[Infinity]"}]}], ")"}]}]}], "\[Rule]", 
+       RowBox[{
+        SuperscriptBox["\[DoubleStruckCapitalR]", "n"], " ", 
+        "megold\[AAcute]sa", " ", "vonz\[OAcute]"}]}]}], ",", " ", 
+     RowBox[{
+      RowBox[{"ha", " ", 
+       RowBox[{"\[Exists]", 
+        RowBox[{"\[Tau]", "\[Element]", 
+         RowBox[{"Dom", " ", 
+          RowBox[{"(", "\[Mu]", ")"}]}]}]}]}], ":", 
+      RowBox[{"\[Exists]", 
+       RowBox[{"\[Eta]", ">", "0"}]}], ":"}]}],
+    FontSize->16], TraditionalForm]]],
+ "\[LineSeparator]\t",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\t", 
+    RowBox[{
+     StyleBox["\[ForAll]",
+      FontSize->16], 
+     RowBox[{
+      StyleBox["\[Xi]",
+       FontSize->16], 
+      StyleBox["\[Element]",
+       FontSize->16], 
+      RowBox[{
+       SuperscriptBox[
+        StyleBox["\[DoubleStruckCapitalR]",
+         FontSize->16], "n"], 
+       StyleBox[":",
+        FontSize->16], 
+       StyleBox[
+        RowBox[{"||", 
+         RowBox[{
+          StyleBox["\[Xi]",
+           FontSize->16], 
+          StyleBox["-",
+           FontSize->16], 
+          RowBox[{"\[Mu]", " ", 
+           RowBox[{"(", "\[Tau]", ")"}]}]}], "||", 
+         RowBox[{"<", "\[Eta]"}]}],
+        FontSize->16], 
+       StyleBox[":",
+        FontSize->16]}]}]}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "\[LineSeparator]\[LineSeparator]",
+ StyleBox["\t\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{
+     RowBox[{
+      RowBox[{"[", 
+       RowBox[{"\[Tau]", ",", 
+        RowBox[{"+", "\[Infinity]"}]}]}], ")"}], "\[Subset]", 
+     RowBox[{"I", "(", 
+      RowBox[{"\[Tau]", ",", "\[Xi]"}], ")"}]}],
+    FontSize->16], TraditionalForm]]],
+ StyleBox["\t\t\[EAcute]s\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{
+     RowBox[{
+      UnderscriptBox["lim", 
+       RowBox[{"t", "\[Rule]", 
+        RowBox[{"+", "\[Infinity]"}]}]], 
+      RowBox[{"||", 
+       RowBox[{
+        RowBox[{"\[Phi]", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"t", ";", "\[Tau]"}], ",", "\[Xi]"}], ")"}]}], "-", 
+        RowBox[{"\[Mu]", " ", 
+         RowBox[{"(", "t", ")"}]}]}], "||"}]}], "=", 
+     RowBox[{"0", "  ", 
+      RowBox[{"(", 
+       RowBox[{"t", ">", "\[Tau]"}], ")"}]}]}],
+    FontSize->16], TraditionalForm]]],
+ ".\[LineSeparator]\[LineSeparator]",
+ StyleBox["\t",
+  FontSize->16],
+ StyleBox["Defin\[IAcute]ci\[OAcute]. ",
+  FontSize->16,
+  FontWeight->"Bold"],
+ StyleBox["Az",
+  FontSize->16],
+ " ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{
+     RowBox[{
+      OverscriptBox["x", 
+       StyleBox[".",
+        FontWeight->"Bold"]], "=", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"f", "\[SmallCircle]", 
+         RowBox[{"(", 
+          RowBox[{"id", ",", "x"}], ")"}]}], " ", "rendszer", " ", 
+        RowBox[{"\[Mu]", ":", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["t", "-"], ",", 
+           RowBox[{"+", "\[Infinity]"}]}], ")"}]}]}], "\[Rule]", 
+       RowBox[{
+        SuperscriptBox["\[DoubleStruckCapitalR]", "n"], " ", 
+        "megold\[AAcute]sa", "  ", "aszimptotikusan", " ", "stabilis"}]}]}], 
+     ",", " ", 
+     RowBox[{"ha", " ", "stabilis", " ", "\[EAcute]s", " ", 
+      RowBox[{"vonz\[OAcute]", "."}]}]}],
+    FontSize->16], TraditionalForm]]],
+ "\[LineSeparator]\n\t\[LineSeparator]",
+ StyleBox["\tEgydimenzi\[OAcute]s rendszerek eset\[EAcute]ben a \
+vonz\[AAcute]sb\[OAcute]l k\[ODoubleDot]vetkezik a stabilit\[AAcute]s. A k\
+\[ODoubleDot]vetkez\[ODoubleAcute] t\[EAcute]tel arr\[OAcute]l sz\[OAcute]l, \
+hogy amikor valamilyen    \[LineSeparator]\trendszer egy adott \
+megold\[AAcute]s\[AAcute]nak stabilit\[AAcute]s\[AAcute]t szeretn\[EAcute]nk \
+eld\[ODoubleDot]nteni, vizsg\[AAcute]lhatjuk egy helyettes\[IAcute]t\
+\[ODoubleAcute] rendszer trivi\[AAcute]lis (azonosan\[LineSeparator]\tnulla) \
+megold\[AAcute]s\[AAcute]t, amely stabilit\[AAcute]s szempontj\[AAcute]b\
+\[OAcute]l egyen\[EAcute]rt\[EAcute]k\[UDoubleAcute] a vizsg\[AAcute]lni k\
+\[IAcute]v\[AAcute]nt rendszer adott megold\[AAcute]s\[AAcute]val.     ",
+  FontSize->16],
+ StyleBox["                        ",
+  FontSize->16,
+  FontWeight->"Bold"],
+ "\n\n\n",
+ StyleBox["\t",
+  FontSize->16],
+ StyleBox["T\[EAcute]tel. ",
+  FontSize->16,
+  FontWeight->"Bold"],
+ StyleBox["Az ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{
+     OverscriptBox["x", 
+      StyleBox[".",
+       FontWeight->"Bold"]], "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"f", "\[SmallCircle]", 
+        RowBox[{"(", 
+         RowBox[{"id", ",", "x"}], ")"}]}], " ", "rendszer", " ", 
+       RowBox[{"\[Mu]", ":", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["t", "-"], ",", 
+          RowBox[{"+", "\[Infinity]"}]}], ")"}]}]}], "\[Rule]", 
+      RowBox[{
+       SuperscriptBox["\[DoubleStruckCapitalR]", "n"], " ", 
+       "megold\[AAcute]sa", " ", "pontosan", " ", "akkor", " ", "stabilis", 
+       " ", 
+       RowBox[{"ill", ".", " ", "vonz\[OAcute]"}], " ", 
+       RowBox[{"ill", ".", " ", "aszimptotikusan"}]}]}]}],
+    FontSize->16], TraditionalForm]],
+  FontSize->16],
+ StyleBox["\[LineSeparator]\t\tstabilis, ha a\[LineSeparator]\[LineSeparator]\
+\t\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    StyleBox[
+     RowBox[{
+      OverscriptBox[
+       StyleBox["y",
+        FontSize->16], 
+       StyleBox[".",
+        FontWeight->"Bold"]], " ", 
+      RowBox[{"(", "t", ")"}]}],
+     FontSize->16], 
+    StyleBox["=",
+     FontSize->16], 
+    RowBox[{
+     StyleBox[
+      RowBox[{"f", "(", 
+       RowBox[{"t", ",", 
+        RowBox[{
+         RowBox[{"y", "(", "t", ")"}], "+", 
+         RowBox[{"\[Mu]", "(", "t", ")"}]}]}], ")"}],
+      FontSize->16], 
+     StyleBox["-",
+      FontSize->16], 
+     RowBox[{
+      StyleBox[
+       RowBox[{"f", "(", 
+        RowBox[{"t", ",", 
+         RowBox[{"\[Mu]", 
+          RowBox[{"(", "t", ")"}]}]}], ")"}],
+       FontSize->16], "         ", 
+      RowBox[{"(", 
+       RowBox[{"t", "\[Element]", 
+        RowBox[{"(", 
+         StyleBox[
+          RowBox[{
+           SuperscriptBox["t", "-"], ",", 
+           RowBox[{"+", "\[Infinity]"}]}],
+          FontSize->16], 
+         StyleBox[")",
+          FontSize->16]}]}], 
+       StyleBox[")",
+        FontSize->16]}]}]}]}], TraditionalForm]],
+  FontSize->16],
+ StyleBox["\[LineSeparator]\[LineSeparator]\t ",
+  FontSize->16],
+ StyleBox["helyttes\[IAcute]t\[ODoubleAcute] rendszer",
+  FontSize->16,
+  FontWeight->"Bold"],
+ StyleBox["nek a ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{" ", 
+     RowBox[{"(", 
+      StyleBox[
+       RowBox[{
+        SuperscriptBox["t", "-"], ",", 
+        RowBox[{"+", "\[Infinity]"}]}],
+       FontSize->16], 
+      StyleBox[")",
+       FontSize->16]}], 
+     StyleBox[")",
+      FontSize->16]}], 
+    StyleBox[" ",
+     FontSize->16], 
+    StyleBox["intervallumon",
+     FontSize->16], 
+    StyleBox[" ",
+     FontSize->16], 
+    StyleBox["\[EAcute]rtelmezett",
+     FontSize->16], 
+    StyleBox[" ",
+     FontSize->16], 
+    StyleBox["trivi\[AAcute]lis",
+     FontSize->16], 
+    StyleBox[" ",
+     FontSize->16], 
+    StyleBox["megold\[AAcute]sa",
+     FontSize->16], 
+    StyleBox[" ",
+     FontSize->16], 
+    StyleBox["stabilis",
+     FontSize->16], 
+    StyleBox[" ",
+     FontSize->16], 
+    StyleBox[
+     RowBox[{"ill", ".", " ", "vonz\[OAcute]"}],
+     FontSize->16], 
+    StyleBox[" ",
+     FontSize->16], 
+    StyleBox[
+     RowBox[{"ill", ".", " ", "aszimptotikusan"}],
+     FontSize->16], 
+    StyleBox[" ",
+     FontSize->16], 
+    StyleBox["stabilis",
+     FontSize->16]}], TraditionalForm]],
+  FontSize->16],
+ StyleBox[",\n\tui. az ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"x", "\[Rule]", "y"}], ":=", 
+    RowBox[{"x", "-", "\[Mu]"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox[" transzform\[AAcute]ci\[OAcute]val a rendszer\[LineSeparator]\t\
+\[LineSeparator]\t\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    StyleBox[
+     OverscriptBox[
+      StyleBox["y",
+       FontSize->16], 
+      StyleBox[".",
+       FontWeight->"Bold"]],
+     FontSize->16], 
+    StyleBox[" ",
+     FontSize->16], 
+    StyleBox["=",
+     FontSize->16], 
+    RowBox[{
+     RowBox[{
+      OverscriptBox[
+       StyleBox["x",
+        FontSize->16], "."], "-", 
+      OverscriptBox["\[Mu]", "."]}], "=", 
+     RowBox[{
+      RowBox[{
+       StyleBox[
+        RowBox[{"f", "\[SmallCircle]", 
+         RowBox[{"(", 
+          RowBox[{"id", ",", "x"}], ")"}]}],
+        FontSize->16], "-", 
+       StyleBox[
+        RowBox[{"f", "\[SmallCircle]", 
+         RowBox[{"(", 
+          RowBox[{"id", ",", "\[Mu]"}], ")"}]}],
+        FontSize->16]}], 
+      StyleBox["=",
+       FontSize->16], 
+      RowBox[{
+       StyleBox[
+        RowBox[{"f", "\[SmallCircle]", 
+         RowBox[{"(", 
+          RowBox[{"id", ",", 
+           RowBox[{"y", "+", "\[Mu]"}]}], ")"}]}],
+        FontSize->16], "-", 
+       StyleBox[
+        RowBox[{"f", "\[SmallCircle]", 
+         RowBox[{"(", 
+          RowBox[{"id", ",", "\[Mu]"}], ")"}]}],
+        FontSize->16]}]}]}]}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox["\n\t\n\talakra hozhat\[OAcute], melynek ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"y", "\[Congruent]", "0"}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox[" trivi\[AAcute]lisan megold\[AAcute]sa, bel\[AAcute]that\[OAcute], \
+hogy ekkor a megfelel\[ODoubleAcute] rendszerek ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"y", "\[Congruent]", "0"}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox[" \[EAcute]s ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"x", "=", "\[Mu]"}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox[" megold\[AAcute]sai\n\tstabilit\[AAcute]s ill. vonz\[AAcute]s \
+szempontj\[AAcute]b\[OAcute]l ekvivalensek.\[LineSeparator]\t\n\t\
+\[LineSeparator]\t",
+  FontSize->16],
+ StyleBox["P\[EAcute]lda. ",
+  FontSize->16,
+  FontWeight->"Bold"],
+ StyleBox["Egy egyszer\[UDoubleAcute] p\[EAcute]lda nemline\[AAcute]ris, \
+nemauton\[OAcute]m rendszerre a\[LineSeparator]\t\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[IndentingNewLine]", 
+    TagBox[GridBox[{
+       {"\[Piecewise]", GridBox[{
+          {
+           RowBox[{
+            RowBox[{
+             OverscriptBox["x", "."], "(", "t", ")"}], "=", 
+            RowBox[{"t", " ", "x"}]}], 
+           RowBox[{" ", 
+            RowBox[{"(", 
+             RowBox[{"x", "\[Element]", "\[DoubleStruckCapitalR]"}], ")"}]}]},
+          {
+           RowBox[{
+            RowBox[{
+             OverscriptBox["y", "."], "(", "t", ")"}], "=", 
+            RowBox[{
+             RowBox[{"y", "(", "t", ")"}], 
+             RowBox[{"(", 
+              RowBox[{"1", "-", 
+               RowBox[{"y", "(", "t", ")"}]}], ")"}]}]}], 
+           RowBox[{"(", 
+            RowBox[{"y", "\[Element]", "\[DoubleStruckCapitalR]"}], ")"}]}
+         },
+         AllowedDimensions->{2, Automatic},
+         Editable->True,
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{1.}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.84]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.4]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}},
+         Selectable->True]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxItemSize->{
+       "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.35]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     "Piecewise",
+     DeleteWithContents->True,
+     Editable->False,
+     SelectWithContents->True,
+     Selectable->False]}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox["\[LineSeparator]\[LineSeparator]\tk\[EAcute]tdimenzi\[OAcute]s \
+rendszer. Ennek k\[EAcute]t egyens\[UAcute]lyi helyzete van: ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"x", ",", "y"}], ")"}], "=", 
+    RowBox[{"(", 
+     RowBox[{"0", ",", "0"}], ")"}], " "}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox[" \[EAcute]s ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"x", ",", "y"}], ")"}], "=", 
+    RowBox[{"(", 
+     RowBox[{"0", ",", "1"}], ")"}], " "}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox[". A k\[ODoubleDot]vetkez\[ODoubleAcute] \[AAcute]br\[AAcute]n l\
+\[AAcute]that\[OAcute],\n\thogy ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"0", ",", "0"}], ")"}], " ", "vonz\[OAcute]"}], ",", " ", 
+    RowBox[{"(", 
+     RowBox[{"0", ",", "1"}], ")"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox[" pedig tasz\[IAcute]t\[OAcute], azaz labilis.",
+  FontSize->16],
+ "\[LineSeparator]\t"
+}], "Text",
+ CellChangeTimes->{{3.7031346744050126`*^9, 3.7031348210341883`*^9}, {
+   3.7031349226268826`*^9, 3.703134996932828*^9}, {3.7031350476577067`*^9, 
+   3.7031350818537054`*^9}, {3.703135124896284*^9, 3.703135184912055*^9}, {
+   3.7031353468089333`*^9, 3.7031359104058843`*^9}, {3.7031360650776863`*^9, 
+   3.703136229078353*^9}, {3.703136262132756*^9, 3.7031362704890203`*^9}, {
+   3.703136301237027*^9, 3.7031370350135174`*^9}, {3.703137075783414*^9, 
+   3.7031370887081647`*^9}, {3.7031371651420655`*^9, 3.703137236230711*^9}, {
+   3.7031372965801086`*^9, 3.703137335006837*^9}, {3.703137392987072*^9, 
+   3.7031374307712364`*^9}, {3.703137462442898*^9, 3.70313746959503*^9}, {
+   3.703137511677206*^9, 3.7031375131721334`*^9}, {3.7031375449300966`*^9, 
+   3.703138047472166*^9}, {3.703138085244233*^9, 3.703138102785493*^9}, {
+   3.7031381858698406`*^9, 3.7031382122810154`*^9}, {3.7031382501734266`*^9, 
+   3.703138276842447*^9}, {3.7031383100204325`*^9, 3.7031386006897306`*^9}, 
+   3.70313898629226*^9, {3.703139700942711*^9, 3.703139906783642*^9}, {
+   3.703144661085657*^9, 3.703144803596469*^9}, {3.7031448433998537`*^9, 
+   3.703145008664505*^9}, {3.7031450403682804`*^9, 3.703145157445016*^9}, {
+   3.7031452889250298`*^9, 3.7031452953561325`*^9}, {3.7031478353424788`*^9, 
+   3.7031483234943943`*^9}, {3.703150495234153*^9, 3.703150504726102*^9}, {
+   3.703150639128376*^9, 3.703150648141336*^9}, {3.703153092373929*^9, 
+   3.703153136184615*^9}, {3.703154656340763*^9, 3.7031546566631145`*^9}},
+ TextJustification->0.],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Mu]1", "[", "t_", "]"}], "=", 
+   RowBox[{"DSolveValue", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"x", "'"}], "[", "t", "]"}], "\[Equal]", 
+        RowBox[{
+         RowBox[{"-", "5"}], "t", " ", 
+         RowBox[{"x", "[", "t", "]"}]}]}], ",", 
+       RowBox[{
+        RowBox[{"x", "[", "0", "]"}], "\[Equal]", "\[Xi]"}]}], "}"}], ",", 
+     RowBox[{"x", "[", "t", "]"}], ",", "t"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Mu]2", "[", "t_", "]"}], "=", 
+   RowBox[{"DSolveValue", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"y", "'"}], "[", "t", "]"}], "\[Equal]", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"y", "[", "t", "]"}], "-", "1"}], ")"}], 
+         RowBox[{"y", "[", "t", "]"}]}]}], ",", 
+       RowBox[{
+        RowBox[{"y", "[", "0", "]"}], "\[Equal]", "\[Eta]"}]}], "}"}], ",", 
+     RowBox[{"y", "[", "t", "]"}], ",", "t"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Clear", "[", "\[Mu]", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Mu]", "[", 
+    RowBox[{"t_", ",", "\[Xi]_", ",", "\[Eta]_"}], "]"}], "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\[Mu]1", "[", "t", "]"}], ",", 
+     RowBox[{"\[Mu]2", "[", "t", "]"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Mu]", "[", 
+   RowBox[{"t", ",", "\[Xi]", ",", "\[Eta]"}], "]"}], "//", 
+  "TraditionalForm"}], "\[IndentingNewLine]", 
+ RowBox[{"ParametricPlot3D", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"First", "[", "#", "]"}], ",", 
+          RowBox[{"Last", "[", "#", "]"}], ",", "t"}], "}"}], "&"}], ")"}], 
+      "@", 
+      RowBox[{"\[Mu]", "[", 
+       RowBox[{"t", ",", "i", ",", "j"}], "]"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", 
+       RowBox[{"-", "1.2"}], ",", "1.2", ",", "0.2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"j", ",", 
+       RowBox[{"-", "1.2"}], ",", "1.2", ",", "0.2"}], "}"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0", ",", "5"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"ColorFunction", "\[Rule]", 
+    RowBox[{"Function", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", "y", ",", "z"}], "}"}], ",", 
+      RowBox[{"Hue", "[", "z", "]"}]}], "]"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "1.2"}], ",", "1.2"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "1.2"}], ",", "1.2"}], "}"}]}], "}"}]}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.7031421019564075`*^9, 3.703142107183302*^9}, {
+   3.7031421635147476`*^9, 3.7031424727520285`*^9}, {3.703142520856614*^9, 
+   3.7031425618403535`*^9}, 3.7031430695537605`*^9, {3.7031433502289925`*^9, 
+   3.703143359569716*^9}, {3.703143414163373*^9, 3.7031434513294144`*^9}, {
+   3.703148818291156*^9, 3.703148833760702*^9}, {3.7031488802542086`*^9, 
+   3.703148938312498*^9}, {3.703148984208093*^9, 3.7031489860948353`*^9}, 
+   3.703149731595561*^9, {3.703149994940553*^9, 3.703150000307272*^9}, {
+   3.7031567759551587`*^9, 3.7031567855381145`*^9}, {3.7031583331070776`*^9, 
+   3.703158334306156*^9}}],
+
+Cell[TextData[{
+ "\t\t\t\n\n\t",
+ StyleBox["1.1. Line\[AAcute]ris rendszerek stabilit\[AAcute]sa",
+  FontSize->24],
+ StyleBox["\[LineSeparator]\n\t",
+  FontSize->18],
+ StyleBox["Legyen  ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    StyleBox[
+     RowBox[{
+      RowBox[{"T", "\[Element]", 
+       RowBox[{"[", 
+        RowBox[{
+         RowBox[{"-", "\[Infinity]"}], ",", "\[Infinity]"}]}]}], ")"}],
+     FontSize->16], 
+    StyleBox[",",
+     FontSize->16], 
+    StyleBox[" ",
+     FontSize->16], 
+    StyleBox[
+     RowBox[{"A", "\[Element]", 
+      RowBox[{"C", "(", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"T", ",", 
+          RowBox[{"+", "\[Infinity]"}]}], ")"}], ",", 
+        SuperscriptBox[
+         StyleBox["\[DoubleStruckCapitalR]",
+          FontSize->16], 
+         RowBox[{"n", 
+          StyleBox["\[Times]",
+           FontSlant->"Italic"], "n"}]]}], ")"}]}],
+     FontSize->16], 
+    StyleBox[",",
+     FontSize->16], 
+    StyleBox[" ",
+     FontSize->16], 
+    RowBox[{
+     StyleBox["b",
+      FontSize->16], 
+     StyleBox["\[Element]",
+      FontSize->16], 
+     RowBox[{"C", "(", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"T", ",", 
+         RowBox[{"+", "\[Infinity]"}]}], ")"}], ",", 
+       SuperscriptBox[
+        StyleBox["\[DoubleStruckCapitalR]",
+         FontSize->16], "n"]}], ")"}]}]}], TraditionalForm]]],
+ ".",
+ StyleBox["\n\[LineSeparator]\t",
+  FontSize->16],
+ StyleBox["T\[EAcute]tel. ",
+  FontSize->16,
+  FontWeight->"Bold"],
+ StyleBox["Line\[AAcute]ris rendszerek",
+  FontSize->16],
+ StyleBox[" minden megold\[AAcute]s",
+  FontSize->16,
+  FontWeight->"Bold"],
+ StyleBox["a stabilit\[AAcute]s ill. vonz\[AAcute]s szempontj\[AAcute]b\
+\[OAcute]l",
+  FontSize->16],
+ StyleBox[" ugyan\[UAcute]gy viselkedik",
+  FontSize->16,
+  FontWeight->"Bold"],
+ StyleBox[" mint a homog\[EAcute]n egyenlet trivi\[AAcute]lis \
+megold\[AAcute]sa,\n\thiszen a line\[AAcute]ris rendszerek eset\[EAcute]ben a \
+helyettes\[IAcute]t\[ODoubleAcute] rendszer \[EAcute]ppen a homog\[EAcute]n \
+egyenlet:\n\t\n\t\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    OverscriptBox["x", "."], "=", 
+    RowBox[{
+     RowBox[{"f", "\[SmallCircle]", 
+      RowBox[{"(", 
+       RowBox[{"id", ",", "x"}], ")"}]}], "=", 
+     RowBox[{
+      RowBox[{"A", " ", "x"}], "+", "b", " "}]}]}], TraditionalForm]],
+  FontSize->16],
+ ",\n\t\n\t",
+ StyleBox[" ekkor tetsz\[ODoubleAcute]leges ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Mu]", " ", "eset\[EAcute]n"}], TraditionalForm]],
+  FontSize->16],
+ StyleBox[" a helyettes\[IAcute]t\[ODoubleAcute] rendszer: \n\t\n\t\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    OverscriptBox["y", "."], "=", 
+    RowBox[{
+     RowBox[{
+      StyleBox[
+       RowBox[{"f", "\[SmallCircle]", 
+        RowBox[{"(", 
+         RowBox[{"id", ",", 
+          RowBox[{"y", "+", "\[Mu]"}]}], ")"}]}],
+       FontSize->16], "-", 
+      StyleBox[
+       RowBox[{"f", "\[SmallCircle]", 
+        RowBox[{"(", 
+         RowBox[{"id", ",", "\[Mu]"}], ")"}]}],
+       FontSize->16]}], 
+     StyleBox["=",
+      FontSize->16], 
+     StyleBox[
+      RowBox[{
+       RowBox[{
+        RowBox[{"[", 
+         RowBox[{
+          RowBox[{"A", " ", 
+           RowBox[{"(", 
+            RowBox[{"y", "+", "\[Mu]"}], ")"}]}], "+", "b"}], "]"}], "-", 
+        RowBox[{"[", 
+         RowBox[{
+          RowBox[{"A", " ", "\[Mu]"}], "+", "b"}], "]"}]}], "=", 
+       RowBox[{"A", " ", "y"}]}],
+      FontSize->16]}]}], TraditionalForm]]],
+ ",\n\t\t",
+ StyleBox["\n\tvagyis \[EAcute]ppen a homog\[EAcute]n rendszer.",
+  FontSize->16],
+ "\n\t\n\t\n\t",
+ StyleBox["Tov\[AAcute]bbi fontos t\[EAcute]telek",
+  FontSize->16,
+  FontWeight->"Bold"],
+ StyleBox[" line\[AAcute]ris rendszerekre vonatkoz\[OAcute]an:\n\t\n\t\
+\[FilledSmallCircle] a ",
+  FontSize->16],
+ StyleBox["vonz\[AAcute]sb\[OAcute]l k\[ODoubleDot]vetkezik a stabilit\
+\[AAcute]s",
+  FontSize->16,
+  FontWeight->"Bold"],
+ StyleBox[", vagyis minden vonz\[OAcute] megold\[AAcute]s egyben \
+aszimptotikusan stabilis.\n\t\n\t\[FilledSmallCircle] a homog\[EAcute]n \
+rendszer",
+  FontSize->16],
+ StyleBox[" tetsz\[ODoubleAcute]leges megold\[AAcute]sa pontosan akkor \
+stabilis ha az alapm\[AAcute]trix",
+  FontSize->16,
+  FontWeight->"Bold"],
+ StyleBox[" (Cauchy-m\[AAcute]trix) ",
+  FontSize->16],
+ StyleBox["korl\[AAcute]tos",
+  FontSize->16,
+  FontWeight->"Bold"],
+ StyleBox[" f\[UDoubleDot]ggv\[EAcute]ny,\n\t   ez \[AAcute]lland\[OAcute] \
+egy\[UDoubleDot]tthat\[OAcute]j\[UAcute] line\[AAcute]ris rendszerek eset\
+\[EAcute]ben azt jelenti, hogy nincsen pozit\[IAcute]v val\[OAcute]s r\
+\[EAcute]sz\[UDoubleAcute] saj\[AAcute]t\[EAcute]rt\[EAcute]ke,  ha pedig van \
+olyan\n\t   saj\[AAcute]t\[EAcute]rt\[EAcute]ke, amelynek val\[OAcute]s r\
+\[EAcute]sze 0, akkor akkor az a minim\[AAcute]l polinom egyszeres gy\
+\[ODoubleDot]ke. Teh\[AAcute]t ha ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[ForAll]", 
+    RowBox[{"\[Tau]", ">", 
+     RowBox[{"T", ":", 
+      RowBox[{"\[Exists]", 
+       RowBox[{"K", ">", "0"}]}], ":"}]}]}], TraditionalForm]]],
+ StyleBox["\n\t\n\t\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"||", 
+    RowBox[{"\[CapitalLambda]", "(", 
+     RowBox[{"t", ";", "\[Tau]"}], ")"}], "||", 
+    RowBox[{"\[LessEqual]", 
+     RowBox[{"K", "     ", 
+      RowBox[{"(", 
+       RowBox[{"t", ">", "\[Tau]"}], ")"}]}]}]}], TraditionalForm]]],
+ ",",
+ StyleBox["\n\t\n\t   ahol \[CapitalLambda] a Cauchy-m\[AAcute]trix.\n\t   \n\
+\t\[FilledSmallCircle]  a homog\[EAcute]n rendszer",
+  FontSize->16],
+ StyleBox[" tetsz\[ODoubleAcute]leges megold\[AAcute]sa pontosan akkor \
+aszimptotikusan stabilis, ha az alapm\[AAcute]trix a z\[EAcute]rus \
+m\[AAcute]trixhoz\n\t    tart. ",
+  FontSize->16,
+  FontWeight->"Bold"],
+ StyleBox["Teh\[AAcute]t ha ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[ForAll]", 
+    RowBox[{"\[Tau]", ">", 
+     RowBox[{"T", ":"}]}]}], TraditionalForm]]],
+ "\n\t    ",
+ StyleBox["\n\t    ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\t", 
+    RowBox[{
+     RowBox[{
+      UnderscriptBox["lim", 
+       RowBox[{"t", "\[Rule]", 
+        RowBox[{"+", "\[Infinity]"}]}]], 
+      RowBox[{"\[CapitalLambda]", "(", 
+       RowBox[{"t", ";", "\[Tau]"}], ")"}]}], "=", "O"}]}], TraditionalForm]],
+  FontSize->16],
+ StyleBox[".\n\t    \n\t    Ez \[AAcute]lland\[OAcute] egy\[UDoubleDot]tthat\
+\[OAcute]j\[UAcute] rendszerek, vagyis ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"A", "\[Element]", 
+    SuperscriptBox["\[DoubleStruckCapitalR]", 
+     RowBox[{"n", "\[Times]", "n"}]]}], TraditionalForm]],
+  FontSize->16],
+ StyleBox[" eset\[EAcute]n azt jelenti, hogy ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{" ", "A"}],
+    FontSize->16], TraditionalForm]],
+  FontSize->16],
+ StyleBox[" minden saj\[AAcute]t\[EAcute]rt\[EAcute]k\[EAcute]nek \
+val\[OAcute]s r\[EAcute]sze negat\[IAcute]v.\n\t   \n\t    \n\t",
+  FontSize->16],
+ StyleBox["P\[EAcute]lda. ",
+  FontSize->16,
+  FontWeight->"Bold"],
+ StyleBox["A fentiek \[EAcute]rtelm\[EAcute]ben azt lehet mondani, hogy ha \
+egy line\[AAcute]ris rendszer egy megold\[AAcute]sa vonz\[OAcute], akkor \
+minden megold\[AAcute]sa vonz\[OAcute],\n\tteh\[AAcute]t aszimptotikusan \
+stabilis is, amit j\[OAcute]l szeml\[EAcute]ltet a k\[ODoubleDot]vetkez\
+\[ODoubleAcute] \[AAcute]bra, amely a\n\t\n\t\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"(", GridBox[{
+       {
+        OverscriptBox["x", "."]},
+       {
+        OverscriptBox["y", "."]}
+      }], ")"}], "=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", GridBox[{
+         {"1", 
+          RowBox[{"-", "1"}]},
+         {
+          RowBox[{"-", "1"}], 
+          RowBox[{"-", "1"}]}
+        }], ")"}], 
+      RowBox[{"(", GridBox[{
+         {"x"},
+         {"y"}
+        }], ")"}]}], "+", 
+     RowBox[{"(", GridBox[{
+        {
+         RowBox[{"cos", "(", "t", ")"}]},
+        {
+         RowBox[{"sin", "(", "t", ")"}]}
+       }], ")"}]}]}], TraditionalForm]],
+  FontSize->16],
+ "\n\t\t\n\trendszer megold\[AAcute]sait \[AAcute]br\[AAcute]zolja."
+}], "Text",
+ CellChangeTimes->{{3.703140513158848*^9, 3.7031405378830185`*^9}, {
+   3.703145750946961*^9, 3.703145760873599*^9}, {3.7031457919791884`*^9, 
+   3.7031459298695726`*^9}, {3.703147785277406*^9, 3.703147792692748*^9}, {
+   3.7031483840783043`*^9, 3.703148394774452*^9}, {3.70314847356781*^9, 
+   3.703148486718916*^9}, {3.703148541338242*^9, 3.703148572974618*^9}, {
+   3.703148623111658*^9, 3.7031486472105856`*^9}, {3.703148686907693*^9, 
+   3.703148714376725*^9}, {3.7031487739206414`*^9, 3.7031487917557993`*^9}, {
+   3.703149003273584*^9, 3.703149053765129*^9}, {3.703149120400812*^9, 
+   3.703149242724625*^9}, {3.7031492903724837`*^9, 3.703149395740281*^9}, {
+   3.7031494921811304`*^9, 3.7031495897888975`*^9}, {3.703149644496833*^9, 
+   3.7031496556444345`*^9}, 3.7031497012977686`*^9, {3.703149769810549*^9, 
+   3.703149790607668*^9}, {3.7031498732726307`*^9, 3.703149962735838*^9}, {
+   3.703150018941704*^9, 3.7031501643095903`*^9}, {3.703150208807045*^9, 
+   3.7031502683787127`*^9}, {3.703150363180994*^9, 3.7031503705213275`*^9}, {
+   3.7031506933601074`*^9, 3.7031507904964976`*^9}, {3.703150833238047*^9, 
+   3.703151076711102*^9}, {3.7031511229120893`*^9, 3.7031511577080784`*^9}, {
+   3.7031512192863455`*^9, 3.703151379386279*^9}, {3.70315143719168*^9, 
+   3.703151635640246*^9}, {3.7031516746020384`*^9, 3.703151776727199*^9}, {
+   3.703151828205209*^9, 3.7031519018862348`*^9}, {3.703151963377555*^9, 
+   3.7031519911292067`*^9}, {3.703152957374938*^9, 3.703152966538597*^9}, 
+   3.703153080755968*^9, {3.703156091814208*^9, 3.7031561080443196`*^9}, {
+   3.7031561396290565`*^9, 3.703156141153728*^9}, {3.7031562150208836`*^9, 
+   3.7031563024591265`*^9}, {3.7031564472509866`*^9, 3.703156600934431*^9}},
+ TextJustification->0.],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Clear", "[", "\[Mu]", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Mu]", "[", 
+    RowBox[{
+    "t_", ",", "\[Xi]_", ",", "\[Eta]_", ",", "\[Alpha]_", ",", "\[Beta]_"}], 
+    "]"}], "=", 
+   RowBox[{
+    RowBox[{"MatrixExp", "[", 
+     RowBox[{"t", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\[Alpha]", ",", "\[Beta]"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "\[Beta]"}], ",", "\[Alpha]"}], "}"}]}], "}"}]}], 
+     "]"}], ".", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\[Xi]", ",", "\[Eta]"}], "}"}], "+", 
+      RowBox[{"Integrate", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Inverse", "[", 
+          RowBox[{"MatrixExp", "[", 
+           RowBox[{"s", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"-", "1"}], ",", 
+                RowBox[{"-", "1"}]}], "}"}]}], "}"}]}], "]"}], "]"}], ".", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Cos", "[", "s", "]"}], ",", 
+           RowBox[{"Sin", "[", "s", "]"}]}], "}"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"s", ",", "0", ",", "t"}], "}"}]}], "]"}]}], ")"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ParametricPlot3D", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"First", "[", "#", "]"}], ",", 
+          RowBox[{"Last", "[", "#", "]"}], ",", "t"}], "}"}], "&"}], ")"}], 
+      "@", 
+      RowBox[{"\[Mu]", "[", 
+       RowBox[{
+        RowBox[{"2", "Pi", " ", "t"}], ",", "i", ",", "j", ",", 
+        RowBox[{"-", "1"}], ",", "1"}], "]"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", 
+       RowBox[{"-", "0.5"}], ",", "0.5", ",", "0.2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"j", ",", 
+       RowBox[{"-", "0.5"}], ",", "0.5", ",", "0.2"}], "}"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0", ",", "1"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"ColorFunction", "\[Rule]", 
+    RowBox[{"Function", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", "y", ",", "z"}], "}"}], ",", 
+      RowBox[{"Hue", "[", "z", "]"}]}], "]"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "0.5"}], ",", "0.5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "0.5"}], ",", "0.5"}], "}"}]}], "}"}]}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.7031563070192394`*^9, 3.7031564348986673`*^9}, {
+   3.7031566140119495`*^9, 3.703156713904926*^9}, 3.7031567654589777`*^9, {
+   3.7031568043101754`*^9, 3.7031568249462333`*^9}, {3.703156858506744*^9, 
+   3.703156947560126*^9}, {3.7031569798703976`*^9, 3.703156997653016*^9}, {
+   3.7031570423134775`*^9, 3.7031570950955086`*^9}, {3.7031571471234055`*^9, 
+   3.7031571508051353`*^9}, {3.703157491744419*^9, 3.7031575055325794`*^9}, {
+   3.7031579688836603`*^9, 3.703157988486885*^9}, {3.7031586258850603`*^9, 
+   3.7031586629053946`*^9}, {3.7031612963206367`*^9, 3.703161310250859*^9}, 
+   3.703168559833506*^9}],
+
+Cell[TextData[{
+ StyleBox["\t1.2. Nemline\[AAcute]ris rendszerek stabilit\[AAcute]sa",
+  FontSize->24],
+ StyleBox["\n\n\t",
+  FontSize->18],
+ StyleBox["Nemline\[AAcute]ris rendszerek stabilit\[AAcute]s\[AAcute]nak \
+vizsg\[AAcute]latakor nagy m\[EAcute]rt\[EAcute]kben a line\[AAcute]ris \
+rendszerek stabilit\[AAcute]s vizsg\[AAcute]lat\[AAcute]ra \
+t\[AAcute]maszkodunk.\n\tA k\[ODoubleDot]vetkez\[ODoubleAcute] t\[EAcute]tel \
+azt \[AAcute]ll\[IAcute]tja, hogy ha egy nemline\[AAcute]ris auton\[OAcute]m \
+rendszert, melynek van trivi\[AAcute]lis egyens\[UAcute]lyi helyzete, \
+feltudunk bontani\n\tegy \[AAcute]lland\[OAcute] egy\[UDoubleDot]tthat\
+\[OAcute]j\[UAcute] line\[AAcute]ris tag \[EAcute]s egy nemline\[AAcute]ris \
+tag \[ODoubleDot]sszeg\[EAcute]re \[UAcute]gy, hogy a nemline\[AAcute]ris tag \
+Jacobi-m\[AAcute]trixa a trivi\[AAcute]lis egyens\[UAcute]lyi\n\thelyzetben \
+elt\[UDoubleAcute]nik, \[EAcute]s a line\[AAcute]ris tag \
+egy\[UDoubleDot]tthat\[OAcute] m\[AAcute]trix\[AAcute]nak minden \
+saj\[AAcute]t\[EAcute]rt\[EAcute]k\[EAcute]nek val\[OAcute]s r\[EAcute]sze \
+negat\[IAcute]v, akkor a trivi\[AAcute]lis egyens\[UAcute]lyi helyzet\n\t\
+aszimptotikusan stabilis.\n\t\n",
+  FontSize->16],
+ StyleBox["\tT\[EAcute]tel. ",
+  FontSize->16,
+  FontWeight->"Bold"],
+ StyleBox["(",
+  FontSize->16],
+ StyleBox["Line\[AAcute]ris k\[ODoubleDot]zel\[IAcute]t\[EAcute]sben val\
+\[OAcute] stabilit\[AAcute]s",
+  FontSize->16,
+  FontWeight->"Bold"],
+ StyleBox[") Legyen ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"A", " ", "\[Element]", " ", 
+     RowBox[{
+      SuperscriptBox["\[DoubleStruckCapitalR]", 
+       RowBox[{"n", "\[Times]", "n"}]], " ", "konstans", " ", 
+      "m\[AAcute]trix"}]}], ",", " ", 
+    RowBox[{"r", " ", "\[Element]", " ", 
+     RowBox[{
+      SuperscriptBox["C", "1"], "(", 
+      RowBox[{"\[CapitalOmega]", ",", 
+       SuperscriptBox["\[DoubleStruckCapitalR]", "n"]}], ")"}]}]}], 
+   TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox[" \[EAcute]s tekints\[UDoubleDot]k az\n\t\n\t\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    OverscriptBox["x", "."], "=", 
+    RowBox[{
+     RowBox[{"A", " ", "x"}], "+", 
+     RowBox[{"r", "\[SmallCircle]", "x"}]}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ StyleBox["\t\t\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"(*", ")"}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox["\n\t\n\talak\[UAcute] nemline\[AAcute]ris auton\[OAcute]m \
+rendszert. Ekkor ha ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   StyleBox["r",
+    FontSize->16], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox[" is \[EAcute]s a Jacobi-m\[AAcute]trixa is elt\[UDoubleAcute]nik a \
+",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"0", "\[Element]", 
+    SuperscriptBox["\[DoubleStruckCapitalR]", "n"]}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox[" trivi\[AAcute]lis egyens\[UAcute]lyi helyzetben, azaz \n\t\n\t\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"r", "(", "0", ")"}], "=", "0"}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox["\t\[EAcute]s\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"r", "'"}], 
+     RowBox[{"(", "0", ")"}]}], "=", "O"}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox[",\n\t\t\n\ttov\[AAcute]bb\[AAcute] ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox["A", TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox[" minden saj\[AAcute]t\[EAcute]rt\[EAcute]k\[EAcute]nek \
+val\[OAcute]s r\[EAcute]sze negat\[IAcute]v, azaz ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[ForAll]", 
+     RowBox[{"\[Lambda]", "\[Element]", 
+      RowBox[{"\[Sigma]", "(", "A", ")"}]}]}], ":", 
+    RowBox[{
+     RowBox[{"Re", "(", "\[Lambda]", ")"}], "<", "0"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox[", akkor a ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"(*", ")"}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox[" rendszer",
+  FontSize->16],
+ StyleBox[" trivi\[AAcute]lis\n\tegyens\[UAcute]lyi helyzete aszimptotikusan \
+stabilis",
+  FontSize->16,
+  FontWeight->"Bold"],
+ StyleBox[".\n\t\n\tEz a t\[EAcute]tel rendk\[IAcute]v\[UDoubleAcute]l j\
+\[OAcute]l alkalmazhat\[OAcute] a k\[ODoubleDot]vetkez\[ODoubleAcute] m\
+\[OAcute]don. Tekints\[UDoubleDot]k az\n\t\n\t\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    OverscriptBox["x", "."], "=", 
+    RowBox[{"f", "\[SmallCircle]", "x"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox["\n\t\t\n\tauton\[OAcute]m rendszert, melynek ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Xi]", "\[Element]", "\[CapitalOmega]"}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox[" egyens\[UAcute]lyi helyzete, azaz ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"f", "(", "\[Xi]", ")"}], "=", "0"}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox[". A helyettes\[IAcute]t\[ODoubleAcute] rendszer\n\t\n\t\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{
+     OverscriptBox["y", "."], "=", 
      RowBox[{
       RowBox[{"f", "(", 
-       RowBox[{"s", ",", 
-        RowBox[{"x", "(", "s", ")"}]}], ")"}], 
-      RowBox[{"\[DifferentialD]", "s"}]}]}]}]}], 
-  TraditionalForm]], "DisplayFormula",
- CellChangeTimes->{{3.6999785146547318`*^9, 3.699978599520615*^9}}],
-
-Cell[TextData[{
- "Ha sz\[AAcute]mozni akarjuk a formul\[AAcute]t, akkor haszn\[AAcute]ljuk a ",
- StyleBox["DisplayFormulaNumbered",
+       RowBox[{"y", "+", "\[Xi]"}], ")"}], "-", 
+      RowBox[{"f", "(", "\[Xi]", ")"}]}]}],
+    FontSize->16], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox["\n\t\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"   ", 
+     RowBox[{
+      RowBox[{"=", 
+       RowBox[{"f", "(", 
+        RowBox[{"y", "+", "\[Xi]"}], ")"}]}], "\[IndentingNewLine]", 
+      StyleBox[
+       RowBox[{" ", " "}]], " ", 
+      RowBox[{"=", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"f", "'"}], 
+         RowBox[{"(", "\[Xi]", ")"}], "y"}], "+", 
+        RowBox[{"f", "(", 
+         RowBox[{"y", "+", "\[Xi]"}], ")"}], "-", 
+        RowBox[{
+         RowBox[{"f", "'"}], 
+         RowBox[{"(", "\[Xi]", ")"}], "y"}]}]}], "\[IndentingNewLine]", " ", 
+      StyleBox[
+       RowBox[{" ", " "}]], 
+      RowBox[{
+       RowBox[{"=", 
+        RowBox[{
+         RowBox[{"A", " ", "y"}], "+", 
+         RowBox[{"r", "\[SmallCircle]", "y"}]}]}], ","}]}]}],
+    FontSize->16], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ "\n\t\t",
+ StyleBox["\n\tahol ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"A", "=", 
+     RowBox[{
+      RowBox[{"f", "'"}], 
+      RowBox[{"(", "\[Xi]", ")"}]}]}],
+    FontWeight->"Bold"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ StyleBox[" a ",
+  FontSize->16],
+ StyleBox["Jacobi-m\[AAcute]trix",
+  FontSize->16,
   FontWeight->"Bold"],
- " t\[IAcute]pus\[UAcute] cell\[AAcute]t."
-}], "Text",
- CellChangeTimes->{{3.699978662187419*^9, 3.699978688361803*^9}}],
-
-Cell[BoxData[
- FormBox[
-  RowBox[{
-   SuperscriptBox[
-    RowBox[{"(", 
-     RowBox[{"a", "+", "b"}], ")"}], "n"], "=", 
+ StyleBox[" \[Xi]-ben \[EAcute]s ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
    RowBox[{
-    UnderoverscriptBox["\[Sum]", 
-     RowBox[{"k", "=", "1"}], "n"], 
+    RowBox[{"r", "\[SmallCircle]", "y"}], "=", 
     RowBox[{
-     RowBox[{"(", GridBox[{
-        {"n"},
-        {"k"}
-       }], ")"}], 
-     SuperscriptBox["a", "k"], " ", 
-     SuperscriptBox["b", 
-      RowBox[{"n", "-", "k"}]]}]}]}], 
-  TraditionalForm]], "DisplayFormulaNumbered",
- CellChangeTimes->{{3.6999787416310062`*^9, 3.699978752489931*^9}, {
-  3.6999787867285767`*^9, 3.699978825499571*^9}, {3.6999788583381863`*^9, 
-  3.69997887336106*^9}}],
-
-Cell[TextData[{
- "K\[UDoubleDot]l\[ODoubleDot]nb\[ODoubleDot]z\[ODoubleAcute] \
-t\[ODoubleDot]bb szint\[UDoubleAcute] list\[AAcute]t is \
-k\[EAcute]sz\[IAcute]thet\[UDoubleDot]nk az ",
- StyleBox["Item, Subitem, Subsubitem",
-  FontWeight->"Bold"],
- " t\[IAcute]pus\[UAcute] cell\[AAcute]k haszn\[AAcute]lat\[AAcute]val:"
+     RowBox[{"f", "(", 
+      RowBox[{"y", "+", "\[Xi]"}], ")"}], "-", 
+     RowBox[{
+      RowBox[{"f", "'"}], 
+      RowBox[{"(", "\[Xi]", ")"}], "y"}]}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ StyleBox[", ami ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"y", "=", "0"}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox[" ban elt\[UDoubleAcute]nik, ahogy az ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"r", "'"}], " "}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox[" Jacobi-m\[AAcute]trix is:\n\t\n\t\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"r", "'"}], 
+     RowBox[{"(", "0", ")"}]}], "=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"f", "'"}], 
+       RowBox[{"(", 
+        RowBox[{"0", "+", "\[Xi]"}], ")"}]}], "-", 
+      RowBox[{
+       RowBox[{"f", "'"}], 
+       RowBox[{"(", "\[Xi]", ")"}]}]}], "=", "0"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox[".\n\t\n\t\[CapitalIAcute]gy ha a vizsg\[AAcute]lt \
+egyens\[UAcute]lyi helyzetben a lineariz\[AAcute]lt rendszer \
+egy\[UDoubleDot]tthat\[OAcute] m\[AAcute]trix\[AAcute]nak minden \
+saj\[AAcute]t\[EAcute]rt\[EAcute]k\[EAcute]nek val\[OAcute]s r\[EAcute]sze \
+negat\[IAcute]v, akkor\n\taz a vizsg\[AAcute]lt egyens\[UAcute]lyi helyzet \
+aszimptotikusan stabilis. ",
+  FontSize->16]
 }], "Text",
- CellChangeTimes->{{3.699978879947844*^9, 3.699978957687838*^9}, {
-  3.69997902117026*^9, 3.6999790273834677`*^9}}],
-
-Cell[CellGroupData[{
-
-Cell["Els\[ODoubleAcute] elem", "Item",
- CellChangeTimes->{{3.6999789379714317`*^9, 3.699978940558681*^9}}],
-
-Cell["M\[AAcute]sodik elem", "Item",
- CellChangeTimes->{{3.6999789379714317`*^9, 3.699978945201252*^9}}],
-
-Cell[CellGroupData[{
-
-Cell["M\[EAcute]g egy", "Subitem",
- CellChangeTimes->{{3.6999789379714317`*^9, 3.6999789763626137`*^9}}],
-
-Cell["\[EAcute]s m\[EAcute]g egy", "Subitem",
- CellChangeTimes->{{3.6999789379714317`*^9, 3.699978981232085*^9}}],
-
-Cell[CellGroupData[{
-
-Cell["M\[EAcute]g beljebb is mehet\[UDoubleDot]nk", "Subsubitem",
- CellChangeTimes->{{3.6999789379714317`*^9, 3.699978992369687*^9}}],
-
-Cell["M\[EAcute]g egy elem", "Subsubitem",
- CellChangeTimes->{{3.6999789379714317`*^9, 3.6999789962375813`*^9}}]
-}, Open  ]],
-
-Cell["Itt folytatjuk", "Subitem",
- CellChangeTimes->{{3.6999789379714317`*^9, 3.699979002225912*^9}}]
-}, Open  ]],
-
-Cell["Harmadik elem", "Item",
- CellChangeTimes->{{3.6999789379714317`*^9, 3.699979012733119*^9}}]
-}, Open  ]],
+ CellChangeTimes->{{3.7031389363122444`*^9, 3.7031389673560433`*^9}, {
+  3.7031520102719755`*^9, 3.7031521915683928`*^9}, {3.7031522739454813`*^9, 
+  3.7031523035953856`*^9}, {3.703152360849079*^9, 3.7031526915043187`*^9}, {
+  3.7031527291921687`*^9, 3.7031527927763453`*^9}, {3.7031528512031345`*^9, 
+  3.7031529538304853`*^9}, {3.703153052225391*^9, 3.7031530533160667`*^9}, {
+  3.70315317013678*^9, 3.703153229302635*^9}, {3.703153280549863*^9, 
+  3.7031533159736824`*^9}, {3.703153359240827*^9, 3.7031537752820425`*^9}, {
+  3.7031538427571497`*^9, 3.703153895087041*^9}, {3.7031543823899536`*^9, 
+  3.7031544144868927`*^9}, {3.7031546147984214`*^9, 3.7031548773454323`*^9}, {
+  3.7031549421012135`*^9, 3.703154977125599*^9}, {3.703155014635936*^9, 
+  3.70315505905564*^9}, {3.7031550921651335`*^9, 3.7031551879367447`*^9}, {
+  3.703155238990559*^9, 3.703155691800247*^9}, {3.7031557370303283`*^9, 
+  3.7031558590859847`*^9}}],
 
 Cell[TextData[{
- "Ha sz\[AAcute]mozott list\[AAcute]t szeretn\[EAcute]nk, haszn\[AAcute]ljuk \
-az ",
- StyleBox["ItemNumered, SubitemNumbered, SubsubitemNumbered",
+ StyleBox["\t\n\t1.3. A Ljapunov-f\[UDoubleDot]ggv\[EAcute]ny\n\t\n\t",
+  FontSize->24],
+ StyleBox["A dinamikai rendszerek (vagyis auton\[OAcute]m rendszerek) elm\
+\[EAcute]let\[EAcute]ben a Ljapunov-f\[UDoubleDot]ggv\[EAcute]ny haszn\
+\[AAcute]lhat\[OAcute] az egyens\[UAcute]lyi helyzetek stabilit\[AAcute]s\
+\[AAcute]nak meghat\[AAcute]roz\[AAcute]s\[AAcute]ra.\n\tA Ljapunov-f\
+\[UDoubleDot]ggv\[EAcute]ny hasonl\[OAcute] szerepet t\[ODoubleDot]lt be, \
+mint egy potenci\[AAcute]lf\[UDoubleDot]ggv\[EAcute]ny, viszont azzal \
+ellenben nem csak \[ODoubleDot]rv\[EAcute]nymentes \
+vektormez\[ODoubleAcute]kben l\[EAcute]tezhet. Egy\n\t \t\t\t\n\t\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    OverscriptBox["x", "."], "=", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{
+       SubscriptBox["grad", "x"], "(", 
+       RowBox[{"u", "(", "x", ")"}], ")"}]}], "            ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"x", "\[Element]", 
+        RowBox[{
+         SuperscriptBox["C", "1"], "(", 
+         RowBox[{"I", ",", "\[CapitalOmega]"}], ")"}]}], ",", " ", 
+       RowBox[{"u", "\[Element]", 
+        RowBox[{
+         SuperscriptBox["C", "1"], "(", 
+         RowBox[{"\[CapitalOmega]", ",", "\[DoubleStruckCapitalR]"}], ")"}]}],
+        ",", " ", 
+       RowBox[{"I", "\[Subset]", "\[DoubleStruckCapitalR]"}], ",", " ", 
+       RowBox[{"\[CapitalOmega]", "\[Subset]", 
+        SuperscriptBox["\[DoubleStruckCapitalR]", "n"]}]}], ")"}]}]}], 
+   TraditionalForm]],
+  FontSize->16],
+ StyleBox["\n\t\n\tgradiensrendszer ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox["u", TraditionalForm]],
+  FontSize->16],
+ StyleBox[" potenci\[AAcute]lf\[UDoubleDot]ggv\[EAcute]ny\[EAcute]nek lok\
+\[AAcute]lis sz\[EAcute]ls\[ODoubleAcute] \[EAcute]rt\[EAcute]k helyeiben \
+vannak az egyens\[UAcute]lyi helyzetek, lok\[AAcute]lis minimum \
+eset\[EAcute]n aszimptotikusan stabilis,\n\tlok\[AAcute]lis maximum vagy \
+nyeregpont eset\[EAcute]n labilis. Sz\[EAcute]ls\[ODoubleAcute] \[EAcute]rt\
+\[EAcute]k hely ott van, ahol ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"grad", "(", "u", ")"}], "=", "0"}], TraditionalForm]]],
+ ".",
+ StyleBox[" Lok\[AAcute]lis minimum, ha a Hesse-m\[AAcute]trix minden saj\
+\[AAcute]t\[EAcute]rt\[EAcute]ke pozit\[IAcute]v,\n\tvagyis pozit\[IAcute]v \
+definit, ha pedig a Hesse-m\[AAcute]trix minden saj\[AAcute]t\[EAcute]rt\
+\[EAcute]ke negat\[IAcute]v, vagyis negat\[IAcute]v definit, akkor ott lok\
+\[AAcute]lis maximum van. Ahol pedig a Hesse-m\[AAcute]trix\n\tindefinit ott \
+nyeregpont van. Egy\[EAcute]bk\[EAcute]nt a fenti alak\[UAcute] \
+gradiensrendszer egy olyan Lagrange-rendszer, amelyben nincsen kinetikus \
+energia.\n\t\n\t",
+  FontSize->16],
+ StyleBox["Defin\[IAcute]ci\[OAcute]. ",
+  FontSize->16,
   FontWeight->"Bold"],
- " cell\[AAcute]kat."
-}], "Text",
- CellChangeTimes->{{3.699979034375108*^9, 3.6999790833082027`*^9}}],
-
-Cell[CellGroupData[{
-
-Cell["Sorz\[AAcute]mozott lista", "ItemNumbered",
- CellChangeTimes->{{3.6999790937709303`*^9, 3.699979098734724*^9}}],
-
-Cell["A m\[AAcute]sodik elem", "ItemNumbered",
- CellChangeTimes->{{3.6999790937709303`*^9, 3.6999791048066053`*^9}}],
-
-Cell[CellGroupData[{
-
-Cell["\[CapitalIAcute]gy n\[EAcute]z ki a k\[ODoubleDot]vetkez\[ODoubleAcute] \
-szint", "SubitemNumbered",
- CellChangeTimes->{{3.6999790937709303`*^9, 3.6999791274472322`*^9}}],
-
-Cell["M\[EAcute]g egy elem", "SubitemNumbered",
- CellChangeTimes->{{3.6999790937709303`*^9, 3.699979131504072*^9}}]
-}, Open  ]],
-
-Cell["Harmadik", "ItemNumbered",
- CellChangeTimes->{{3.6999790937709303`*^9, 3.6999791391285563`*^9}}],
-
-Cell[CellGroupData[{
-
-Cell["Sz\[AAcute]mozott lista", "SubitemNumbered",
- CellChangeTimes->{{3.6999790937709303`*^9, 3.699979154909758*^9}}],
-
-Cell["Sz\[AAcute]mozott lista", "SubitemNumbered",
- CellChangeTimes->{{3.6999790937709303`*^9, 3.699979161780429*^9}}],
-
-Cell[CellGroupData[{
-
-Cell["Ez m\[AAcute]r itt a harmadik szint", "SubsubitemNumbered",
- CellChangeTimes->{{3.6999790937709303`*^9, 3.699979174277883*^9}}],
-
-Cell["M\[EAcute]g egy elem", "SubsubitemNumbered",
- CellChangeTimes->{{3.6999790937709303`*^9, 3.699979177319522*^9}}]
-}, Open  ]],
-
-Cell["Utols\[OAcute] elem", "SubitemNumbered",
- CellChangeTimes->{{3.6999790937709303`*^9, 3.6999791838603697`*^9}}]
-}, Open  ]],
-
-Cell["Negyedik", "ItemNumbered",
- CellChangeTimes->{{3.6999790937709303`*^9, 3.69997918725004*^9}}]
-}, Open  ]]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["\[CapitalODoubleDot]sszefoglal\[AAcute]s", "Section",
- CellChangeTimes->{{3.699979342477171*^9, 3.699979350997841*^9}}],
-
-Cell["Ide j\[ODoubleDot]n az \[ODoubleDot]sszefoglal\[AAcute]s.", "Text",
- CellChangeTimes->{{3.699979509715002*^9, 3.699979519890717*^9}}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Hivatkoz\[AAcute]sok", "Section",
- CellChangeTimes->{{3.6999793781347237`*^9, 3.699979381051906*^9}}],
-
-Cell[CellGroupData[{
-
-Cell[TextData[{
- StyleBox["M. W. Hirsch, S. Smale, R. L. Devaney:",
+ StyleBox["Legyen ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{
+     OverscriptBox["\[CapitalOmega]", "~"], "\[Subset]", "\[CapitalOmega]"}],
+    FontSize->16], TraditionalForm]]],
+ ". ",
+ StyleBox["Azt mondjuk, hogy a ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"V", ":", 
+    RowBox[{
+     StyleBox[
+      RowBox[{
+       OverscriptBox["\[CapitalOmega]", "~"], " ", "\[LongRightArrow]", " ", 
+       "\[DoubleStruckCapitalR]"}],
+      FontSize->16], 
+     StyleBox["   ",
+      FontSize->16], 
+     RowBox[{
+      StyleBox["(",
+       FontSize->16], 
+      RowBox[{
+       StyleBox["V",
+        FontSize->16], 
+       StyleBox["\[Element]",
+        FontSize->16], 
+       SuperscriptBox[
+        StyleBox["C",
+         FontSize->16], "1"]}], ")"}]}]}], TraditionalForm]]],
+ " f\[UDoubleDot]ggv\[EAcute]ny ",
+ StyleBox["az ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{
+     OverscriptBox["x", "."], "=", 
+     RowBox[{"f", "\[SmallCircle]", "x"}]}],
+    FontSize->16], TraditionalForm]],
+  FontSize->16],
+ StyleBox[" auton\[OAcute]m rendszernek ",
+  FontSize->16],
+ StyleBox["Ljapunov-f\[UDoubleDot]ggv\[EAcute]ny",
+  FontSize->16,
   FontWeight->"Bold"],
+ StyleBox["e az ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   OverscriptBox["\[CapitalOmega]", "~"], TraditionalForm]],
+  FontSize->16],
+ " halmazon, ha\n\t",
+ StyleBox["\n\t\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     OverscriptBox["V", "."], "(", "x", ")"}], "\[LessSlantEqual]", 
+    RowBox[{"0", "   ", 
+     RowBox[{"(", 
+      RowBox[{"x", "\[Element]", 
+       OverscriptBox["\[CapitalOmega]", "~"]}], ")"}]}]}], TraditionalForm]],
+  FontSize->16],
+ ",",
+ StyleBox["\n\t\n\tahol\n\t\n\t\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     OverscriptBox["V", "."], "(", "x", ")"}], ":=", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["\[PartialD]", "f"], 
+      RowBox[{"V", "(", "x", ")"}]}], ":=", 
+     RowBox[{"\[LeftAngleBracket]", 
+      RowBox[{
+       RowBox[{"grad", "(", 
+        RowBox[{"V", "(", "x", ")"}], ")"}], ",", 
+       RowBox[{"f", "(", "x", ")"}]}], "\[RightAngleBracket]"}]}]}], 
+   TraditionalForm]],
+  FontSize->16],
+ StyleBox[",\n\t\t\n\tvagyis a ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox["V", TraditionalForm]],
+  FontSize->16],
+ StyleBox[" skal\[AAcute]r f\[UDoubleDot]ggv\[EAcute]ny ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox["f", TraditionalForm]],
+  FontSize->16],
+ StyleBox[" vektormez\[ODoubleAcute] szerinti deriv\[AAcute]ltja. \
+Teh\[AAcute]t ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox["V", TraditionalForm]],
+  FontSize->16],
+ StyleBox[" Ljapunov-f\[UDoubleDot]ggv\[EAcute]ny, ha ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   OverscriptBox["V", "."], TraditionalForm]],
+  FontSize->16],
+ StyleBox[" negat\[IAcute]v szemidefinit.\n\t\n\tEgy gradiensrendszerben a \
+potenci\[AAcute]lf\[UDoubleDot]ggv\[EAcute]ny mindig \
+Ljapunov-f\[UDoubleDot]ggv\[EAcute]ny, ui. az\n\t\n\t\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    OverscriptBox["x", "."], "=", 
+    RowBox[{"-", "grad"}]}], TraditionalForm]],
+  FontSize->16],
+ StyleBox["(u(x))\n\t\n\trendszerben a ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"V", "(", "x", ")"}], ":=", 
+    RowBox[{"u", "(", "x", ")"}]}], TraditionalForm]],
+  FontSize->16],
+ StyleBox[" f\[UDoubleDot]ggv\[EAcute]nyre teljes\[UDoubleDot]l\n\t\n\t\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     OverscriptBox["V", "."], "(", "x", ")"}], "=", 
+    RowBox[{
+     RowBox[{"\[LeftAngleBracket]", 
+      RowBox[{
+       RowBox[{"grad", "(", 
+        RowBox[{"V", "(", "x", ")"}], ")"}], ",", 
+       RowBox[{"f", "(", "x", ")"}]}], "\[RightAngleBracket]"}], "=", 
+     RowBox[{
+      RowBox[{"\[LeftAngleBracket]", 
+       RowBox[{
+        RowBox[{"grad", "(", 
+         RowBox[{"u", "(", "x", ")"}], ")"}], ",", 
+        RowBox[{"-", 
+         RowBox[{"grad", "(", 
+          RowBox[{"u", "(", "x", ")"}], ")"}]}]}], "\[RightAngleBracket]"}], 
+      "=", 
+      RowBox[{
+       RowBox[{"-", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"grad", "(", 
+           RowBox[{"u", "(", "x", ")"}], ")"}], ")"}], "2"]}], 
+       "\[LessSlantEqual]", 
+       RowBox[{"0", "   ", 
+        RowBox[{"(", 
+         RowBox[{"x", "\[Element]", 
+          OverscriptBox["\[CapitalOmega]", "~"]}], ")"}]}]}]}]}]}], 
+   TraditionalForm]],
+  FontSize->16],
+ StyleBox[".\n\t\t\n\tMinden egydimenzi\[OAcute]s ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    OverscriptBox["x", "."], "=", 
+    RowBox[{"f", "(", "x", ")"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox[" alak\[UAcute] rendszer gradiensrendszernek tekinthet\
+\[ODoubleAcute], \[IAcute]gy annak potenci\[AAcute]lja ill. Ljapunov-f\
+\[UDoubleDot]ggv\[EAcute]nye az ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox["f", TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox[" f\[UDoubleDot]ggv\[EAcute]ny primit\[IAcute]v f\[UDoubleDot]ggv\
+\[EAcute]nye.\n\t\n\tA ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{
+     RowBox[{
+      OverscriptBox["V", "."], "(", "x", ")"}], "\[LessSlantEqual]", "0", 
+     " "}],
+    FontSize->16], TraditionalForm]],
+  FontSize->16],
+ StyleBox["felt\[EAcute]tel azt fejezi ki, hogy az ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox["f", TraditionalForm]],
+  FontSize->16],
+ StyleBox[" vektormez\[ODoubleAcute] \
+integr\[AAcute]lg\[ODoubleDot]rb\[EAcute]in - vagyis a dinamikai rendszer \
+megold\[AAcute]s g\[ODoubleDot]rb\[EAcute]in - haladva a ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox["V", TraditionalForm]],
+  FontSize->16],
+ StyleBox[" f\[UDoubleDot]ggv\[EAcute]ny monoton cs\[ODoubleDot]kken.\n\tTeh\
+\[AAcute]t az integr\[AAcute]l g\[ODoubleDot]rb\[EAcute]k ment\[EAcute]n \
+haladva csak alacsonyabb \[OpenCurlyDoubleQuote]potenci\[AAcute]l\[UAcute]\
+\[CloseCurlyDoubleQuote] helyre juthatunk. \
+Ljapunov-f\[UDoubleDot]ggv\[EAcute]ny akkor is l\[EAcute]tezhet, ha az ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox["f", TraditionalForm]],
+  FontSize->16],
+ StyleBox[" vektormez\[ODoubleAcute] nem \[ODoubleDot]rv\[EAcute]nymentes,\n\t\
+azaz ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"rot", "(", "v", ")"}], "\[NotEqual]", "0"}], TraditionalForm]]],
+ ".\n\t\n\t",
+ StyleBox["T\[EAcute]tel. ",
+  FontWeight->"Bold"],
+ "(",
+ StyleBox["Ljapunov",
+  FontWeight->"Bold"],
+ ") Tegy\[UDoubleDot]k fel, hogy az ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{
+     OverscriptBox["x", "."], "=", 
+     RowBox[{"f", "\[SmallCircle]", "x"}]}],
+    FontSize->16], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " auton\[OAcute]m rendszernek ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"x", "=", "0"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " trivi\[AAcute]lis egyens\[UAcute]lyi helyzete, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"V", ":", 
+    RowBox[{
+    "\[CapitalOmega]", "\[LongRightArrow]", "\[DoubleStruckCapitalR]", 
+     "  "}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "pedig Ljapunov f\[UDoubleDot]ggv\[EAcute]nye. Ekkor ha\n\t\n\t\t",
+ StyleBox["\[FilledSmallCircle]",
+  FontSize->16],
  " ",
- StyleBox["Differential Equations, Dynamical Systems & An Introduction to \
-Chaos",
-  FontSlant->"Italic"]
-}], "ItemNumbered",
- CellChangeTimes->{{3.6999794107127037`*^9, 3.699979417737268*^9}, {
-  3.699979455067196*^9, 3.699979481039226*^9}}],
-
-Cell[TextData[{
- StyleBox["Gerald Teschl:",
+ Cell[BoxData[
+  FormBox["V", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " pozit\[IAcute]v definit, azaz ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"V", "(", "x", ")"}], "\[GreaterEqual]", "0", " "}], 
+   TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "\[EAcute]s ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"V", "(", "x", ")"}], "=", 
+    RowBox[{
+     RowBox[{"0", "  ", "\[DoubleLongRightArrow]", "  ", "x"}], "=", "0"}]}], 
+   TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", akkor az ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"x", "=", "0", " "}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " trivi\[AAcute]lis egyens\[UAcute]lyi helyzet stabilis;\n\t\t\n\t\t",
+ StyleBox["\[FilledSmallCircle]",
+  FontSize->16],
+ " ",
+ Cell[BoxData[
+  FormBox["V", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " pozity definit \[EAcute]s ",
+ Cell[BoxData[
+  FormBox[
+   OverscriptBox["V", "."], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " pedig negat\[IAcute]v definit, akkor a trivi\[AAcute]lis \
+egyens\[UAcute]lyi helyzet aszimptotikusan stabilis;\n\t\t\n\t\t",
+ StyleBox["\[FilledSmallCircle]",
+  FontSize->16],
+ " ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    OverscriptBox["V", "."], " "}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " negat\[IAcute]v definit, viszont ",
+ Cell[BoxData[
+  FormBox["V", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " a trivi\[AAcute]lis egyens\[UAcute]lyi helyzet tetsz\[ODoubleAcute]legesen \
+kicsi k\[ODoubleDot]rnyezet\[EAcute]ben felvesz negat\[IAcute]v \[EAcute]rt\
+\[EAcute]ket\n\t\t    (nem pozit\[IAcute]v szemidefinit (ha indefinit akkor \
+biztos, hogy ilyen)), akkor a trivi\[AAcute]lis egyens\[UAcute]lyi helyzet \
+labilis.\n\t\t    \n\tSzembet\[UDoubleAcute]n\[ODoubleAcute] az \
+anal\[OAcute]gia a gradiensrendszerek egyens\[UAcute]lyi helyzeteinek \
+stabilit\[AAcute]s\[AAcute]nak a potenci\[AAcute]l \
+f\[UDoubleDot]ggv\[EAcute]ny Hesse-m\[AAcute]trix\[AAcute]nak definits\
+\[EAcute]g\[EAcute]vel val\[OAcute] \
+\[ODoubleDot]sszef\[UDoubleDot]gg\[EAcute]s\[EAcute]vel.\n\t\n",
+ StyleBox["\t",
+  FontSize->16],
+ StyleBox["P\[EAcute]lda. ",
+  FontSize->16,
   FontWeight->"Bold"],
- StyleBox[" Ordinary Differential Equations and Dynamical Systems",
-  FontSlant->"Italic"]
-}], "ItemNumbered",
- CellChangeTimes->{{3.6999794107127037`*^9, 3.699979417737268*^9}, {
-  3.699979455067196*^9, 3.6999795027790413`*^9}}]
-}, Open  ]]
-}, Open  ]]
+ StyleBox["A k\[EAcute]tdimenzi\[OAcute]s ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      OverscriptBox["x", "."], ",", 
+      OverscriptBox["y", "."]}], ")"}], "=", 
+    RowBox[{"f", "(", 
+     RowBox[{"x", ",", "y"}], ")"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox["\n\t\n\t\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[GridBox[{
+     {
+      RowBox[{
+       OverscriptBox["x", "."], "=", 
+       RowBox[{"y", "+", 
+        RowBox[{"x", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["x", "2"], "+", 
+           SuperscriptBox["y", "2"], "-", "1"}], ")"}]}]}]}]},
+     {
+      RowBox[{"   ", 
+       RowBox[{
+        OverscriptBox["y", "."], "=", 
+        RowBox[{
+         RowBox[{"-", "x"}], "+", 
+         RowBox[{"y", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            SuperscriptBox["x", "2"], "+", 
+            SuperscriptBox["y", "2"], "-", "1"}], ")"}]}]}]}]}]}
+    }], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ StyleBox["\n\t\t\n\tauton\[OAcute]m egyenlet nem gradiensrendszer, ui. ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"rot", "(", "f", ")"}], "=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       SubscriptBox["\[PartialD]", "x"], 
+       SubscriptBox["f", "y"]}], "-", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "y"], 
+       SubscriptBox["f", "x"]}]}], "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "1"}], "-", 
+       RowBox[{"2", "x", " ", "y"}], "-", "1", "+", 
+       RowBox[{"2", "x", " ", "y"}]}], "=", 
+      RowBox[{
+       RowBox[{"-", "2"}], "\[NotEqual]", "0"}]}]}]}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox[", nincs skal\[AAcute]rpotenci\[AAcute]l. \
+Ljapunov-f\[UDoubleDot]ggv\[EAcute]nyt viszont tal\[AAcute]lunk \
+hozz\[AAcute]:\n\t\n\t\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"V", 
+     RowBox[{"(", 
+      RowBox[{"x", ",", " ", "y"}], ")"}]}], " ", ":=", 
+    RowBox[{
+     SuperscriptBox["x", "2"], "+", 
+     RowBox[{
+      SuperscriptBox["y", "2"], "    ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"x", ",", "y"}], ")"}], "\[Element]", 
+         OverscriptBox["\[CapitalOmega]", "~"]}], ":=", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"x", ",", "y"}], ")"}], "\[Element]", 
+          RowBox[{
+           SuperscriptBox["\[DoubleStruckCapitalR]", "2"], ":", 
+           RowBox[{
+            RowBox[{
+             SuperscriptBox["x", "2"], "+", 
+             SuperscriptBox["y", "2"]}], "<", "1"}]}]}], "}"}]}], ")"}]}]}]}],
+    TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ StyleBox["\n\t\t\n\tmegfelel\[ODoubleAcute], ui.\n\t\n\t\t",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[LeftAngleBracket]", 
+     RowBox[{
+      RowBox[{"grad", " ", 
+       RowBox[{"V", "(", 
+        RowBox[{"x", ",", "y"}], ")"}]}], " ", ",", 
+      RowBox[{"f", "(", 
+       RowBox[{"x", ",", "y"}], ")"}]}], " ", "\[RightAngleBracket]"}], "=", 
+    RowBox[{
+     RowBox[{"\[LeftAngleBracket]", " ", 
+      RowBox[{
+       RowBox[{"{", " ", 
+        RowBox[{
+         RowBox[{"2", "x"}], ",", 
+         RowBox[{"2", "y"}]}], " ", "}"}], " ", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"y", "+", 
+          RowBox[{"x", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             SuperscriptBox["x", "2"], "+", 
+             SuperscriptBox["y", "2"], "-", "1"}], ")"}]}]}], ",", " ", 
+         RowBox[{
+          RowBox[{"-", "x"}], "+", 
+          RowBox[{"y", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             SuperscriptBox["x", "2"], "+", 
+             SuperscriptBox["y", "2"], "-", "1"}], ")"}]}]}]}], " ", "}"}]}], 
+      "  ", "\[RightAngleBracket]"}], "=", "\[IndentingNewLine]", 
+     "                                               ", 
+     RowBox[{"=", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"2", "x", " ", 
+         RowBox[{"(", 
+          RowBox[{"y", "+", 
+           RowBox[{"x", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["x", "2"], "+", 
+              SuperscriptBox["y", "2"], "-", "1"}], ")"}]}]}], ")"}]}], "+", 
+        RowBox[{"2", "y", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "x"}], "+", 
+           RowBox[{"y", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["x", "2"], "+", 
+              SuperscriptBox["y", "2"], "-", "1"}], ")"}]}]}], ")"}]}]}], "=",
+        "\[IndentingNewLine]", "\t\t ", 
+       RowBox[{"=", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "2"}], 
+          RowBox[{"(", 
+           RowBox[{
+            SuperscriptBox["x", "2"], "+", 
+            SuperscriptBox["y", "2"]}], ")"}], 
+          RowBox[{"(", 
+           RowBox[{"1", "-", 
+            SuperscriptBox["x", "2"], "-", 
+            SuperscriptBox["y", "2"]}], ")"}]}], "<", "0", 
+         "                                       "}]}]}]}]}]}], 
+   TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16],
+ "\n\t\n\t",
+ StyleBox["ha ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"  ", 
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["x", "2"], "+", 
+      SuperscriptBox["y", "2"]}], "<", "1."}]}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontSize->16]
+}], "Text",
+ CellChangeTimes->CompressedData["
+1:eJwdzztIQgEYBWBpcIgagiJRI5RKeigOXS0rH1FCClEKhUIkUhIuVkoROWmB
+DUkGklKhFGWBmIuDg6FQBOFjKKJBb1nokFCBRFPQPQ4/H+cMB36O0aJZrKPR
+aG3UQRe/wU8cVBT67ZUAlDSz4iLKLWWqZgeRyEFB6vYB7plYr9B2+FeESyF+
+GZpV0x/wU9dZhd65TqGYsmei0A+7f5bUcCN3ooWXOqkdMrddTqjOP9UUjNl2
+4Wr7sRuSdK4X7jdkWgco3Z4+Nmxk5gm4HN6xwEl7yQtNm1k/FNPfTmFMkgnB
+iJP3AuUBx/0Q/hBFn+FCy3oBxmeFX7ArUE8fxi7B0EORx2+GMlJ3BFfPx4O1
+nmUNw7RvKgrXHIY72Mv9JOGM9eIVppLS0RFKdozpg5M38iNYZpBBOHiWzkqR
+taocbEpoHqGxai7Ca0mkBIOGK5YMffKbA/lWpRLyFPMqWHn/tcF/GaPmAA==
+
+  "]]
 }, Open  ]]
 },
-WindowToolbars->"EditBar",
-WindowSize->{1366, 744},
+WindowSize->{1366, 685},
 WindowMargins->{{0, Automatic}, {Automatic, 28}},
+Magnification:>0.9 Inherited,
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
-StyleDefinitions->"Default.nb"
+StyleDefinitions->FrontEnd`FileName[{"Book"}, "Textbook.nb", 
+  CharacterEncoding -> "UTF-8"]
 ]
 (* End of Notebook Content *)
 
@@ -298,69 +2191,15 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 317, 4, 93, "Title"],
-Cell[900, 28, 283, 4, 75, "Text"],
-Cell[CellGroupData[{
-Cell[1208, 36, 95, 1, 65, "Section"],
-Cell[1306, 39, 1442, 21, 99, "Text"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[2785, 65, 102, 1, 65, "Section"],
-Cell[2890, 68, 125, 1, 33, "Text"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[3052, 74, 159, 2, 65, "Section"],
-Cell[3214, 78, 634, 17, 33, "Text"],
-Cell[3851, 97, 468, 14, 47, "DisplayFormula"],
-Cell[4322, 113, 275, 6, 33, "Text"],
-Cell[4600, 121, 610, 20, 57, "DisplayFormulaNumbered"],
-Cell[5213, 143, 447, 9, 33, "Text"],
-Cell[CellGroupData[{
-Cell[5685, 156, 107, 1, 31, "Item"],
-Cell[5795, 159, 104, 1, 31, "Item"],
-Cell[CellGroupData[{
-Cell[5924, 164, 104, 1, 27, "Subitem"],
-Cell[6031, 167, 113, 1, 27, "Subitem"],
-Cell[CellGroupData[{
-Cell[6169, 172, 133, 1, 26, "Subsubitem"],
-Cell[6305, 175, 112, 1, 26, "Subsubitem"]
-}, Open  ]],
-Cell[6432, 179, 101, 1, 27, "Subitem"]
-}, Open  ]],
-Cell[6548, 183, 97, 1, 31, "Item"]
-}, Open  ]],
-Cell[6660, 187, 287, 7, 33, "Text"],
-Cell[CellGroupData[{
-Cell[6972, 198, 117, 1, 33, "ItemNumbered"],
-Cell[7092, 201, 116, 1, 33, "ItemNumbered"],
-Cell[CellGroupData[{
-Cell[7233, 206, 176, 2, 27, "SubitemNumbered"],
-Cell[7412, 210, 115, 1, 27, "SubitemNumbered"]
-}, Open  ]],
-Cell[7542, 214, 102, 1, 33, "ItemNumbered"],
-Cell[CellGroupData[{
-Cell[7669, 219, 118, 1, 27, "SubitemNumbered"],
-Cell[7790, 222, 118, 1, 27, "SubitemNumbered"],
-Cell[CellGroupData[{
-Cell[7933, 227, 133, 1, 26, "SubsubitemNumbered"],
-Cell[8069, 230, 118, 1, 26, "SubsubitemNumbered"]
-}, Open  ]],
-Cell[8202, 234, 116, 1, 27, "SubitemNumbered"]
-}, Open  ]],
-Cell[8333, 238, 99, 1, 33, "ItemNumbered"]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[8481, 245, 125, 1, 65, "Section"],
-Cell[8609, 248, 139, 1, 33, "Text"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[8785, 254, 107, 1, 65, "Section"],
-Cell[CellGroupData[{
-Cell[8917, 259, 340, 9, 33, "ItemNumbered"],
-Cell[9260, 270, 296, 7, 33, "ItemNumbered"]
-}, Open  ]]
-}, Open  ]]
+Cell[580, 22, 340, 10, 66, "Title"],
+Cell[923, 34, 1642, 26, 155, "Text"],
+Cell[2568, 62, 2495, 69, 354, "Text"],
+Cell[5066, 133, 21668, 681, 1142, "Text"],
+Cell[26737, 816, 3540, 98, 162, "Input"],
+Cell[30280, 916, 9901, 293, 765, "Text"],
+Cell[40184, 1211, 3445, 94, 116, "Input"],
+Cell[43632, 1307, 9494, 289, 629, "Text"],
+Cell[53129, 1598, 18342, 573, 1143, "Text"]
 }, Open  ]]
 }
 ]
