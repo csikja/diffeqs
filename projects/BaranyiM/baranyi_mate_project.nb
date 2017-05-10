@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     14766,        436]
-NotebookOptionsPosition[     13414,        390]
-NotebookOutlinePosition[     13784,        406]
-CellTagsIndexPosition[     13741,        403]
+NotebookDataLength[     84451,       2191]
+NotebookOptionsPosition[     79746,       2053]
+NotebookOutlinePosition[     80108,       2069]
+CellTagsIndexPosition[     80065,       2066]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -39,24 +39,17 @@ Cell["Abstract", "Section",
 Cell["\<\
 The referenced article studies the stabilization of an unstable linear \
 oscillator by means of random impulses. Almost sure exponential stability is \
-proved for some combination of the parameter values.\
-\>", "Text",
- CellChangeTimes->{{3.6999780534445972`*^9, 3.6999781113246202`*^9}, 
-   3.6999781457453127`*^9, {3.70013283856749*^9, 3.700132932869932*^9}, {
-   3.7001491229617*^9, 3.700149130270359*^9}}],
-
-Cell["\<\
-The article remarks that it is not possible to obtain almost sure stability \
-for the nonlinear situation.\
-\>", "Text",
- CellChangeTimes->{{3.7001557025981207`*^9, 3.70015575687395*^9}}],
-
-Cell["\<\
+proved for some combination of the parameter values. This article also \
+remarks that it is not possible to obtain almost sure stability for the \
+nonlinear situation.
 My goal is to understand the mathematical background of the article and with \
 the given tools provided by the Wolfram Mathematica, reproduce some of the \
 simulation results presented in the article. \
 \>", "Text",
- CellChangeTimes->{{3.70015937496596*^9, 3.7001595212003508`*^9}}]
+ CellChangeTimes->{{3.6999780534445972`*^9, 3.6999781113246202`*^9}, 
+   3.6999781457453127`*^9, {3.70013283856749*^9, 3.700132932869932*^9}, {
+   3.7001491229617*^9, 3.700149130270359*^9}, 3.70280396740767*^9, {
+   3.7031553658315907`*^9, 3.7031553748093567`*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -106,18 +99,15 @@ Cell[TextData[{
  "Here ",
  Cell[BoxData[
   FormBox[
-   RowBox[{"\[Nu]", ">", "0"}], TraditionalForm]],
-  FormatType->"TraditionalForm"],
+   RowBox[{"\[Nu]", ">", "0"}], TraditionalForm]]],
  " is a friction coefficient, ",
  Cell[BoxData[
   FormBox[
-   RowBox[{"l", ">", "0"}], TraditionalForm]],
-  FormatType->"TraditionalForm"],
+   RowBox[{"l", ">", "0"}], TraditionalForm]]],
  " the pendulum length, ",
  Cell[BoxData[
   FormBox[
-   RowBox[{"g", ">", "0"}], TraditionalForm]],
-  FormatType->"TraditionalForm"],
+   RowBox[{"g", ">", "0"}], TraditionalForm]]],
  " the acceleration of gravity and q the angle between the pendulum rod and \
 the vertical axis."
 }], "Text",
@@ -128,7 +118,7 @@ the vertical axis."
 Cell[TextData[{
  "Unstable oscillator may become stable when the system is subjected to a \
 vibrating external force. It was discovered experimentally by Stephenson in \
-1908 for the case of an inverted\npendulum whose rod is subjected to fast \
+1908 for the case of an inverted pendulum whose rod is subjected to fast \
 vertical vibrations. Stochastic forcing terms have been known since the 1960s \
 to possess similar\nstabilizing properties.\nThe article considers impulsive \
 external forces of random amplitude that act on the pendulum after random \
@@ -136,15 +126,14 @@ waiting times. Their analysis  showed almost sure exponential stability on ",
  Cell[BoxData[
   FormBox[
    RowBox[{"0", " ", "<", " ", "t", " ", "<", " ", "\[Infinity]"}], 
-   TraditionalForm]],
-  FormatType->"TraditionalForm"],
+   TraditionalForm]]],
  StyleBox[", not only on a bounded time period.", "InlineFormula"]
 }], "Text",
  CellChangeTimes->{{3.700153793537743*^9, 3.7001538829703007`*^9}, {
    3.700153934748852*^9, 3.7001539423515587`*^9}, {3.7001539866512203`*^9, 
    3.70015425370909*^9}, {3.7001543818066807`*^9, 3.7001543842996264`*^9}, 
    3.700155858893291*^9, {3.700155961904256*^9, 3.700155988795171*^9}, 
-   3.700157265389021*^9}],
+   3.700157265389021*^9, {3.7031552954651937`*^9, 3.703155295891148*^9}}],
 
 Cell["\<\
 The title of the article comes from the visual description of the problem. \
@@ -162,8 +151,7 @@ Cell[TextData[{
 follow a Poisson process with rate ",
  Cell[BoxData[
   FormBox[
-   RowBox[{"1", "/", "\[Tau]"}], TraditionalForm]],
-  FormatType->"TraditionalForm"],
+   RowBox[{"1", "/", "\[Tau]"}], TraditionalForm]]],
  StyleBox[".", "InlineFormula"]
 }], "Text",
  CellChangeTimes->{{3.700156142265574*^9, 3.700156216349334*^9}, {
@@ -175,14 +163,12 @@ Cell[TextData[{
  Cell[BoxData[
   FormBox[
    RowBox[{"s", 
-    RowBox[{"(", "t", ")"}]}], TraditionalForm]],
-  FormatType->"TraditionalForm"],
+    RowBox[{"(", "t", ")"}]}], TraditionalForm]]],
  ") from the stability and the corresponding velocity (",
  Cell[BoxData[
   FormBox[
    RowBox[{"v", 
-    RowBox[{"(", "t", ")"}]}], TraditionalForm]],
-  FormatType->"TraditionalForm"],
+    RowBox[{"(", "t", ")"}]}], TraditionalForm]]],
  ")  obey the DE of a damped harmonic oscillator (between bumps): "
 }], "Text",
  CellChangeTimes->{{3.700156526217606*^9, 3.7001566889100237`*^9}, {
@@ -223,25 +209,22 @@ Cell[TextData[{
     RowBox[{"(", 
      RowBox[{
       RowBox[{"n", "=", " ", "0"}], ",", "1", ",", "2", ",", "..."}], ")"}]}],
-    TraditionalForm]],
-  FormatType->"TraditionalForm"],
+    TraditionalForm]]],
  " shocking times ",
  Cell[BoxData[
   FormBox[
    RowBox[{"s", 
-    RowBox[{"(", "t", ")"}]}], TraditionalForm]],
-  FormatType->"TraditionalForm"],
+    RowBox[{"(", "t", ")"}]}], TraditionalForm]]],
  " remains continuous, but ",
  Cell[BoxData[
   FormBox[
    RowBox[{"v", 
-    RowBox[{"(", "t", ")"}]}], TraditionalForm]],
-  FormatType->"TraditionalForm"],
- " possesses jump continuities."
+    RowBox[{"(", "t", ")"}]}], TraditionalForm]]],
+ " possesses jump discontinuities."
 }], "Text",
  CellChangeTimes->{{3.7001570495799513`*^9, 3.700157176836355*^9}, {
   3.700157223287134*^9, 3.7001572501295233`*^9}, {3.700157808888376*^9, 
-  3.7001578118891497`*^9}}],
+  3.7001578118891497`*^9}, {3.703164872951762*^9, 3.703164873200268*^9}}],
 
 Cell["\<\
 They described the motion of the pendulum (between bumps), whose DE reads as:\
@@ -286,10 +269,9 @@ Cell[TextData[{
     RowBox[{
      FractionBox["\[DifferentialD]", 
       RowBox[{"\[DifferentialD]", "t"}]], 
-     RowBox[{"v", "(", "t", ")"}]}]}], TraditionalForm]],
-  FormatType->"TraditionalForm"],
- " is the acceleration of the carriage.\nAt the impulse times the angular \
-velocity (",
+     RowBox[{"v", "(", "t", ")"}]}]}], TraditionalForm]]],
+ " is the vertical acceleration of the carriage.\nAt the impulse times the \
+angular velocity (",
  Cell[BoxData[
   FormBox[
    RowBox[{
@@ -297,75 +279,1756 @@ velocity (",
     RowBox[{
      FractionBox["\[DifferentialD]", 
       RowBox[{"\[DifferentialD]", "t"}]], 
-     RowBox[{"q", "(", "t", ")"}]}]}], TraditionalForm]],
-  FormatType->"TraditionalForm"],
+     RowBox[{"q", "(", "t", ")"}]}]}], TraditionalForm]]],
  ") follows the random jumps of ",
  Cell[BoxData[
   FormBox[
-   RowBox[{"v", "(", "t", ")"}], TraditionalForm]],
-  FormatType->"TraditionalForm"],
+   RowBox[{"v", "(", "t", ")"}], TraditionalForm]]],
  "."
 }], "Text",
  CellChangeTimes->{{3.700158161183165*^9, 3.70015824017695*^9}, {
   3.700158278088977*^9, 3.7001582799168158`*^9}, {3.700158312379602*^9, 
-  3.700158413395278*^9}}],
+  3.700158413395278*^9}, {3.703168517079309*^9, 3.703168519323092*^9}}],
 
 Cell[TextData[{
  "The main result of the article is that for a specific ",
  Cell[BoxData[
   FormBox[
-   RowBox[{"v", "(", "t", ")"}], TraditionalForm]],
-  FormatType->"TraditionalForm"],
- " stationary process (described in the article) and ",
+   RowBox[{"v", "(", "t", ")"}], TraditionalForm]]],
+ " stationary process, which happens to be our velocity function and for ",
  Cell[BoxData[
   FormBox[
    RowBox[{
     RowBox[{"p", "(", 
      RowBox[{"0", "-"}], ")"}], ",", " ", 
-    RowBox[{"q", "(", "0", ")"}]}], TraditionalForm]],
-  FormatType->"TraditionalForm"],
- " initial values and other assumptions there exists a constant ",
+    RowBox[{"q", "(", "0", ")"}]}], TraditionalForm]]],
+ " initial values with some other assumptions there exists a constant ",
  Cell[BoxData[
   FormBox[
-   SubscriptBox["\[Tau]", "0"], TraditionalForm]],
-  FormatType->"TraditionalForm"],
- " (depending on the constants given so far and the distribution of the \
+   SubscriptBox["\[Tau]", "0"], TraditionalForm]]],
+ " (depending on the variables described later and the distribution of the \
 random force) such that for ",
  Cell[BoxData[
   FormBox[
    RowBox[{"\[Tau]", "<", 
-    SubscriptBox["\[Tau]", "0"]}], TraditionalForm]],
+    SubscriptBox["\[Tau]", "0"]}], TraditionalForm]]],
+ ": "
+}], "Text",
+ CellChangeTimes->{{3.700158531320243*^9, 3.700158545686922*^9}, {
+   3.700158650966443*^9, 3.7001588568559227`*^9}, {3.7001588959441767`*^9, 
+   3.700158991324567*^9}, {3.703172571389469*^9, 3.703172665419777*^9}, {
+   3.7031727223436813`*^9, 3.703172747674323*^9}, 3.7031730909549503`*^9}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{Cell[BoxData[
+    FormBox[
+     UnderscriptBox["limsup", 
+      RowBox[{"t", "\[Rule]", "\[Infinity]"}]], TraditionalForm]], 
+    "DisplayFormula"], " ", Cell[BoxData[
+    FormBox[
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        FractionBox["1", "t"], " ", "log"}], "|", 
+       RowBox[{"q", "(", "t", ")"}], "|", 
+       RowBox[{"<", "0"}]}], ",", " ", 
+      RowBox[{"a", ".", "s", "."}]}], TraditionalForm]], "DisplayFormula"]}], 
+  "DisplayFormula"]], "DisplayFormula",
+ CellChangeTimes->{{3.700159004281406*^9, 3.7001593193538427`*^9}, {
+  3.703162458585495*^9, 3.703162458595248*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Sections", "Section",
+ CellChangeTimes->{{3.700159736061989*^9, 3.7001597589188643`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Simulating the bumpy road", "Subsection",
+ CellChangeTimes->{{3.702803909996915*^9, 3.702803926292398*^9}, 
+   3.702804000440323*^9, {3.703171513915213*^9, 3.7031715147493877`*^9}}],
+
+Cell[TextData[{
+ "The intensity/rate of the Poisson process has to be big to achieve \
+stability. The article uses the reciprocal of the rate, denoted with",
+ Cell[BoxData[
+  FormBox["\[Tau]", TraditionalForm]],
   FormatType->"TraditionalForm"],
+ ", to describe the process, which is the expected waited time between two \
+consecutive bumps. The following lines generate a Poisson point process with \
+the predefined parameter until time ",
+ Cell[BoxData[
+  FormBox["10", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ":"
+}], "Text",
+ InitializationCell->True,
+ CellChangeTimes->{{3.702898713475753*^9, 3.702898715379074*^9}, {
+   3.702898778514277*^9, 3.702898859461341*^9}, 3.702898904081894*^9, {
+   3.703160502753158*^9, 3.703160540121152*^9}, {3.703160573858899*^9, 
+   3.7031605913746777`*^9}, {3.7031606376198473`*^9, 3.703160654829152*^9}, {
+   3.703160687310355*^9, 3.7031607191623907`*^9}, {3.7031611056090393`*^9, 
+   3.703161107542296*^9}, {3.703161150751687*^9, 3.703161301613976*^9}, {
+   3.703161365070703*^9, 3.7031613814411173`*^9}, {3.7031614544112797`*^9, 
+   3.7031614548989487`*^9}, {3.703162237075062*^9, 3.703162239569236*^9}, {
+   3.7031622747917624`*^9, 3.703162280517827*^9}, {3.703164279263031*^9, 
+   3.7031643564612083`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SubscriptBox["t", "0"], "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"0", "<", 
+        SubscriptBox["t", "1"], "<", 
+        SubscriptBox["t", "2"], "<"}], " ", "..."}], " ", "<", 
+      SubscriptBox["t", "n"], "<", 
+      SubscriptBox["t", 
+       RowBox[{"n", "+", "1"}]], "<"}], " ", "..."}], " ", "<", "10"}]}], 
+  TraditionalForm]], "DisplayFormula",
+ CellChangeTimes->{{3.703162306265624*^9, 3.703162443534107*^9}, {
+  3.7031648845259027`*^9, 3.7031648952848587`*^9}}],
+
+Cell[TextData[{
+ "Also at every generated bump point we have the generate a dimensionless \
+random variable. Because not just the appearances of the bumps, but the sizes \
+and the directions of these are random too. These, denoted with ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Theta]", "n"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", are supposed to be mutually independent and independent of the Poisson \
+process and share a common distribution with:"
+}], "Text",
+ CellChangeTimes->{{3.703161537508272*^9, 3.7031615649932947`*^9}, {
+   3.7031616375371*^9, 3.703161664785363*^9}, {3.703161707881184*^9, 
+   3.703161710921129*^9}, {3.703161755949532*^9, 3.703161913367002*^9}, {
+   3.703161961176849*^9, 3.703162029304717*^9}, {3.7031620965044823`*^9, 
+   3.7031621416617203`*^9}, {3.703162190349326*^9, 3.70316221095331*^9}, {
+   3.703162474234288*^9, 3.703162475665411*^9}, 3.703164338151307*^9}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"\[DoubleStruckCapitalE]", "(", 
+     SubscriptBox["\[Theta]", "n"], ")"}], "=", "0"}], ",", " ", 
+   RowBox[{
+    RowBox[{"\[DoubleStruckCapitalE]", "(", 
+     SuperscriptBox[
+      SubscriptBox["\[Theta]", "n"], "2"], ")"}], "=", "1"}], ",", " ", 
+   RowBox[{
+    RowBox[{"\[DoubleStruckCapitalE]", "(", 
+     SuperscriptBox[
+      SubscriptBox["\[Theta]", "n"], "3"], ")"}], "=", "1"}], ",", " ", 
+   RowBox[{
+    RowBox[{"\[DoubleStruckCapitalE]", "(", 
+     SuperscriptBox[
+      SubscriptBox["\[Theta]", "n"], "4"], ")"}], "<", "\[Infinity]"}]}], 
+  TraditionalForm]], "DisplayFormula",
+ CellChangeTimes->{{3.703162485881094*^9, 3.703162499227149*^9}, {
+  3.703162611491623*^9, 3.703162779648716*^9}}],
+
+Cell[TextData[{
+ "For the simulations ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Theta]", "n"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " will takes the values ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[PlusMinus]", "1"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " with probability ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"1", "/", "2"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " each. (If we think about it, in this case only the direction is random.)"
+}], "Text",
+ CellChangeTimes->{{3.703162819589788*^9, 3.703162905598811*^9}, {
+  3.7031669553940487`*^9, 3.703166988671741*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[Tau]", " ", "=", "0.02"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"proc", "=", 
+   RowBox[{"RandomFunction", "[", 
+    RowBox[{
+     RowBox[{"PoissonProcess", "[", 
+      RowBox[{"1", "/", "\[Tau]"}], "]"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "10"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", "proc", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"bumptimes", "=", 
+   RowBox[{
+    RowBox[{"proc", "[", "\"\<Times\>\"", "]"}], "[", 
+    RowBox[{"[", 
+     RowBox[{"2", ";;", 
+      RowBox[{"-", "2"}]}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"bumps", "=", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"2", "*", " ", 
+      RowBox[{"RandomVariate", "[", 
+       RowBox[{
+        RowBox[{"BernoulliDistribution", "[", 
+         RowBox[{"1", "/", "2"}], "]"}], ",", " ", 
+        RowBox[{"Length", "[", "bumptimes", "]"}]}], "]"}]}], "-", "1"}], 
+    ")"}]}], ";"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.699701267778439*^9, 3.69970130010853*^9}, {
+   3.6997014417573423`*^9, 3.699701454957358*^9}, {3.699701527819057*^9, 
+   3.699701554903829*^9}, {3.699727821070435*^9, 3.699727843094409*^9}, {
+   3.6997309837211437`*^9, 3.699731019486212*^9}, {3.6997310598651867`*^9, 
+   3.699731101629266*^9}, 3.69973358397616*^9, {3.6997337775362043`*^9, 
+   3.699733789281671*^9}, {3.699735147859817*^9, 3.699735155061709*^9}, {
+   3.699735692069738*^9, 3.699735692355139*^9}, {3.6997361175643253`*^9, 
+   3.69973612325561*^9}, 3.699736531119396*^9, {3.699736715033887*^9, 
+   3.699736723420126*^9}, {3.699737154457829*^9, 3.699737154656289*^9}, {
+   3.699738483637992*^9, 3.699738485299313*^9}, {3.699738533242951*^9, 
+   3.699738541258115*^9}, {3.699738708134853*^9, 3.699738721547605*^9}, {
+   3.699738759584757*^9, 3.699738765553617*^9}, {3.699738840006465*^9, 
+   3.699738841259918*^9}, {3.699738876627653*^9, 3.699738899836101*^9}, {
+   3.699738981842128*^9, 3.6997389863692913`*^9}, {3.699739016392742*^9, 
+   3.699739042832823*^9}, {3.699739073757894*^9, 3.699739103815523*^9}, {
+   3.699739204361775*^9, 3.699739217843081*^9}, {3.699809076634244*^9, 
+   3.699809077202495*^9}, 3.699809636943625*^9, {3.699814201924574*^9, 
+   3.699814324236438*^9}, {3.699874270205906*^9, 3.699874272442247*^9}, {
+   3.699874423075815*^9, 3.699874423517144*^9}, {3.699875373213722*^9, 
+   3.699875373532563*^9}, {3.699875420160902*^9, 3.699875471712942*^9}, {
+   3.699875562056728*^9, 3.699875569747154*^9}, {3.699875689626025*^9, 
+   3.699875689754903*^9}, {3.7014862061949577`*^9, 3.701486207315928*^9}, 
+   3.701486552718058*^9, {3.701487222387241*^9, 3.7014872334798737`*^9}, {
+   3.702725428284225*^9, 3.7027254660488853`*^9}, {3.702725507126178*^9, 
+   3.702725515821217*^9}, {3.702748670927449*^9, 3.702748673737691*^9}, 
+   3.702803484582789*^9, {3.702803757955571*^9, 3.702803760880731*^9}, 
+   3.702804015104671*^9, {3.702898258544042*^9, 3.7028982592386703`*^9}, {
+   3.7031614064098*^9, 3.703161417530628*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["The motion of the carriage", "Subsection"]], \
+"Subsection",
+ CellChangeTimes->{{3.702808347671301*^9, 3.7028083602140417`*^9}, 
+   3.7028086394325647`*^9, {3.702899002218491*^9, 3.7028990038079567`*^9}}],
+
+Cell[TextData[{
+ "As mentioned in the introduction, between consecutive impulses the vertical \
+displacement (",
+ Cell[BoxData[
+  FormBox[Cell["s(t)"], TraditionalForm]]],
+ ") from the stability of the carriage and the corresponding velocity (",
+ Cell[BoxData[
+  FormBox[Cell["v(t)"], TraditionalForm]]],
+ ") obey the differential equation of a damped harmonic oscillator:"
+}], "Text",
+ CellChangeTimes->{{3.702808644556769*^9, 3.7028086472926702`*^9}, {
+   3.702898428633977*^9, 3.702898433468163*^9}, {3.703164195264114*^9, 
+   3.70316420489613*^9}, 3.703164254861135*^9, {3.703164380637394*^9, 
+   3.703164487505891*^9}, {3.703164575609969*^9, 3.703164653330475*^9}, {
+   3.703164760996582*^9, 3.703164804127625*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       FractionBox["\[DifferentialD]", 
+        RowBox[{"\[DifferentialD]", "t"}]], "v"}], 
+      RowBox[{"(", "t", ")"}]}], "+", 
+     RowBox[{"\[Gamma]", " ", "v", 
+      RowBox[{"(", "t", ")"}]}], "+", 
+     RowBox[{"k", " ", "s", 
+      RowBox[{"(", "t", ")"}]}]}], "=", "0"}], ",", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      FractionBox["\[DifferentialD]", 
+       RowBox[{"\[DifferentialD]", "t"}]], "s"}], 
+     RowBox[{"(", "t", ")"}]}], "=", 
+    RowBox[{"v", 
+     RowBox[{"(", "t", ")"}]}]}]}], "DisplayFormula"]], "DisplayFormula",
+ CellChangeTimes->{{3.700156856234724*^9, 3.700157007034712*^9}, {
+  3.7031646780198402`*^9, 3.703164681452511*^9}}],
+
+Cell["\<\
+The following code is for the case, when there are no bumps. It is not needed.\
+\>", "Text",
+ CellChangeTimes->{{3.703164708657134*^9, 3.703164742180176*^9}, {
+  3.703164814063231*^9, 3.7031648193135757`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", 
+  RowBox[{"sol", ",", " ", "v", ",", " ", "s"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sol", "=", 
+   RowBox[{"ParametricNDSolveValue", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"v", "'"}], "[", "t", "]"}], "+", 
+         RowBox[{"\[Gamma]", " ", 
+          RowBox[{"v", "[", "t", "]"}]}], "+", 
+         RowBox[{"k", " ", 
+          RowBox[{"s", "[", "t", "]"}]}]}], "\[Equal]", "0"}], ",", " ", 
+       RowBox[{
+        RowBox[{"v", "[", "t", "]"}], "==", 
+        RowBox[{
+         RowBox[{"s", "'"}], "[", "t", "]"}]}], ",", " ", 
+       RowBox[{
+        RowBox[{"s", "[", "0", "]"}], "\[Equal]", " ", "0"}], ",", " ", 
+       RowBox[{
+        RowBox[{"v", "[", "0", "]"}], "\[Equal]", "0"}]}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"s", ",", "v", ",", " ", 
+       RowBox[{"v", "'"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "10"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"\[Gamma]", ",", "k"}], "}"}]}], " ", "]"}]}], ";"}]}], "Input",\
+
+ CellChangeTimes->{{3.701486847912324*^9, 3.701486850408*^9}, {
+  3.701487605318295*^9, 3.701487635774969*^9}, {3.702143339573352*^9, 
+  3.702143340774032*^9}, {3.7029066288120737`*^9, 3.7029066313737593`*^9}, {
+  3.7031645399475594`*^9, 3.7031645400865383`*^9}}],
+
+Cell["\<\
+It was also mentioned in the introduction that the impulses effect directly \
+the velocity, not the displacement in the following way:\
+\>", "Text",
+ CellChangeTimes->{{3.7028985556752167`*^9, 3.702898568667701*^9}, {
+  3.703164933174263*^9, 3.703165027771784*^9}, {3.703165076290213*^9, 
+  3.703165126881892*^9}, {3.7031695203493547`*^9, 3.703169525116931*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"v", "(", 
+    RowBox[{
+     SubscriptBox["t", "n"], "+"}], ")"}], "=", 
+   RowBox[{
+    RowBox[{"v", "(", 
+     RowBox[{
+      SubscriptBox["t", "n"], "-"}], ")"}], "+", 
+    RowBox[{"\[Omega]", " ", 
+     SubscriptBox["\[Theta]", "n"]}]}]}], TraditionalForm]], "DisplayFormula",\
+
+ CellChangeTimes->{{3.70316952835288*^9, 3.7031695932974463`*^9}}],
+
+Cell["The solution for this case:", "Text",
+ CellChangeTimes->{{3.703169486119632*^9, 3.703169506867333*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", 
+  RowBox[{
+  "sol0", ",", " ", "v", ",", " ", "s", ",", "\[Omega]", ",", "\[Gamma]", ",",
+    "k"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sol0", "=", 
+   RowBox[{"ParametricNDSolveValue", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"v", "'"}], "[", "t", "]"}], "+", 
+         RowBox[{"\[Gamma]", " ", 
+          RowBox[{"v", "[", "t", "]"}]}], "+", 
+         RowBox[{"k", " ", 
+          RowBox[{"s", "[", "t", "]"}]}]}], "\[Equal]", "0"}], ",", " ", 
+       RowBox[{
+        RowBox[{"v", "[", "t", "]"}], "==", 
+        RowBox[{
+         RowBox[{"s", "'"}], "[", "t", "]"}]}], ",", "\[IndentingNewLine]", 
+       "\t\t\t\t\t\t", 
+       RowBox[{"MapThread", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"WhenEvent", "[", 
+           RowBox[{
+            RowBox[{"t", "==", "#1"}], ",", " ", 
+            RowBox[{
+             RowBox[{"v", "[", "t", "]"}], "\[Rule]", 
+             RowBox[{
+              RowBox[{"v", "[", "t", "]"}], "+", 
+              RowBox[{"\[Omega]", " ", "*", "#2"}]}]}]}], "]"}], "&"}], ",", 
+         " ", 
+         RowBox[{"{", 
+          RowBox[{"bumptimes", ",", " ", "bumps"}], "}"}]}], "]"}], ",", 
+       "\[IndentingNewLine]", "\t\t\t\t\t\t ", 
+       RowBox[{
+        RowBox[{"s", "[", "0", "]"}], "\[Equal]", " ", "0"}], ",", " ", 
+       RowBox[{
+        RowBox[{"v", "[", "0", "]"}], "\[Equal]", " ", "0"}]}], "}"}], ",", 
+     " ", "\[IndentingNewLine]", "\t\t\t\t\t\t", 
+     RowBox[{"{", 
+      RowBox[{"s", ",", "v", ",", 
+       RowBox[{"v", "'"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "10"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"\[Gamma]", ",", "k", ",", "\[Omega]"}], "}"}]}], " ", "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.699733699543294*^9, 3.6997337495399723`*^9}, {
+   3.699733805037382*^9, 3.699733813881207*^9}, {3.699733950641576*^9, 
+   3.6997339634930267`*^9}, {3.699733998614492*^9, 3.69973400142033*^9}, {
+   3.699734804517811*^9, 3.6997348388381042`*^9}, {3.6997349907785997`*^9, 
+   3.6997350191570263`*^9}, {3.699735086417425*^9, 3.699735115556563*^9}, {
+   3.6997351743898706`*^9, 3.699735188661931*^9}, {3.699735228961583*^9, 
+   3.699735242036063*^9}, {3.699735278774775*^9, 3.6997353101300173`*^9}, {
+   3.699735426396439*^9, 3.699735475028282*^9}, {3.699735550365594*^9, 
+   3.699735552414969*^9}, {3.699735677146714*^9, 3.699735682691873*^9}, {
+   3.6997357554609823`*^9, 3.6997357598217487`*^9}, {3.699735994962356*^9, 
+   3.6997361070576468`*^9}, {3.6997363977729197`*^9, 3.699736399924264*^9}, {
+   3.6997367379360027`*^9, 3.69973678122964*^9}, {3.699737024757886*^9, 
+   3.699737051506187*^9}, {3.699737092310824*^9, 3.6997372020985126`*^9}, {
+   3.699737254383218*^9, 3.699737313548007*^9}, {3.699737504603257*^9, 
+   3.699737506964102*^9}, {3.699737619005599*^9, 3.69973770011805*^9}, {
+   3.6997382936049967`*^9, 3.699738467107774*^9}, {3.699738781594139*^9, 
+   3.699738818676594*^9}, {3.6997390549845953`*^9, 3.699739057055389*^9}, 
+   3.699739112897468*^9, {3.6997392279709263`*^9, 3.6997392413567867`*^9}, {
+   3.699808997794508*^9, 3.69980905794596*^9}, {3.699809105300889*^9, 
+   3.699809119993404*^9}, {3.6998091601362667`*^9, 3.699809175310294*^9}, {
+   3.69981214120842*^9, 3.699812153885989*^9}, 3.6998141823958693`*^9, {
+   3.699814237292782*^9, 3.699814237917548*^9}, 3.699814337981167*^9, {
+   3.699814475549014*^9, 3.699814630004655*^9}, {3.699814790149941*^9, 
+   3.699814820558621*^9}, {3.699814885275848*^9, 3.699814913993299*^9}, {
+   3.699815745631518*^9, 3.699815759275114*^9}, 3.699815824596197*^9, {
+   3.6998158618467283`*^9, 3.6998158801838417`*^9}, 3.699874460869776*^9, {
+   3.6998758713677588`*^9, 3.699875872092773*^9}, {3.699876013808405*^9, 
+   3.699876013886649*^9}, 3.701437040941863*^9, {3.7014861505244207`*^9, 
+   3.7014861517409573`*^9}, {3.701486325765727*^9, 3.701486326052084*^9}, {
+   3.7021433272123127`*^9, 3.7021433307140093`*^9}, {3.7027239784664516`*^9, 
+   3.702723986182439*^9}, {3.702805059762134*^9, 3.7028050613867826`*^9}, {
+   3.702806542978181*^9, 3.7028065440493917`*^9}, {3.7029066224668617`*^9, 
+   3.702906636378174*^9}}],
+
+Cell[TextData[{
+ "In the above code I left ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Gamma]", ",", "k", ",", "\[Omega]"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " as freely chosen parameters:"
+}], "Text",
+ CellChangeTimes->{{3.703165147189332*^9, 3.7031651532015333`*^9}, {
+  3.703166285320325*^9, 3.703166332515294*^9}, {3.7031663813264847`*^9, 
+  3.703166384401928*^9}, {3.703166507591322*^9, 3.7031665137519407`*^9}, {
+  3.703166630729806*^9, 3.703166659969288*^9}, {3.703166750583927*^9, 
+  3.703166750584653*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox["\[Gamma]", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ": damping coefficient"
+}], "Item",
+ CellChangeTimes->{{3.7031665209589663`*^9, 3.70316658492894*^9}}],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox["k", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ": spring constant"
+}], "Item",
+ CellChangeTimes->{{3.7031665895142193`*^9, 3.703166607640794*^9}, {
+  3.7031667056677713`*^9, 3.703166730097096*^9}}],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox["\[Omega]", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ": a parameter that governs the strength of the shocks"
+}], "Item",
+ CellChangeTimes->{{3.7031665895142193`*^9, 3.703166607640794*^9}, {
+  3.7031667056677713`*^9, 3.7031667263217173`*^9}, {3.703166791212534*^9, 
+  3.703166845439831*^9}}]
+}, Open  ]],
+
+Cell[TextData[Cell[BoxData[
+ RowBox[{"Let", " ", Cell[TextData[Cell[BoxData[
+   FormBox[
+    SubscriptBox["\[Gamma]", "s"], TraditionalForm]]]]], " ", "and", " ", 
+  Cell[TextData[Cell[BoxData[
+   FormBox[
+    SubscriptBox["k", "s"], TraditionalForm]]]]], "denote", " ", "the", " ", 
+  "mathematically", " ", "scaled", " ", "versions", " ", "of", " ", Cell[
+  "\[Gamma]"], " ", "and", " ", Cell["k"], "as", " ", "described", " ", "in", 
+  " ", "the", " ", 
+  RowBox[{"article", ":"}]}]], "Text",
+ CellChangeTimes->{{3.7031675993794518`*^9, 3.703167806742424*^9}, {
+  3.703167931872428*^9, 3.703167939228477*^9}}]], "Text",
+ CellChangeTimes->{{3.7031701005633097`*^9, 3.703170104908166*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{Cell[TextData[Cell[BoxData[
+    FormBox[
+     RowBox[{
+      SubscriptBox["\[Gamma]", "s"], "=", 
+      RowBox[{
+       RowBox[{"\[Gamma]", "*", "\[Tau]"}], "=", "2"}]}], TraditionalForm]],
+    FormatType->"TraditionalForm"]]], ",", " ", Cell[TextData[Cell[BoxData[
+    FormBox[
+     RowBox[{
+      SubscriptBox["k", "s"], "=", 
+      RowBox[{
+       RowBox[{"k", "*", 
+        SuperscriptBox["\[Tau]", "2"]}], "=", "2"}]}], TraditionalForm]],
+    FormatType->"TraditionalForm"]]]}], TraditionalForm]], "DisplayFormula",
+ CellChangeTimes->{{3.701484468333482*^9, 3.7014845437073193`*^9}, {
+  3.7014845808019333`*^9, 3.701484622707106*^9}, {3.703162987028109*^9, 
+  3.7031629870360403`*^9}, {3.703163058030883*^9, 3.703163065035365*^9}, {
+  3.703167819434206*^9, 3.7031678374486217`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[Omega]", "=", "4"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Gamma]s", "=", "2"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ks", "=", "2"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Gamma]", "=", 
+   RowBox[{"\[Gamma]s", "/", "\[Tau]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"k", "=", 
+   RowBox[{"ks", "/", 
+    RowBox[{"(", 
+     SuperscriptBox["\[Tau]", "2"], ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"carriage", "=", 
+  RowBox[{"sol0", "[", 
+   RowBox[{
+    RowBox[{"\[Gamma]s", "/", "\[Tau]"}], ",", 
+    RowBox[{"ks", "/", 
+     RowBox[{"(", 
+      SuperscriptBox["\[Tau]", "2"], ")"}]}], ",", "\[Omega]"}], 
+   "]"}]}]}], "Input",
+ CellChangeTimes->{{3.7014851321490507`*^9, 3.701485142601433*^9}, {
+   3.7014851952788563`*^9, 3.701485218341811*^9}, {3.701485567693212*^9, 
+   3.701485588159053*^9}, {3.7014858975051603`*^9, 3.70148590255906*^9}, {
+   3.7014859898863773`*^9, 3.70148601668073*^9}, {3.701486395991938*^9, 
+   3.701486445381682*^9}, 3.701486536881052*^9, {3.7027212931072598`*^9, 
+   3.702721312039962*^9}, {3.702724707215692*^9, 3.70272474033432*^9}, 
+   3.702804170238196*^9, {3.7029059928877077`*^9, 3.702905994142317*^9}, {
+   3.702906054728731*^9, 3.702906054864101*^9}, {3.702906116210145*^9, 
+   3.702906118921913*^9}, 3.702906155011189*^9, 3.702906219539702*^9, {
+   3.702906617817108*^9, 3.702906618369308*^9}, {3.703167546886958*^9, 
+   3.7031675484566383`*^9}}],
+
+Cell["\<\
+Now we finally have the functions describing the motion of the carriage for \
+the parameters chosen in the article.\
+\>", "Text",
+ CellChangeTimes->{{3.703167954888247*^9, 3.7031680964226513`*^9}, {
+  3.703168127593693*^9, 3.703168132277377*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"s", "[", "t_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"carriage", "[", 
+    RowBox[{"[", "1", "]"}], "]"}], "[", "t", 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"v", "[", "t_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"carriage", "[", 
+    RowBox[{"[", "2", "]"}], "]"}], "[", "t", 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"a", "[", "t_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"carriage", "[", 
+    RowBox[{"[", "3", "]"}], "]"}], "[", "t", "]"}]}]}], "Input",
+ CellChangeTimes->{{3.702724965195939*^9, 3.702725016247505*^9}, {
+  3.702805066801441*^9, 3.702805068095169*^9}, {3.702906128098028*^9, 
+  3.702906130868807*^9}, {3.7029062221140823`*^9, 3.702906224073658*^9}, {
+  3.703168144257559*^9, 3.703168153438135*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"s", "[", "t", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "4.9", ",", "5.1"}], "}"}], ",", " ", 
+   RowBox[{"PlotRange", "\[Rule]", "Full"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"v", "[", "t", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "4.9", ",", "5.1"}], "}"}], ",", " ", 
+   RowBox[{"PlotRange", "\[Rule]", "Full"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.70214489352772*^9, 3.702144924438487*^9}, {
+  3.702723931231637*^9, 3.7027239316359377`*^9}, {3.702724031571566*^9, 
+  3.70272403178638*^9}, {3.702731042455265*^9, 3.70273106719238*^9}, {
+  3.702748569632949*^9, 3.7027485869339647`*^9}, {3.702804885092431*^9, 
+  3.7028048874144077`*^9}, {3.702804924236239*^9, 3.702804928996997*^9}, {
+  3.7028050732144527`*^9, 3.702805073834096*^9}, {3.702905520984454*^9, 
+  3.702905524863575*^9}}],
+
+Cell["The above figures show: ", "Text",
+ CellChangeTimes->{{3.703168176535612*^9, 3.703168399917432*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["the displacement remained continuous,", "Item",
+ CellChangeTimes->{{3.703168176535612*^9, 3.703168409986574*^9}, 
+   3.7031684637894077`*^9}],
+
+Cell["the velocity has the discontinuities,", "Item",
+ CellChangeTimes->{{3.703168176535612*^9, 3.703168424068606*^9}, 
+   3.703168465378357*^9}],
+
+Cell[TextData[{
+ "the jump size is ",
+ Cell[BoxData[
+  FormBox["\[Omega]", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "."
+}], "Item",
+ CellChangeTimes->{{3.703168176535612*^9, 3.703168427414311*^9}, {
+  3.703168467324621*^9, 3.703168468496069*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["The motion of the pendulum", "Subsection",
+ CellChangeTimes->{{3.702898977403564*^9, 3.702898993904714*^9}}],
+
+Cell["\<\
+The motion of the pendulum between consecutive bumps was described in the \
+introduction, the differential equation reads as:\
+\>", "Text",
+ CellChangeTimes->{{3.700157875686953*^9, 3.700157894742049*^9}, {
+  3.700157944738513*^9, 3.70015795737834*^9}, {3.700158137283696*^9, 
+  3.700158142096077*^9}, {3.703168941458568*^9, 3.703169012094187*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      FractionBox[
+       SuperscriptBox["\[DifferentialD]", "2"], 
+       RowBox[{"\[DifferentialD]", 
+        SuperscriptBox["t", "2"]}]], "q"}], 
+     RowBox[{"(", "t", ")"}]}], "+", 
+    RowBox[{"\[Nu]", " ", 
+     RowBox[{
+      FractionBox["\[DifferentialD]", 
+       RowBox[{"\[DifferentialD]", "t"}]], "q"}], 
+     RowBox[{"(", "t", ")"}]}], "+", 
+    RowBox[{
+     FractionBox[
+      RowBox[{"(", 
+       RowBox[{"g", "+", 
+        RowBox[{"a", 
+         RowBox[{"(", "t", ")"}]}]}], ")"}], "l"], " ", "q", 
+     RowBox[{"(", "t", ")"}]}]}], "=", "0"}], 
+  "DisplayFormula"]], "DisplayFormula",
+ CellChangeTimes->{{3.700158005211431*^9, 3.7001580395683193`*^9}}],
+
+Cell[TextData[{
+ "At the impulse times the angular velocity (",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"p", "(", "t", ")"}], "=", 
+    RowBox[{
+     FractionBox["\[DifferentialD]", 
+      RowBox[{"\[DifferentialD]", "t"}]], 
+     RowBox[{"q", "(", "t", ")"}]}]}], TraditionalForm]]],
+ ") of the pendulum follows the random jumps of the velocity of the carriage \
+in this way:"
+}], "Text",
+ CellChangeTimes->{{3.700158161183165*^9, 3.70015824017695*^9}, {
+  3.700158278088977*^9, 3.7001582799168158`*^9}, {3.700158312379602*^9, 
+  3.700158413395278*^9}, {3.703168517079309*^9, 3.703168519323092*^9}, {
+  3.703169074903256*^9, 3.70316916998915*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"p", "(", 
+    RowBox[{
+     SubscriptBox["t", "n"], "+"}], ")"}], "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"p", "(", 
+      RowBox[{
+       SubscriptBox["t", "n"], "-"}], ")"}], "+", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["l", 
+        RowBox[{"-", "1"}]], "(", 
+       RowBox[{
+        RowBox[{"v", "(", 
+         RowBox[{
+          SubscriptBox["t", "n"], "+"}], ")"}], "-", 
+        RowBox[{"v", "(", 
+         RowBox[{
+          SubscriptBox["t", "n"], "-"}], ")"}]}], ")"}], " ", 
+      RowBox[{"q", "(", 
+       RowBox[{
+        SubscriptBox["t", "n"], "-"}], ")"}]}]}], "=", 
+    RowBox[{
+     RowBox[{"p", "(", 
+      RowBox[{
+       SubscriptBox["t", "n"], "-"}], ")"}], "+", 
+     RowBox[{
+      SuperscriptBox["l", 
+       RowBox[{"-", "1"}]], "\[Omega]", " ", 
+      SubscriptBox["\[Theta]", "n"], " ", 
+      RowBox[{"q", "(", 
+       RowBox[{
+        SubscriptBox["t", "n"], "-"}], ")"}]}]}]}]}], 
+  TraditionalForm]], "DisplayFormula",
+ CellChangeTimes->{{3.703169210846177*^9, 3.70316929602474*^9}, {
+  3.7031693284818897`*^9, 3.703169447929461*^9}}],
+
+Cell[TextData[{
+ "Of course above ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"q", 
+    RowBox[{"(", "t", ")"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " is the angle of the pendulum and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"p", 
+    RowBox[{"(", "t", ")"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " is the angular velocity of the pendulum.\nThe solution for this \
+differential equation is:"
+}], "Text",
+ CellChangeTimes->{{3.702149520139031*^9, 3.7021495443455048`*^9}, {
+  3.702805101530446*^9, 3.7028051121652927`*^9}, {3.703169689631111*^9, 
+  3.703169788192461*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"p0", "=", "0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"q0", "=", "0.1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"g", "=", "9.8"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Clear", "[", 
+  RowBox[{
+  "sol1", ",", " ", "q", ",", " ", "p", ",", " ", "\[Nu]", ",", " ", "l"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sol1", "=", 
+   RowBox[{"ParametricNDSolveValue", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"p", "'"}], "[", "t", "]"}], "+", 
+         RowBox[{"\[Nu]", " ", 
+          RowBox[{"p", "[", "t", "]"}]}], "-", 
+         RowBox[{
+          SuperscriptBox["l", 
+           RowBox[{"-", "1"}]], "*", 
+          RowBox[{"(", 
+           RowBox[{"g", "+", 
+            RowBox[{
+             RowBox[{"carriage", "[", 
+              RowBox[{"[", "3", "]"}], "]"}], "[", "t", "]"}]}], ")"}], " ", 
+          RowBox[{"q", "[", "t", "]"}]}]}], "\[Equal]", "0"}], ",", " ", 
+       RowBox[{
+        RowBox[{"p", "[", "t", "]"}], "\[Equal]", 
+        RowBox[{
+         RowBox[{"q", "'"}], "[", "t", "]"}]}], ",", "\[IndentingNewLine]", 
+       "\t\t\t\t\t\t", 
+       RowBox[{"MapThread", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"WhenEvent", "[", 
+           RowBox[{
+            RowBox[{"t", "==", "#1"}], ",", " ", 
+            RowBox[{
+             RowBox[{"p", "[", "t", "]"}], "\[Rule]", 
+             RowBox[{
+              RowBox[{"p", "[", "t", "]"}], "+", 
+              RowBox[{
+               SuperscriptBox["l", 
+                RowBox[{"-", "1"}]], "*", "\[Omega]", " ", "*", "#2", "*", 
+               " ", 
+               RowBox[{"q", "[", "t", "]"}]}]}]}]}], "]"}], "&"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"bumptimes", ",", " ", "bumps"}], "}"}]}], "]"}], ",", 
+       "\[IndentingNewLine]", "\t\t\t\t\t\t ", 
+       RowBox[{
+        RowBox[{"p", "[", "0", "]"}], "\[Equal]", " ", "p0"}], ",", " ", 
+       RowBox[{
+        RowBox[{"q", "[", "0", "]"}], "\[Equal]", " ", "q0"}]}], "}"}], ",", 
+     " ", "\[IndentingNewLine]", "\t\t\t\t\t\t", 
+     RowBox[{"{", 
+      RowBox[{"q", ",", "p"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "10"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"\[Nu]", ",", "l"}], "}"}]}], " ", "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.699813543676334*^9, 3.699813645293466*^9}, {
+   3.6998137182872753`*^9, 3.699813799806797*^9}, {3.699813877540464*^9, 
+   3.6998138883768473`*^9}, {3.699813928692197*^9, 3.699813937060487*^9}, {
+   3.699814934072649*^9, 3.6998150103986607`*^9}, {3.699815069045266*^9, 
+   3.699815196342099*^9}, {3.699815431498287*^9, 3.699815455696208*^9}, {
+   3.699815562229753*^9, 3.699815571018309*^9}, {3.699815602817059*^9, 
+   3.699815712609768*^9}, {3.6998159409828873`*^9, 3.699815944390193*^9}, {
+   3.699816005340727*^9, 3.699816017157248*^9}, {3.699816053892064*^9, 
+   3.699816073424156*^9}, {3.6998741501660833`*^9, 3.699874153301653*^9}, {
+   3.699874318619857*^9, 3.699874333713909*^9}, {3.6998746501713877`*^9, 
+   3.699874708844985*^9}, {3.6998759367935877`*^9, 3.699875937575656*^9}, {
+   3.699876002941337*^9, 3.699876022888321*^9}, {3.701437045050424*^9, 
+   3.701437046958901*^9}, 3.7014841487009163`*^9, {3.70148486095149*^9, 
+   3.701484873119384*^9}, {3.701484940841332*^9, 3.701484941372904*^9}, 
+   3.701485082621846*^9, {3.7014853972496*^9, 3.701485472963017*^9}, {
+   3.7014855184913607`*^9, 3.701485518898241*^9}, {3.701485665130645*^9, 
+   3.701485676347035*^9}, {3.7021434185123873`*^9, 3.7021434198020773`*^9}, {
+   3.702724756874117*^9, 3.702724771748179*^9}, 3.702725647673657*^9, {
+   3.7028053794833307`*^9, 3.7028053860794373`*^9}, {3.702902776702771*^9, 
+   3.702902777654645*^9}, {3.702903103528317*^9, 3.702903125131113*^9}, 
+   3.702903164163973*^9, {3.702903198378109*^9, 3.7029032136807537`*^9}, {
+   3.7029062829195833`*^9, 3.702906283611148*^9}, {3.7029066108782454`*^9, 
+   3.702906612173971*^9}, {3.7029066516895123`*^9, 3.702906652193944*^9}, {
+   3.70290730815269*^9, 3.702907314171967*^9}, {3.703169664444777*^9, 
+   3.703169665975642*^9}, {3.703169853225875*^9, 3.703169867050993*^9}}],
+
+Cell[TextData[{
+ "In the above code I left ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Nu]", ",", " ", "l"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " as freely chosen parameters:"
+}], "Text",
+ CellChangeTimes->{{3.703169886382894*^9, 3.703169918035871*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox["\[Nu]", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ": friction coefficient"
+}], "Item",
+ CellChangeTimes->{{3.703169932597803*^9, 3.703169955694415*^9}, {
+  3.7031699961830482`*^9, 3.7031700231777697`*^9}}],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox["l", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ": length of the pendulum"
+}], "Item",
+ CellChangeTimes->{{3.703169932597803*^9, 3.703169955694415*^9}, {
+  3.7031699961830482`*^9, 3.703170034908779*^9}}],
+
+Cell["g: acceleration of gravity", "Item",
+ CellChangeTimes->{{3.703169932597803*^9, 3.703169955694415*^9}, {
+  3.7031699961830482`*^9, 3.703170060995122*^9}}]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[Nu]", "=", "5"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"l", "=", "0.20"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"g", "=", "9.8"}], ";"}], "\n", 
+ RowBox[{"pendulum1", "=", 
+  RowBox[{"sol1", "[", 
+   RowBox[{"\[Nu]", ",", "l"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.702719610676673*^9, 3.702719639706929*^9}, {
+  3.702721333077767*^9, 3.702721336738311*^9}, {3.702743553648136*^9, 
+  3.7027435547030153`*^9}, {3.702806468948495*^9, 3.702806469155896*^9}, {
+  3.702807193249318*^9, 3.70280720662576*^9}, {3.702903186021736*^9, 
+  3.702903189716221*^9}, {3.702903222039754*^9, 3.702903224783078*^9}, {
+  3.702906287158485*^9, 3.702906290193907*^9}, {3.7029065429868927`*^9, 
+  3.702906608306252*^9}, {3.702906659214672*^9, 3.70290668116146*^9}, {
+  3.7029068599451227`*^9, 3.70290687483148*^9}, {3.703170782632875*^9, 
+  3.703170782762226*^9}}],
+
+Cell["\<\
+Now we have a solution for the functions describing the motion of the \
+pendulum for the parameters chosen in the article.\
+\>", "Text",
+ CellChangeTimes->{{3.703170157351509*^9, 3.703170210672949*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"pendulum1", "[", 
+      RowBox[{"[", "1", "]"}], "]"}], "[", "t", "]"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0.", ",", "10"}], "}"}], ",", " ", 
+   RowBox[{"PlotRange", "\[Rule]", "Full"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"pendulum1", "[", 
+      RowBox[{"[", "2", "]"}], "]"}], "[", "t", "]"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0.", ",", "10"}], "}"}], ",", " ", 
+   RowBox[{"PlotRange", "\[Rule]", "Full"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.702719610676673*^9, 3.702719639706929*^9}, {
+  3.702721333077767*^9, 3.702721336738311*^9}, {3.702743553648136*^9, 
+  3.7027435547030153`*^9}, {3.702806468948495*^9, 3.702806469155896*^9}, {
+  3.702807193249318*^9, 3.70280720662576*^9}, {3.702903186021736*^9, 
+  3.702903189716221*^9}, {3.702903222039754*^9, 3.702903224783078*^9}, {
+  3.702906287158485*^9, 3.702906290193907*^9}, {3.7029065429868927`*^9, 
+  3.702906608306252*^9}, {3.702906659214672*^9, 3.70290668116146*^9}, {
+  3.7029068599451227`*^9, 3.70290687483148*^9}, {3.70290716588265*^9, 
+  3.702907177674453*^9}}],
+
+Cell["\<\
+The above figures clearly show the stabilization of the pendulum for the \
+given case. \
+\>", "Text",
+ CellChangeTimes->{{3.703170240264943*^9, 3.70317025075908*^9}, {
+  3.703170830830799*^9, 3.703170855619399*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["The motion of the pendulum in a different way", "Subsection",
+ CellChangeTimes->{{3.7031708988259068`*^9, 3.703170953266782*^9}}],
+
+Cell[TextData[{
+ "In the article it is proven that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      SubscriptBox["v", "n"], ",", 
+      SubscriptBox["t", "n"]}], ")"}], " ", ":=", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"v", "(", 
+       SubscriptBox["t", "n"], ")"}], ",", " ", 
+      RowBox[{"s", "(", 
+       SubscriptBox["t", "n"], ")"}]}], ")"}], " "}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " for ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"n", "=", "0"}], ",", "1", ",", "2", ",", "..."}], 
+   TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " form a discrete-time, homogenous, two-dimensional Markov-chain.\nThe \
+stationary distribution of this chain has finite moments up to order 4, and:"
+}], "Text",
+ CellChangeTimes->{{3.702807276051064*^9, 3.702807311305902*^9}, {
+  3.703171008401454*^9, 3.703171263515733*^9}, {3.703171404070953*^9, 
+  3.703171452209025*^9}, {3.703171554221594*^9, 3.703171576664115*^9}}],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"\[DoubleStruckCapitalE]", "(", 
+     SubscriptBox["v", "n"], ")"}], "=", 
+    RowBox[{
+     RowBox[{"\[DoubleStruckCapitalE]", "(", 
+      SubscriptBox["s", "n"], ")"}], "=", "0"}]}], ",", " ", 
+   RowBox[{
+    RowBox[{"\[DoubleStruckCapitalE]", "(", 
+     SuperscriptBox[
+      SubscriptBox["v", "n"], "2"], ")"}], "=", 
+    RowBox[{
+     SuperscriptBox["\[Omega]", "2"], "/", 
+     RowBox[{"(", 
+      RowBox[{"2", "\[Gamma]", " ", "\[Tau]"}], ")"}]}]}], ",", " ", 
+   RowBox[{
+    RowBox[{"\[DoubleStruckCapitalE]", "(", 
+     RowBox[{
+      SubscriptBox["v", "n"], 
+      SubscriptBox["s", "n"]}], ")"}], "=", "0"}], ",", " ", 
+   RowBox[{
+    RowBox[{"\[DoubleStruckCapitalE]", "(", 
+     SuperscriptBox[
+      SubscriptBox["s", "n"], "2"], ")"}], "=", 
+    RowBox[{
+     RowBox[{"\[DoubleStruckCapitalE]", "(", 
+      SuperscriptBox[
+       SubscriptBox["v", "n"], "2"], ")"}], "/", "k"}]}]}], TraditionalForm]],
+ 
+ FormatType->"TraditionalForm"]], "Text",
+ CellChangeTimes->{{3.70317145710035*^9, 3.703171492390069*^9}, {
+  3.703171533102015*^9, 3.703171541096472*^9}, {3.703171593677135*^9, 
+  3.703171698028185*^9}}],
+
+Cell[TextData[{
+ "Lets denote the second moment of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["v", "n"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " with M2:"
+}], "Text",
+ CellChangeTimes->{{3.703171791594719*^9, 3.703171825623837*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"M2", " ", "=", " ", 
+   RowBox[{
+    SuperscriptBox["\[Omega]", "2"], "/", 
+    RowBox[{"(", 
+     RowBox[{"2", "*", "\[Gamma]", "*", "\[Tau]"}], ")"}]}]}], ";"}]], "Input",\
+
+ CellChangeTimes->{{3.702720244469357*^9, 3.702720270787383*^9}, {
+   3.702720338527813*^9, 3.702720342267963*^9}, {3.702720413293956*^9, 
+   3.7027204484823933`*^9}, {3.702721358160727*^9, 3.702721358517221*^9}, {
+   3.702721427390526*^9, 3.70272152842955*^9}, {3.7027221622562037`*^9, 
+   3.702722167204403*^9}, {3.702722214050988*^9, 3.702722228175967*^9}, {
+   3.702722288100751*^9, 3.702722290063246*^9}, {3.70272354659052*^9, 
+   3.702723597539802*^9}, {3.702724109538567*^9, 3.7027241292331142`*^9}, {
+   3.702724620762291*^9, 3.702724668617889*^9}, {3.702724780439026*^9, 
+   3.702724831438912*^9}, {3.7027248618421392`*^9, 3.702724918815033*^9}, {
+   3.702725026044483*^9, 3.7027250536133413`*^9}, {3.702725230399933*^9, 
+   3.702725279499922*^9}, {3.702725318267782*^9, 3.7027253657412024`*^9}, {
+   3.702726046032198*^9, 3.702726090888844*^9}, {3.702726465933086*^9, 
+   3.7027264962066298`*^9}, {3.702727024574422*^9, 3.702727028473775*^9}, {
+   3.7027270771265373`*^9, 3.702727078830593*^9}, {3.702727314192947*^9, 
+   3.702727384249372*^9}, {3.70272741491123*^9, 3.702727485741454*^9}, {
+   3.702727579453067*^9, 3.702727590650441*^9}, {3.702730030385359*^9, 
+   3.702730053877171*^9}, 3.702743293887994*^9, 3.702743644650831*^9, {
+   3.7027436748208447`*^9, 3.702743677168564*^9}, {3.702747994841659*^9, 
+   3.702748011617237*^9}, 3.702807410125245*^9, 3.7028074890320587`*^9, 
+   3.702900279931745*^9, 3.703171836129756*^9}],
+
+Cell[TextData[{
+ "Now we are jumping to the (left-)continuous case.\nDenote with ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"J", "(", "t", ")"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " the smallest jumping time ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["t", "n"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " such that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["t", "n"], ">", "t"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ":"
+}], "Text",
+ CellChangeTimes->{{3.703171853307827*^9, 3.703171917135784*^9}, {
+  3.703172140175909*^9, 3.703172174726796*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"J", "[", "t_", "]"}], ":=", 
+  RowBox[{"SelectFirst", "[", 
+   RowBox[{"bumptimes", ",", 
+    RowBox[{
+     RowBox[{"#", ">", "t"}], "&"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.702720244469357*^9, 3.702720270787383*^9}, {
+   3.702720338527813*^9, 3.702720342267963*^9}, {3.702720413293956*^9, 
+   3.7027204484823933`*^9}, {3.702721358160727*^9, 3.702721358517221*^9}, {
+   3.702721427390526*^9, 3.70272152842955*^9}, {3.7027221622562037`*^9, 
+   3.702722167204403*^9}, {3.702722214050988*^9, 3.702722228175967*^9}, {
+   3.702722288100751*^9, 3.702722290063246*^9}, {3.70272354659052*^9, 
+   3.702723597539802*^9}, {3.702724109538567*^9, 3.7027241292331142`*^9}, {
+   3.702724620762291*^9, 3.702724668617889*^9}, {3.702724780439026*^9, 
+   3.702724831438912*^9}, {3.7027248618421392`*^9, 3.702724918815033*^9}, {
+   3.702725026044483*^9, 3.7027250536133413`*^9}, {3.702725230399933*^9, 
+   3.702725279499922*^9}, {3.702725318267782*^9, 3.7027253657412024`*^9}, {
+   3.702726046032198*^9, 3.702726090888844*^9}, {3.702726465933086*^9, 
+   3.7027264962066298`*^9}, {3.702727024574422*^9, 3.702727028473775*^9}, {
+   3.7027270771265373`*^9, 3.702727078830593*^9}, {3.702727314192947*^9, 
+   3.702727384249372*^9}, {3.70272741491123*^9, 3.702727485741454*^9}, {
+   3.702727579453067*^9, 3.702727590650441*^9}, {3.702730030385359*^9, 
+   3.702730053877171*^9}, 3.702743293887994*^9, 3.702743644650831*^9, {
+   3.7027436748208447`*^9, 3.702743677168564*^9}, {3.702747994841659*^9, 
+   3.702748011617237*^9}, 3.702807410125245*^9, 3.7028074890320587`*^9, 
+   3.702900279931745*^9, {3.703171836129756*^9, 3.7031718407935143`*^9}}],
+
+Cell[TextData[{
+ "Denote with ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"s", "(", "t", ")"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " the following process:"
+}], "Text",
+ CellChangeTimes->{{3.703172003400577*^9, 3.703172040302287*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"S", "[", "t_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"1", "/", 
+     RowBox[{"(", 
+      RowBox[{"2", " ", 
+       SuperscriptBox["l", "2"], "\[Gamma]"}], ")"}]}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"v", "[", "t", "]"}], "+", 
+      RowBox[{"k", " ", 
+       SuperscriptBox[
+        RowBox[{"s", "[", "t", "]"}], "2"]}]}], ")"}]}], "-", 
+   RowBox[{
+    RowBox[{"M2", "/", 
+     SuperscriptBox["l", "2"]}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"J", "[", "t", "]"}], "-", "t"}], ")"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.702720244469357*^9, 3.702720270787383*^9}, {
+   3.702720338527813*^9, 3.702720342267963*^9}, {3.702720413293956*^9, 
+   3.7027204484823933`*^9}, {3.702721358160727*^9, 3.702721358517221*^9}, {
+   3.702721427390526*^9, 3.70272152842955*^9}, {3.7027221622562037`*^9, 
+   3.702722167204403*^9}, {3.702722214050988*^9, 3.702722228175967*^9}, {
+   3.702722288100751*^9, 3.702722290063246*^9}, {3.70272354659052*^9, 
+   3.702723597539802*^9}, {3.702724109538567*^9, 3.7027241292331142`*^9}, {
+   3.702724620762291*^9, 3.702724668617889*^9}, {3.702724780439026*^9, 
+   3.702724831438912*^9}, {3.7027248618421392`*^9, 3.702724918815033*^9}, {
+   3.702725026044483*^9, 3.7027250536133413`*^9}, {3.702725230399933*^9, 
+   3.702725279499922*^9}, {3.702725318267782*^9, 3.7027253657412024`*^9}, {
+   3.702726046032198*^9, 3.702726090888844*^9}, {3.702726465933086*^9, 
+   3.7027264962066298`*^9}, {3.702727024574422*^9, 3.702727028473775*^9}, {
+   3.7027270771265373`*^9, 3.702727078830593*^9}, {3.702727314192947*^9, 
+   3.702727384249372*^9}, {3.70272741491123*^9, 3.702727485741454*^9}, {
+   3.702727579453067*^9, 3.702727590650441*^9}, {3.702730030385359*^9, 
+   3.702730053877171*^9}, 3.702743293887994*^9, 3.702743644650831*^9, {
+   3.7027436748208447`*^9, 3.702743677168564*^9}, {3.702747994841659*^9, 
+   3.702748011617237*^9}, 3.702807410125245*^9, 3.7028074890320587`*^9, 
+   3.702900279931745*^9, {3.703171836129756*^9, 3.703171845462044*^9}}],
+
+Cell["\<\
+It has many nice properties, for example stationarity.
+The following holds for its change at the jumping times:\
+\>", "Text",
+ CellChangeTimes->{{3.703172049937962*^9, 3.703172058911764*^9}, {
+  3.703172183408896*^9, 3.70317226907437*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[CapitalDelta]S", "[", 
+    RowBox[{"tp_", ",", "tf_", ",", "\[Theta]p_"}], "]"}], ":=", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "1"}], "/", 
+     RowBox[{"(", 
+      RowBox[{"2", " ", 
+       SuperscriptBox["l", "2"], "\[Gamma]"}], ")"}]}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "2"}], " ", "\[Omega]", " ", "\[Theta]p", " ", 
+       RowBox[{"v", "[", "tp", "]"}]}], "-", 
+      RowBox[{
+       SuperscriptBox["\[Omega]", "2"], 
+       SuperscriptBox["\[Theta]p", "2"]}], "+", 
+      RowBox[{
+       SuperscriptBox["\[Omega]", "2"], " ", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"tf", "-", "tp"}], ")"}], "/", "\[Tau]"}]}]}], ")"}]}]}], 
+  " ", "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.702720244469357*^9, 3.702720270787383*^9}, {
+   3.702720338527813*^9, 3.702720342267963*^9}, {3.702720413293956*^9, 
+   3.7027204484823933`*^9}, {3.702721358160727*^9, 3.702721358517221*^9}, {
+   3.702721427390526*^9, 3.70272152842955*^9}, {3.7027221622562037`*^9, 
+   3.702722167204403*^9}, {3.702722214050988*^9, 3.702722228175967*^9}, {
+   3.702722288100751*^9, 3.702722290063246*^9}, {3.70272354659052*^9, 
+   3.702723597539802*^9}, {3.702724109538567*^9, 3.7027241292331142`*^9}, {
+   3.702724620762291*^9, 3.702724668617889*^9}, {3.702724780439026*^9, 
+   3.702724831438912*^9}, {3.7027248618421392`*^9, 3.702724918815033*^9}, {
+   3.702725026044483*^9, 3.7027250536133413`*^9}, {3.702725230399933*^9, 
+   3.702725279499922*^9}, {3.702725318267782*^9, 3.7027253657412024`*^9}, {
+   3.702726046032198*^9, 3.702726090888844*^9}, {3.702726465933086*^9, 
+   3.7027264962066298`*^9}, {3.702727024574422*^9, 3.702727028473775*^9}, {
+   3.7027270771265373`*^9, 3.702727078830593*^9}, {3.702727314192947*^9, 
+   3.702727384249372*^9}, {3.70272741491123*^9, 3.702727485741454*^9}, {
+   3.702727579453067*^9, 3.702727590650441*^9}, {3.702730030385359*^9, 
+   3.702730053877171*^9}, 3.702743293887994*^9, 3.702743644650831*^9, {
+   3.7027436748208447`*^9, 3.702743677168564*^9}, {3.702747994841659*^9, 
+   3.702748011617237*^9}, 3.702807410125245*^9, 3.7028074890320587`*^9, 
+   3.702900279931745*^9, {3.703171836129756*^9, 3.703171845462044*^9}}],
+
+Cell["\<\
+I had some problems calculating the left side limit of the velocity function \
+until I find out that just calling it at a breaking point simple gives me \
+that: \
+\>", "Text",
+ CellChangeTimes->{{3.702805177425041*^9, 3.7028052047706842`*^9}, {
+  3.7028053011309977`*^9, 3.7028053250369062`*^9}, {3.703172291644719*^9, 
+  3.7031724092778053`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"Needs", "[", "\"\<NumericalCalculus`\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Limit", "[", 
+  RowBox[{
+   RowBox[{"v", "[", "x", "]"}], ",", 
+   RowBox[{"x", "\[Rule]", "4.439766020765601`"}], ",", 
+   RowBox[{"Direction", "\[Rule]", "1"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"NLimit", "[", 
+  RowBox[{
+   RowBox[{"v", "[", "x", "]"}], ",", 
+   RowBox[{"x", "\[Rule]", "4.439766020765601`"}], ",", 
+   RowBox[{"Direction", "\[Rule]", 
+    RowBox[{"-", "1"}]}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"v", "[", "4.439766020765601`", "]"}]}], "Input",
+ CellChangeTimes->{{3.702730832229175*^9, 3.702730866030574*^9}, {
+   3.702730902351259*^9, 3.702730931536017*^9}, {3.702730980006606*^9, 
+   3.702730990920052*^9}, 3.702743236425679*^9, {3.702743399678916*^9, 
+   3.702743463602715*^9}, {3.702747606600951*^9, 3.702747653532774*^9}, {
+   3.702748518357562*^9, 3.7027485313746977`*^9}, {3.7027486363444242`*^9, 
+   3.702748638142774*^9}}],
+
+Cell[TextData[{
+ "As written in the introduction the main result is that for a specific ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"v", "(", "t", ")"}], TraditionalForm]]],
+ " stationary process, which happens to be our velocity function and for ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"p", "(", 
+     RowBox[{"0", "-"}], ")"}], ",", " ", 
+    RowBox[{"q", "(", "0", ")"}]}], TraditionalForm]]],
+ " initial values with some other assumptions there exists a constant ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Tau]", "0"], TraditionalForm]]],
+ " (depending on ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Omega]", ",", " ", 
+    SubscriptBox["\[Gamma]", "s"], ",", 
+    SubscriptBox["k", "s"], ",", "l", ",", "g"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " and the distribution of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Theta]", "n"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ") such that for ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Tau]", "<", 
+    SubscriptBox["\[Tau]", "0"]}], TraditionalForm]]],
  ": "
 }], "Text",
  CellChangeTimes->{{3.700158531320243*^9, 3.700158545686922*^9}, {
   3.700158650966443*^9, 3.7001588568559227`*^9}, {3.7001588959441767`*^9, 
-  3.700158991324567*^9}}],
+  3.700158991324567*^9}, {3.703172571389469*^9, 3.703172665419777*^9}, {
+  3.7031727223436813`*^9, 3.703172747674323*^9}, {3.7031730909549503`*^9, 
+  3.703173130405115*^9}, {3.703173191487792*^9, 3.70317324570798*^9}}],
 
-Cell[TextData[{
- StyleBox[Cell[BoxData[
-  FormBox[
-   UnderscriptBox["limsup", 
-    RowBox[{"t", "\[Rule]", "\[Infinity]"}]], TraditionalForm]], 
-  "DisplayFormula",
-  FormatType->"TraditionalForm"], "DisplayFormula"],
- StyleBox[" ", "DisplayFormula"],
- StyleBox[Cell[BoxData[
-  FormBox[
+Cell[BoxData[
+ StyleBox[
+  RowBox[{Cell[BoxData[
+    FormBox[
+     UnderscriptBox["limsup", 
+      RowBox[{"t", "\[Rule]", "\[Infinity]"}]], TraditionalForm]], 
+    "DisplayFormula"], " ", Cell[BoxData[
+    FormBox[
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        FractionBox["1", "t"], " ", "log"}], "|", 
+       RowBox[{"q", "(", "t", ")"}], "|", 
+       RowBox[{"<", "0"}]}], ",", " ", 
+      RowBox[{"a", ".", "s", "."}]}], TraditionalForm]], "DisplayFormula"]}], 
+  "DisplayFormula"]], "DisplayFormula",
+ CellChangeTimes->{{3.700159004281406*^9, 3.7001593193538427`*^9}, {
+  3.703162458585495*^9, 3.703162458595248*^9}}],
+
+Cell["\<\
+The proof of this stabilization works with the substitutions below:\
+\>", "Text",
+ CellChangeTimes->{{3.7028073247680073`*^9, 3.70280735448341*^9}, {
+  3.703173280425221*^9, 3.7031733157130003`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[Chi]", "[", "o_", "]"}], ":=", 
+  RowBox[{"1", "+", 
+   RowBox[{"o", " ", 
+    RowBox[{"Sech", "[", "o", "]"}]}]}]}]], "Input"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"p", "[", "t_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"p1", "[", "t", "]"}], "+", 
+   RowBox[{
+    SuperscriptBox["l", 
+     RowBox[{"-", "1"}]], " ", 
+    RowBox[{"v", "[", "t", "]"}], " ", 
+    RowBox[{"q1", "[", "t", "]"}]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"q", "[", "t_", "]"}], ":=", 
+  RowBox[{"q1", "[", "t", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"p1", "[", "t_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"p2", "[", "t", "]"}], "-", 
+   RowBox[{"\[Nu]", " ", 
+    SuperscriptBox["l", 
+     RowBox[{"-", "1"}]], " ", 
+    RowBox[{"s", "[", "t", "]"}], " ", 
+    RowBox[{"q2", "[", "t", "]"}]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"q1", "[", "t_", "]"}], ":=", 
+  RowBox[{"q2", "[", "t", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"p2", "[", "t_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"p3", "[", "t", "]"}], "/", 
+   RowBox[{"\[Chi]", "[", 
+    RowBox[{
+     SuperscriptBox["l", 
+      RowBox[{"-", "1"}]], " ", 
+     RowBox[{"s", "[", "t", "]"}]}], "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"q2", "[", "t_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"\[Chi]", "[", 
+    RowBox[{
+     SuperscriptBox["l", 
+      RowBox[{"-", "1"}]], " ", 
+     RowBox[{"s", "[", "t", "]"}]}], "]"}], " ", 
+   RowBox[{"q3", "[", "t", "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"p3", "[", "t_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"p4", "[", "t", "]"}], "+", 
+   RowBox[{
+    RowBox[{"S", "[", "t", "]"}], " ", 
+    RowBox[{"q4", "[", "t", "]"}]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"q3", "[", "t_", "]"}], ":=", 
+  RowBox[{"q4", "[", "t", "]"}]}]}], "Input",
+ CellChangeTimes->{{3.702726588442259*^9, 3.7027269984451313`*^9}}],
+
+Cell["\<\
+Calculating the starting points for the substituted processes:\
+\>", "Text",
+ CellChangeTimes->{{3.702808088693461*^9, 3.702808127733912*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
    RowBox[{
     RowBox[{
+     RowBox[{"p", "[", "0", "]"}], "\[Equal]", "p0"}], " ", "&&", 
+    RowBox[{
+     RowBox[{"q", "[", "0", "]"}], "\[Equal]", "q0"}]}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"p4", "[", "0", "]"}], ",", 
+     RowBox[{"q4", "[", "0", "]"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.702727668617722*^9, 3.702727717802627*^9}, {
+  3.7027277566622257`*^9, 3.702727846982703*^9}, {3.7027482078863087`*^9, 
+  3.702748297562728*^9}, {3.702803540638578*^9, 3.702803546595104*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"p40", "=", 
+   RowBox[{
+    RowBox[{"Solve", "[", 
      RowBox[{
-      FractionBox["1", "t"], " ", "log"}], "|", 
-     RowBox[{"q", "(", "t", ")"}], "|", 
-     RowBox[{"<", "0"}]}], ",", " ", 
-    RowBox[{"a", ".", "s", "."}]}], TraditionalForm]], "DisplayFormula",
-  FormatType->"TraditionalForm"], "DisplayFormula"]
+      RowBox[{
+       RowBox[{
+        RowBox[{"p", "[", "0", "]"}], "\[Equal]", "p0"}], " ", "&&", 
+       RowBox[{
+        RowBox[{"q", "[", "0", "]"}], "\[Equal]", "q0"}]}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"p4", "[", "0", "]"}], ",", 
+        RowBox[{"q4", "[", "0", "]"}]}], "}"}]}], "]"}], "[", 
+    RowBox[{"[", 
+     RowBox[{"1", ",", "1", ",", "2"}], "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"q40", "=", 
+   RowBox[{
+    RowBox[{"Solve", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"p", "[", "0", "]"}], "\[Equal]", "p0"}], " ", "&&", 
+       RowBox[{
+        RowBox[{"q", "[", "0", "]"}], "\[Equal]", "q0"}]}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"p4", "[", "0", "]"}], ",", 
+        RowBox[{"q4", "[", "0", "]"}]}], "}"}]}], "]"}], "[", 
+    RowBox[{"[", 
+     RowBox[{"1", ",", "2", ",", "2"}], "]"}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.702748312963204*^9, 3.702748357008904*^9}, {
+  3.702748398744341*^9, 3.7027484097012157`*^9}, {3.7028982048335047`*^9, 
+  3.702898206490238*^9}}],
+
+Cell["Solving the substituted differential equations:", "Text",
+ CellChangeTimes->{{3.702808185161022*^9, 3.7028082162257338`*^9}, {
+  3.703173328929338*^9, 3.7031733380441236`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[CapitalLambda]", "=", 
+   RowBox[{
+    RowBox[{"-", 
+     SuperscriptBox["l", 
+      RowBox[{"-", "1"}]]}], 
+    RowBox[{"(", 
+     RowBox[{"g", "-", 
+      RowBox[{
+       SuperscriptBox["l", 
+        RowBox[{"-", "1"}]], "M2"}]}], ")"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"shiftedtimes", "=", 
+   RowBox[{
+    RowBox[{"proc", "[", "\"\<Times\>\"", "]"}], "[", 
+    RowBox[{"[", 
+     RowBox[{"3", ";;", 
+      RowBox[{"-", "1"}]}], "]"}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.702898270444415*^9, 3.7028982733450317`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", 
+  RowBox[{"sol2", ",", " ", "q4", ",", " ", "p4", ",", "\[Nu]", ",", "l"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sol2", "=", 
+   RowBox[{"ParametricNDSolveValue", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"p4", "'"}], "[", "t", "]"}], "+", 
+         RowBox[{"\[Nu]", " ", 
+          RowBox[{"p4", "[", "t", "]"}]}], "+", 
+         RowBox[{"\[CapitalLambda]", " ", 
+          RowBox[{"q4", "[", "t", "]"}]}]}], "\[Equal]", "0"}], ",", " ", 
+       RowBox[{
+        RowBox[{"p4", "[", "t", "]"}], "\[Equal]", 
+        RowBox[{
+         RowBox[{"q", "'"}], "[", "t", "]"}]}], ",", "\[IndentingNewLine]", 
+       "\t\t\t\t\t\t", 
+       RowBox[{"MapThread", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"WhenEvent", "[", 
+           RowBox[{
+            RowBox[{"t", "==", "#1"}], ",", " ", 
+            RowBox[{
+             RowBox[{"p4", "[", "t", "]"}], "\[Rule]", 
+             RowBox[{
+              RowBox[{"p4", "[", "t", "]"}], "-", 
+              RowBox[{
+               RowBox[{"\[CapitalDelta]S", "[", 
+                RowBox[{"t", ",", "#2", ",", "#3"}], "]"}], " ", 
+               RowBox[{"q4", "[", "t", "]"}]}]}]}]}], "]"}], "&"}], ",", " ", 
+         
+         RowBox[{"{", 
+          RowBox[{"bumptimes", ",", " ", "shiftedtimes", ",", " ", "bumps"}], 
+          "}"}]}], "]"}], ",", "\[IndentingNewLine]", "\t\t\t\t\t\t ", 
+       RowBox[{
+        RowBox[{"p4", "[", "0", "]"}], "\[Equal]", " ", "p40"}], ",", " ", 
+       RowBox[{
+        RowBox[{"q4", "[", "0", "]"}], "\[Equal]", "q40"}]}], "}"}], ",", " ",
+      "\[IndentingNewLine]", "\t\t\t\t\t\t", 
+     RowBox[{"{", 
+      RowBox[{"q4", ",", "p4"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "10"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"\[Nu]", ",", "l"}], "}"}]}], " ", "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.702719741184135*^9, 3.702719747880863*^9}, {
+  3.702719803562077*^9, 3.702719824619721*^9}, {3.702720107638382*^9, 
+  3.702720116867503*^9}, {3.702721652508902*^9, 3.7027216716695623`*^9}, {
+  3.702721873353107*^9, 3.702721876914729*^9}, {3.7027219176224833`*^9, 
+  3.702721926164712*^9}, {3.702725694369728*^9, 3.702725745507427*^9}, {
+  3.702725775512206*^9, 3.702725810760475*^9}, {3.702725860414586*^9, 
+  3.702725860957493*^9}, {3.7027259451581306`*^9, 3.702725946057743*^9}, {
+  3.702726037487259*^9, 3.7027260419174643`*^9}, {3.702730089858059*^9, 
+  3.702730158821191*^9}, {3.702748365364168*^9, 3.702748372567786*^9}, {
+  3.7031733951053753`*^9, 3.703173398479698*^9}, {3.7031734295988407`*^9, 
+  3.703173432920936*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[Nu]", "=", "5"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"l", "=", "0.20"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"g", "=", "9.8"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pendulum1", "=", 
+   RowBox[{"sol1", "[", 
+    RowBox[{"\[Nu]", ",", "l"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pendulum2", "=", 
+   RowBox[{"sol2", "[", 
+    RowBox[{"\[Nu]", ",", "l"}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.702719610676673*^9, 3.702719639706929*^9}, {
+  3.702721333077767*^9, 3.702721336738311*^9}, {3.702743553648136*^9, 
+  3.7027435547030153`*^9}, {3.702806468948495*^9, 3.702806469155896*^9}, {
+  3.702807551409369*^9, 3.702807551596457*^9}, {3.7029028012863607`*^9, 
+  3.702902801919127*^9}, {3.7029056424549217`*^9, 3.702905656639193*^9}, {
+  3.703173388374651*^9, 3.7031734388343153`*^9}, {3.703173932005054*^9, 
+  3.703173932381974*^9}, {3.703174178839304*^9, 3.703174179065422*^9}, {
+  3.703307470833664*^9, 3.703307525450569*^9}, {3.703307791513668*^9, 
+  3.7033077920549507`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"pendulum1", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "[", "t", "]"}], ",", 
+     RowBox[{
+      RowBox[{"pendulum2", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "[", "t", "]"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0.", ",", "10"}], "}"}], ",", " ", 
+   RowBox[{"PlotRange", "\[Rule]", "Full"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"pendulum1", "[", 
+       RowBox[{"[", "2", "]"}], "]"}], "[", "t", "]"}], ",", 
+     RowBox[{
+      RowBox[{"pendulum2", "[", 
+       RowBox[{"[", "2", "]"}], "]"}], "[", "t", "]"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0.", ",", "10"}], "}"}], ",", " ", 
+   RowBox[{"PlotRange", "\[Rule]", "Full"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7021447895496893`*^9, 3.702144816223227*^9}, {
+   3.702145324410161*^9, 3.702145351399415*^9}, {3.7021501474491243`*^9, 
+   3.702150182878791*^9}, {3.7021508317762527`*^9, 3.702150834618806*^9}, {
+   3.702748060569521*^9, 3.702748089828092*^9}, {3.7029028279838877`*^9, 
+   3.702902833457649*^9}, {3.702905666208172*^9, 3.702905669831113*^9}, {
+   3.703173454559452*^9, 3.703173514080256*^9}, {3.7031739455713263`*^9, 
+   3.703173949113894*^9}, {3.703174557909501*^9, 3.70317456673841*^9}, {
+   3.703307346435573*^9, 3.7033073576002407`*^9}, 3.703307535753281*^9, {
+   3.70330758427335*^9, 3.703307641784463*^9}, {3.703307723355245*^9, 
+   3.703307755607019*^9}}],
+
+Cell[TextData[{
+ "The above figures show the difference between ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"p", ",", "q"}], ")"}], " "}], TraditionalForm]]],
+ "and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"(", 
+    RowBox[{"p4", ",", "q4"}], ")"}], TraditionalForm]]],
+ ".\nDuring the substitutions I left out the terms with size ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"o", "(", "\[Tau]", ")"}], TraditionalForm]]],
+ ". I guess that is why ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"(", 
+    RowBox[{"p4", ",", "q4"}], ")"}], TraditionalForm]]],
+ " is less noisy."
 }], "Text",
- CellChangeTimes->{{3.700159004281406*^9, 3.7001593193538427`*^9}}]
+ CellChangeTimes->{{3.7031743998011217`*^9, 3.703174502752255*^9}, {
+   3.703174589304205*^9, 3.703174657280716*^9}, {3.703175291984874*^9, 
+   3.7031752934234457`*^9}, 3.7033076782960663`*^9, {3.703307867437644*^9, 
+   3.703307872906176*^9}, {3.703308146701866*^9, 3.703308270754258*^9}, {
+   3.703309145507703*^9, 3.703309172518527*^9}}]
 }, Open  ]],
 
-Cell["Sections", "Section",
- CellChangeTimes->{{3.700159736061989*^9, 3.7001597589188643`*^9}}],
+Cell[CellGroupData[{
+
+Cell["Animation", "Subsection",
+ CellChangeTimes->{{3.703174315196575*^9, 3.7031743375782948`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"myDrawPendulum", "[", 
+   RowBox[{"q_", ",", "p_", ",", "s_", ",", "T_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"L", "=", "1"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"Graphics", "[", 
+     RowBox[{
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"GeometricTransformation", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Line", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"0", ",", "s"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", 
+                 RowBox[{"s", "+", "L"}]}], "}"}]}], "}"}], "]"}], ",", 
+            RowBox[{"Disk", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", 
+                RowBox[{"s", "+", "L"}]}], "}"}], ",", 
+              RowBox[{"L", "*", "0.05"}]}], "]"}], ",", 
+            RowBox[{"Arrow", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"0", ",", 
+                 RowBox[{"s", "+", "L"}]}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"p", ",", 
+                 RowBox[{"s", "+", "L"}]}], "}"}]}], "}"}], "]"}]}], "}"}], 
+          ",", 
+          RowBox[{"RotationMatrix", "[", "q", "]"}]}], "]"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"EdgeForm", "[", "Black", "]"}], ",", 
+          RowBox[{"FaceForm", "[", "White", "]"}], ",", 
+          RowBox[{"Disk", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "s"}], "}"}], ",", 
+            RowBox[{"L", "*", "0.02"}]}], "]"}]}], "}"}]}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{",", 
+         RowBox[{"Inset", "[", 
+          RowBox[{
+           RowBox[{"Plot", "[", 
+            RowBox[{
+             RowBox[{"Evaluate", "[", "s", "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"t", ",", 
+               RowBox[{"0", "+", "T"}], ",", 
+               RowBox[{"10", "+", "T"}]}], "}"}], ",", 
+             RowBox[{"PlotRange", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"-", "0.1"}], ",", "0.1"}], "}"}]}]}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0.37", ",", "0"}], "}"}]}], "]"}]}], "*)"}], 
+       "\[IndentingNewLine]", "}"}], ",", 
+      RowBox[{"PlotRange", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "1.2"}], "L"}], ",", 
+           RowBox[{"1.2", "L"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "0.1"}], ",", 
+           RowBox[{"1.2", "L"}]}], "}"}]}], "}"}]}]}], "]"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.7029010786534443`*^9, 3.702901195759169*^9}, {
+   3.703175380853724*^9, 3.703175443652999*^9}, {3.703175495009636*^9, 
+   3.703175499374591*^9}, {3.703175569064352*^9, 3.703175630531358*^9}, {
+   3.703304508965144*^9, 3.703304528125111*^9}, {3.703304562212335*^9, 
+   3.7033045651901283`*^9}, {3.703304659332584*^9, 3.703304674301508*^9}, {
+   3.703304708425202*^9, 3.703304747854252*^9}, {3.703304812011188*^9, 
+   3.703304825764203*^9}, {3.703305024612952*^9, 3.703305029013137*^9}, {
+   3.7033051219355297`*^9, 3.703305153176712*^9}, 3.703305199132621*^9, {
+   3.703305304429261*^9, 3.703305334611083*^9}, {3.7033054581095743`*^9, 
+   3.70330546658664*^9}, {3.703305607492187*^9, 3.703305610560706*^9}, {
+   3.7033056813781233`*^9, 3.7033057107517233`*^9}, 3.703305832315339*^9, {
+   3.703305934932867*^9, 3.703305963498582*^9}, {3.703306042828483*^9, 
+   3.70330605482253*^9}, {3.70330609277765*^9, 3.7033061236293488`*^9}, {
+   3.703306158004786*^9, 3.7033061854023743`*^9}, {3.703306219323165*^9, 
+   3.70330622457248*^9}, {3.703306321907586*^9, 3.7033063476578197`*^9}, {
+   3.7033066709532013`*^9, 3.703306686020218*^9}, {3.7033067161108303`*^9, 
+   3.703306732514229*^9}, {3.703306862052862*^9, 3.7033068640274353`*^9}, {
+   3.703306937042849*^9, 3.703306951207406*^9}, {3.703306987171715*^9, 
+   3.703307058875841*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Animate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"myDrawPendulum", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+      "pendulum1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+      "[", "t", "]"}], ",", 
+     RowBox[{
+      RowBox[{
+      "pendulum1", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+      "[", "t", "]"}], ",", 
+     RowBox[{"s", "[", "t", "]"}], ",", "t"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0", ",", "10"}], "}"}], ",", 
+   RowBox[{"AnimationRate", "\[Rule]", "1"}], ",", 
+   RowBox[{"AnimationRunning", "\[Rule]", "False"}], ",", " ", 
+   RowBox[{"DisplayAllSteps", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.699878625676609*^9, 3.6998787462788467`*^9}, {
+   3.699878865063443*^9, 3.6998788677658377`*^9}, {3.699879087061297*^9, 
+   3.6998790883090773`*^9}, {3.699879125118898*^9, 3.699879183332837*^9}, {
+   3.699879679666647*^9, 3.699879709097698*^9}, {3.699879857274458*^9, 
+   3.6998798575890512`*^9}, {3.7021462136428423`*^9, 3.702146247981045*^9}, {
+   3.70214656237289*^9, 3.702146585578417*^9}, {3.7021467249528933`*^9, 
+   3.702146739844081*^9}, {3.702146811918281*^9, 3.702146812563616*^9}, {
+   3.7021481557943907`*^9, 3.702148157924982*^9}, {3.702148350394183*^9, 
+   3.7021483689798517`*^9}, 3.702150116976869*^9, {3.702748114185212*^9, 
+   3.702748114464065*^9}, {3.702749234168602*^9, 3.702749234406266*^9}, 
+   3.702900709059413*^9, {3.702900822319667*^9, 3.702900822430797*^9}, {
+   3.703174271476377*^9, 3.703174273437929*^9}, 3.703174969939311*^9, {
+   3.703175455164448*^9, 3.703175464986191*^9}, {3.7033054535151787`*^9, 
+   3.7033054542128696`*^9}, {3.703305614480204*^9, 3.7033056164388857`*^9}, {
+   3.703305790468047*^9, 3.7033058102396927`*^9}, {3.7033058421354713`*^9, 
+   3.703305843426125*^9}}]
+}, Open  ]]
+}, Open  ]],
 
 Cell["Conclusions", "Section",
  CellChangeTimes->{{3.699979342477171*^9, 3.699979350997841*^9}, {
@@ -389,9 +2052,9 @@ Cell[TextData[{
 }, Open  ]]
 },
 WindowToolbars->"EditBar",
-WindowSize->{683, 713},
-WindowMargins->{{-509, Automatic}, {-183, Automatic}},
-FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
+WindowSize->{1366, 716},
+WindowMargins->{{0, Automatic}, {-27, Automatic}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -406,36 +2069,128 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 179, 2, 150, "Title"],
+Cell[580, 22, 179, 2, 93, "Title"],
 Cell[762, 26, 293, 4, 75, "Text"],
 Cell[CellGroupData[{
 Cell[1080, 34, 143, 2, 65, "Section"],
-Cell[1226, 38, 419, 7, 71, "Text"],
-Cell[1648, 47, 197, 4, 51, "Text"],
-Cell[1848, 53, 292, 5, 71, "Text"]
+Cell[1226, 38, 811, 13, 99, "Text"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2177, 63, 224, 3, 65, "Section"],
-Cell[2404, 68, 239, 5, 51, "Text"],
-Cell[2646, 75, 1134, 27, 57, "DisplayFormula"],
-Cell[3783, 104, 715, 21, 71, "Text"],
-Cell[4501, 127, 1107, 19, 213, "Text"],
-Cell[5611, 148, 562, 9, 131, "Text"],
-Cell[6176, 159, 474, 11, 52, "Text"],
-Cell[6653, 172, 694, 17, 71, "Text"],
-Cell[7350, 191, 707, 22, 51, "DisplayFormula"],
-Cell[8060, 215, 804, 28, 51, "Text"],
-Cell[8867, 245, 266, 6, 51, "Text"],
-Cell[9136, 253, 746, 24, 57, "DisplayFormula"],
-Cell[9885, 279, 971, 31, 93, "Text"],
-Cell[10859, 312, 1045, 30, 111, "Text"],
-Cell[11907, 344, 659, 19, 50, "Text"]
+Cell[2074, 56, 224, 3, 65, "Section"],
+Cell[2301, 61, 239, 5, 33, "Text"],
+Cell[2543, 68, 1134, 27, 60, "DisplayFormula"],
+Cell[3680, 97, 616, 18, 33, "Text"],
+Cell[4299, 117, 1121, 18, 122, "Text"],
+Cell[5423, 137, 562, 9, 77, "Text"],
+Cell[5988, 148, 441, 10, 34, "Text"],
+Cell[6432, 160, 628, 15, 55, "Text"],
+Cell[7063, 177, 707, 22, 53, "DisplayFormula"],
+Cell[7773, 201, 754, 25, 33, "Text"],
+Cell[8530, 228, 266, 6, 33, "Text"],
+Cell[8799, 236, 746, 24, 60, "DisplayFormula"],
+Cell[9548, 262, 927, 28, 77, "Text"],
+Cell[10478, 292, 1066, 27, 55, "Text"],
+Cell[11547, 321, 630, 17, 46, "DisplayFormula"]
 }, Open  ]],
-Cell[12581, 366, 95, 1, 65, "Section"],
-Cell[12679, 369, 144, 2, 51, "Section"],
 Cell[CellGroupData[{
-Cell[12848, 375, 144, 2, 51, "Section"],
-Cell[12995, 379, 391, 7, 49, "ItemNumbered"]
+Cell[12214, 343, 95, 1, 65, "Section"],
+Cell[CellGroupData[{
+Cell[12334, 348, 187, 2, 45, "Subsection"],
+Cell[12524, 352, 1262, 24, 55, "Text",
+ InitializationCell->True],
+Cell[13789, 378, 543, 16, 27, "DisplayFormula"],
+Cell[14335, 396, 920, 16, 55, "Text"],
+Cell[15258, 414, 766, 20, 32, "DisplayFormula"],
+Cell[16027, 436, 630, 19, 33, "Text"],
+Cell[16660, 457, 3063, 58, 144, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19760, 520, 228, 3, 45, "Subsection"],
+Cell[19991, 525, 720, 14, 55, "Text"],
+Cell[20714, 541, 758, 23, 53, "DisplayFormula"],
+Cell[21475, 566, 219, 4, 33, "Text"],
+Cell[21697, 572, 1393, 36, 52, "Input"],
+Cell[23093, 610, 372, 6, 33, "Text"],
+Cell[23468, 618, 395, 13, 27, "DisplayFormula"],
+Cell[23866, 633, 109, 1, 33, "Text"],
+Cell[23978, 636, 4254, 84, 128, "Input"],
+Cell[28235, 722, 535, 12, 31, "Text"],
+Cell[CellGroupData[{
+Cell[28795, 738, 209, 6, 29, "Item"],
+Cell[29007, 746, 250, 7, 29, "Item"],
+Cell[29260, 755, 344, 8, 29, "Item"]
+}, Open  ]],
+Cell[29619, 766, 690, 13, 32, "Text"],
+Cell[30312, 781, 821, 19, 29, "DisplayFormula"],
+Cell[31136, 802, 1496, 33, 163, "Input"],
+Cell[32635, 837, 256, 5, 31, "Text"],
+Cell[32894, 844, 777, 21, 80, "Input"],
+Cell[33674, 867, 916, 19, 57, "Input"],
+Cell[34593, 888, 106, 1, 31, "Text"],
+Cell[CellGroupData[{
+Cell[34724, 893, 147, 2, 29, "Item"],
+Cell[34874, 897, 145, 2, 29, "Item"],
+Cell[35022, 901, 259, 8, 29, "Item"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[35330, 915, 114, 1, 45, "Subsection"],
+Cell[35447, 918, 358, 6, 31, "Text"],
+Cell[35808, 926, 746, 24, 57, "DisplayFormula"],
+Cell[36557, 952, 658, 16, 42, "Text"],
+Cell[37218, 970, 1129, 38, 29, "DisplayFormula"],
+Cell[38350, 1010, 605, 18, 51, "Text"],
+Cell[38958, 1030, 4233, 90, 223, "Input"],
+Cell[43194, 1122, 272, 8, 31, "Text"],
+Cell[CellGroupData[{
+Cell[43491, 1134, 259, 7, 29, "Item"],
+Cell[43753, 1143, 255, 7, 29, "Item"],
+Cell[44011, 1152, 159, 2, 29, "Item"]
+}, Open  ]],
+Cell[44185, 1157, 913, 18, 103, "Input"],
+Cell[45101, 1177, 212, 4, 31, "Text"],
+Cell[45316, 1183, 1235, 27, 57, "Input"],
+Cell[46554, 1212, 225, 5, 31, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[46816, 1222, 135, 1, 45, "Subsection"],
+Cell[46954, 1225, 995, 28, 51, "Text"],
+Cell[47952, 1255, 1199, 34, 38, "Text"],
+Cell[49154, 1291, 250, 8, 31, "Text"],
+Cell[49407, 1301, 1651, 27, 38, "Input"],
+Cell[51061, 1330, 612, 20, 51, "Text"],
+Cell[51676, 1352, 1662, 26, 34, "Input"],
+Cell[53341, 1380, 249, 8, 31, "Text"],
+Cell[53593, 1390, 2043, 40, 41, "Input"],
+Cell[55639, 1432, 249, 5, 51, "Text"],
+Cell[55891, 1439, 2252, 44, 64, "Input"],
+Cell[58146, 1485, 357, 7, 31, "Text"],
+Cell[58506, 1494, 981, 20, 101, "Input"],
+Cell[59490, 1516, 1431, 39, 51, "Text"],
+Cell[60924, 1557, 630, 17, 46, "DisplayFormula"],
+Cell[61557, 1576, 209, 4, 31, "Text"],
+Cell[61769, 1582, 164, 5, 34, "Input"],
+Cell[61936, 1589, 1728, 53, 213, "Input"],
+Cell[63667, 1644, 152, 3, 31, "Text"],
+Cell[63822, 1649, 571, 14, 34, "Input"],
+Cell[64396, 1665, 1218, 36, 57, "Input"],
+Cell[65617, 1703, 182, 2, 31, "Text"],
+Cell[65802, 1707, 597, 20, 65, "Input"],
+Cell[66402, 1729, 2713, 62, 126, "Input"],
+Cell[69118, 1793, 1094, 23, 126, "Input"],
+Cell[70215, 1818, 1577, 36, 57, "Input"],
+Cell[71795, 1856, 943, 27, 51, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[72775, 1888, 99, 1, 44, "Subsection"],
+Cell[72877, 1891, 4262, 101, 148, "Input"],
+Cell[77142, 1994, 1842, 34, 56, "Input"]
+}, Open  ]]
+}, Open  ]],
+Cell[79011, 2032, 144, 2, 65, "Section"],
+Cell[CellGroupData[{
+Cell[79180, 2038, 144, 2, 51, "Section"],
+Cell[79327, 2042, 391, 7, 30, "ItemNumbered"]
 }, Open  ]]
 }, Open  ]]
 }
