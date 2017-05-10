@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      4675,        138]
-NotebookOptionsPosition[      3793,        101]
-NotebookOutlinePosition[      4154,        117]
-CellTagsIndexPosition[      4111,        114]
+NotebookDataLength[     48298,       1314]
+NotebookOptionsPosition[     45613,       1225]
+NotebookOutlinePosition[     45973,       1241]
+CellTagsIndexPosition[     45930,       1238]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -33,7 +33,7 @@ MSc", "Subtitle"]], "Text",
 
 Cell[CellGroupData[{
 
-Cell["Absztrakt", "Section",
+Cell["Absztrakt", "Chapter",
  CellChangeTimes->{{3.6999780464120293`*^9, 3.69997804976353*^9}, {
   3.700037051714563*^9, 3.7000370550998363`*^9}}],
 
@@ -46,62 +46,1186 @@ A g\[EAcute]pi l\[AAcute]t\[AAcute]s t\[EAcute]mak\[ODoubleDot]r\[EAcute]b\
 \[UDoubleDot]lnek a m\[EAcute]r\[EAcute]si adatok minden k\[EAcute]pkock\
 \[AAcute]ra. A m\[EAcute]r\[EAcute]si adatokb\[OAcute]l meghat\[AAcute]rozzuk \
 az inga param\[EAcute]tereit param\[EAcute]terilleszt\[EAcute]s \
-seg\[IAcute]ts\[EAcute]g\[EAcute]vel. Tov\[AAcute]bb\[AAcute] ki\[EAcute]rt\
-\[EAcute]kelj\[UDoubleDot]k az algoritmus pontoss\[AAcute]g\[AAcute]t. V\
-\[EAcute]gezet\[UDoubleDot]l a meghat\[AAcute]rozott param\[EAcute]terekkel k\
-\[EAcute]sz\[IAcute]t\[UDoubleDot]nk egy anim\[AAcute]ci\[OAcute]t.\
+seg\[IAcute]ts\[EAcute]g\[EAcute]vel. V\[EAcute]gezet\[UDoubleDot]l a meghat\
+\[AAcute]rozott param\[EAcute]terekkel k\[EAcute]sz\[IAcute]t\[UDoubleDot]nk \
+egy ingaanim\[AAcute]ci\[OAcute]t.\
 \>", "Text",
  CellChangeTimes->{{3.6999780534445972`*^9, 3.6999781113246202`*^9}, 
    3.6999781457453127`*^9, {3.7000370227913523`*^9, 3.700037048736944*^9}, {
    3.7000371234218407`*^9, 3.7000371687771063`*^9}, {3.700037243520463*^9, 
-   3.700037279069293*^9}, 3.700324507824645*^9}]
-}, Open  ]],
+   3.700037279069293*^9}, {3.7031791740255747`*^9, 3.703179176484755*^9}}],
 
 Cell[CellGroupData[{
 
-Cell["Bevezet\[EAcute]s", "Section",
+Cell[TextData[StyleBox["Bevezet\[EAcute]s", "Chapter"]], "Section",
  CellChangeTimes->{{3.699978160927883*^9, 3.699978162235931*^9}}],
 
-Cell["R\[EAcute]szletesebb le\[IAcute]r\[AAcute]s.", "Text",
- CellChangeTimes->{{3.69997820086187*^9, 3.699978204291317*^9}}]
+Cell["\<\
+A k\[ODoubleDot]vetkez\[ODoubleAcute] projektem c\[EAcute]lja, hogy implement\
+\[AAcute]ljak egy szoftvert, ami g\[EAcute]pi l\[AAcute]t\[AAcute]ssal kieg\
+\[EAcute]sz\[IAcute]tett identifik\[AAcute]ci\[OAcute]t \
+val\[OAcute]s\[IAcute]t meg. Egy inga mozg\[AAcute]s\[AAcute]nak a param\
+\[EAcute]tereinek a meghat\[AAcute]roz\[AAcute]sa a szoftver els\
+\[ODoubleAcute]dleges feladata. Ebb\[ODoubleAcute]l k\[ODoubleDot]vetkez\
+\[ODoubleAcute]en sz\[UDoubleDot]ks\[EAcute]ges volt egy h\[AAcute]zilag elk\
+\[EAcute]sz\[IAcute]tett ing\[AAcute]t \[ODoubleDot]sszeraknom. Az inga mozg\
+\[AAcute]s\[AAcute]r\[OAcute]l elk\[EAcute]sz\[IAcute]tett vide\[OAcute]felv\
+\[EAcute]tel alapj\[AAcute]n hat\[AAcute]rozza meg a szoftver az inga csillap\
+\[IAcute]t\[AAcute]si t\[EAcute]nyez\[ODoubleAcute]j\[EAcute]t \[EAcute]s a \
+hossz\[AAcute]t. A m\[EAcute]r\[EAcute]si pontokat a g\[EAcute]pi l\[AAcute]t\
+\[AAcute]s t\[EAcute]mak\[ODoubleDot]r\[EAcute]b\[ODoubleAcute]l ismert m\
+\[OAcute]dszerekkel hat\[AAcute]roztam meg. Az alkalmaz\[AAcute]somhoz \
+felhaszn\[AAcute]lt g\[EAcute]pi l\[AAcute]t\[AAcute]sb\[OAcute]l el\
+\[ODoubleAcute]ker\[UDoubleDot]l\[ODoubleAcute] fogalmak: homogr\[AAcute]fia, \
+kalibr\[AAcute]ci\[OAcute], homog\[EAcute]n koordin\[AAcute]ta, binariz\
+\[AAcute]l\[AAcute]s, sz\[IAcute]nkomponens alap\[UAcute] sz\[UDoubleAcute]r\
+\[EAcute]s, dilat\[AAcute]ci\[OAcute].\
+\>", "Text",
+ CellChangeTimes->{{3.703173491695497*^9, 3.703174008989943*^9}, {
+  3.703179200501012*^9, 3.703179247641357*^9}}]
 }, Open  ]],
 
-Cell["Tov\[AAcute]bbi fejezetek", "Section",
+Cell[TextData[StyleBox["Csillap\[IAcute]tott inga identifik\[AAcute]ci\
+\[OAcute]", "Chapter"]], "Section",
  CellChangeTimes->{{3.699978211661125*^9, 3.699978243730773*^9}, {
-  3.699978414910244*^9, 3.699978422821042*^9}}],
+  3.699978414910244*^9, 3.699978422821042*^9}, {3.703163834871675*^9, 
+  3.70316385303999*^9}, {3.703164017185502*^9, 3.703164024295495*^9}}],
 
 Cell[CellGroupData[{
 
-Cell["\[CapitalODoubleDot]sszefoglal\[AAcute]s", "Section",
+Cell["Inga elk\[EAcute]sz\[IAcute]t\[EAcute]se", "Subchapter",
+ CellChangeTimes->{3.703164038335841*^9}],
+
+Cell["\<\
+Felhaszn\[AAcute]lt eszk\[ODoubleDot]z\[ODoubleDot]k: cellux, \
+hurkap\[AAcute]lcika, ping-pong labda, c\[EAcute]rna, oll\[OAcute], \
+m\[EAcute]r\[ODoubleAcute]szalag, kamera, kamera\[AAcute]llv\[AAcute]ny, m\
+\[EAcute]rleg.
+Az egyik ping-pong labd\[AAcute]t kiv\[AAcute]lasztottam, aminek \
+megm\[EAcute]rtem a t\[ODoubleDot]meg\[EAcute]t. Lev\[AAcute]gtam egy \
+bizonyos hossz\[UAcute] c\[EAcute]rn\[AAcute]t. Az labda k\[ODoubleDot]r\
+\[EAcute] tekertem egy c\[EAcute]rn\[AAcute]t, amit cellux \
+ragaszt\[OAcute]val r\[ODoubleDot]gz\[IAcute]tettem rajta. A \
+hurkap\[AAcute]lcik\[AAcute]t r\[ODoubleDot]gz\[IAcute]tettem egy \
+kiv\[AAcute]lasztott fel\[UDoubleDot]letre \[UAcute]gy, hogy a v\[EAcute]ge \
+kifele \[AAcute]lljon. A hurokra feltekertem a c\[EAcute]rn\[AAcute]t majd \
+azt is r\[ODoubleDot]gz\[IAcute]tettem rajta. A felteker\[EAcute]s mennyis\
+\[EAcute]g\[EAcute]vel lehet \[AAcute]ll\[IAcute]tani az inga \
+hossz\[AAcute]t. A hossz megm\[EAcute]r\[EAcute]se ut\[AAcute]n, \
+be\[AAcute]ll\[IAcute]tottam a kamer\[AAcute]t a megfelel\[ODoubleAcute] poz\
+\[IAcute]ci\[OAcute]ba.\
+\>", "Text",
+ CellChangeTimes->{3.703164052944132*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Video-k\[EAcute]p konvert\[AAcute]l\[AAcute]si probl\[EAcute]ma:", \
+"Subchapter",
+ CellChangeTimes->{{3.703164312030422*^9, 3.703164325868318*^9}}],
+
+Cell["\<\
+A Mathematica szoftver Linux eset\[EAcute]n nem engedi a vide\[OAcute] f\
+\[AAcute]jl beolvas\[AAcute]s\[AAcute]t, ez\[EAcute]rt megold\[AAcute]sk\
+\[EAcute]pp sz\[EAcute]tszedtem a vide\[OAcute]t k\[EAcute]pekre.  A k\
+\[ODoubleDot]vetkez\[ODoubleAcute] termin\[AAcute]l ablakban be\[IAcute]rt \
+paranccsal voltam k\[EAcute]pes sz\[EAcute]tszedni k\[EAcute]pekre:  \
+\[OpenCurlyDoubleQuote]ffmpeg -i input.MTS -vf fps=10 out%4d.png\
+\[CloseCurlyDoubleQuote]. A parancs 10 fps frekvenci\[AAcute]val bontotta sz\
+\[EAcute]t a vide\[OAcute]f\[AAcute]jlt. A beolvasott k\[EAcute]peket \
+\[AAcute]tm\[EAcute]reteztem.\
+\>", "Text",
+ CellChangeTimes->{
+  3.703164337308572*^9, {3.7031742161819363`*^9, 3.703174225076695*^9}}],
+
+Cell[BoxData[
+ RowBox[{"SetDirectory", "[", 
+  RowBox[{"NotebookDirectory", "[", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.703442783432229*^9, 3.703442791079322*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"imgs", "=", 
+   RowBox[{"Import", "[", "\"\<./record/*.png\>\"", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"width", "=", "450"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fps", "=", "10"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ImageList", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"ImageResize", "[", 
+      RowBox[{
+       RowBox[{"imgs", "[", 
+        RowBox[{"[", "i", "]"}], "]"}], ",", "width"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{
+        RowBox[{"Dimensions", "[", "imgs", "]"}], "[", 
+        RowBox[{"[", "1", "]"}], "]"}], ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.703164353141213*^9, 3.703164364331798*^9}, {
+  3.703164439970964*^9, 3.703164449267803*^9}, {3.703174177958067*^9, 
+  3.703174210244809*^9}, {3.703442736132526*^9, 3.703442739063389*^9}, {
+  3.703442779201467*^9, 3.7034428037800713`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Homogr\[AAcute]fia", "Subchapter",
+ CellChangeTimes->{{3.703164501189293*^9, 3.703164503322253*^9}}],
+
+Cell["\<\
+A c\[EAcute]l az, hogy  meghat\[AAcute]rozzuk az ingja \
+s\[IAcute]kj\[AAcute]ba helyezett koordin\[AAcute]ta-rendszer \[EAcute]s a k\
+\[EAcute]pi koordin\[AAcute]ta-rendszer k\[ODoubleDot]zti \
+megfeleltet\[EAcute]st. A k\[EAcute]t s\[IAcute]k \
+k\[ODoubleDot]z\[ODoubleDot]tti transzform\[AAcute]ci\[OAcute]t a H homogr\
+\[AAcute]fia m\[AAcute]trix hat\[AAcute]rozza meg. A k\[EAcute]t s\[IAcute]k \
+k\[ODoubleDot]zti megfeleltet\[EAcute]s \
+meghat\[AAcute]roz\[AAcute]s\[AAcute]hoz elegend\[ODoubleAcute] 4-4 pont \
+mindkett\[ODoubleAcute] s\[IAcute]kr\[OAcute]l. A H m\[AAcute]trixot a \
+[2],[3] tal\[AAcute]lhat\[OAcute] DLT algoritmussal hat\[AAcute]roztam meg.\
+\>", "Text",
+ CellChangeTimes->{{3.7031645243319483`*^9, 3.703164628107201*^9}, {
+  3.703164676083681*^9, 3.703164693378573*^9}, {3.703173288164221*^9, 
+  3.703173298227828*^9}, {3.703173368425688*^9, 3.703173456344509*^9}, {
+  3.703174031487306*^9, 3.703174060437273*^9}, {3.7031793385465097`*^9, 
+  3.703179373671145*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "normalize", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"normalize", "[", "pts_", "]"}], ":=", 
+  RowBox[{"(*", 
+   RowBox[{"points", " ", "are", " ", "3", "xN"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"Block", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"points", "=", "pts"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     StyleBox[
+      RowBox[{"finiteind", "=", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Position", "[", 
+          RowBox[{
+           RowBox[{"Abs", "[", 
+            RowBox[{"points", "[", 
+             RowBox[{"[", 
+              RowBox[{"3", ",", "All"}], "]"}], "]"}], "]"}], ",", "#"}], 
+          "]"}], "&"}], "/@", 
+        RowBox[{"Select", "[", 
+         RowBox[{
+          RowBox[{"Abs", "[", 
+           RowBox[{"points", "[", 
+            RowBox[{"[", 
+             RowBox[{"3", ",", "All"}], "]"}], "]"}], "]"}], " ", ",", 
+          RowBox[{
+           RowBox[{"#", ">", "$MachineEpsilon"}], "&"}]}], "]"}]}]}],
+      FontWeight->"Plain"], 
+     RowBox[{
+      StyleBox["(*",
+       FontWeight->"Plain"], 
+      RowBox[{
+      "Find", " ", "the", " ", "indices", " ", "of", " ", "the", " ", 
+       "points", " ", "that", " ", "are", " ", "not", " ", "at", " ", 
+       "infinity"}], "*)"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+      "%", " ", "For", " ", "the", " ", "finite", " ", "points", " ", 
+       "ensure", " ", "homogeneous", " ", "coords", " ", "have", " ", "scale",
+        " ", "of", " ", "1"}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"points", "[", 
+       RowBox[{"[", 
+        RowBox[{"1", ",", "All"}], "]"}], "]"}], "=", 
+      RowBox[{
+       RowBox[{"points", "[", 
+        RowBox[{"[", 
+         RowBox[{"1", ",", "All"}], "]"}], "]"}], "/", 
+       RowBox[{"points", "[", 
+        RowBox[{"[", 
+         RowBox[{"3", ",", "All"}], "]"}], "]"}]}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"points", "[", 
+       RowBox[{"[", 
+        RowBox[{"2", ",", "All"}], "]"}], "]"}], "=", 
+      RowBox[{
+       RowBox[{"points", "[", 
+        RowBox[{"[", 
+         RowBox[{"2", ",", "All"}], "]"}], "]"}], "/", 
+       RowBox[{"points", "[", 
+        RowBox[{"[", 
+         RowBox[{"3", ",", "All"}], "]"}], "]"}]}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"points", "[", 
+       RowBox[{"[", 
+        RowBox[{"3", ",", "All"}], "]"}], "]"}], "=", 
+      RowBox[{"ConstantArray", "[", 
+       RowBox[{"1", ",", 
+        RowBox[{
+         RowBox[{"Dimensions", "[", "points", "]"}], "[", 
+         RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"c", "=", 
+      RowBox[{"Mean", "[", 
+       RowBox[{"Transpose", "[", 
+        RowBox[{"points", "[", 
+         RowBox[{"[", 
+          RowBox[{"{", 
+           RowBox[{"1", ",", "2"}], "}"}], "]"}], "]"}], "]"}], "]"}]}], ";", 
+     
+     RowBox[{"(*", 
+      RowBox[{"Centroid", " ", "of", " ", "finite", " ", "points"}], "*)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{"newp", "=", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"points", "[", 
+          RowBox[{"[", 
+           RowBox[{"1", ",", "All"}], "]"}], "]"}], "-", 
+         RowBox[{"c", "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"points", "[", 
+          RowBox[{"[", 
+           RowBox[{"2", ",", "All"}], "]"}], "]"}], "-", 
+         RowBox[{"c", "[", 
+          RowBox[{"[", "2", "]"}], "]"}]}]}], "}"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"dist", "=", 
+      RowBox[{"Sqrt", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"newp", "[", 
+          RowBox[{"[", 
+           RowBox[{"1", ",", "All"}], "]"}], "]"}], "^", "2"}], "+", 
+        RowBox[{
+         RowBox[{"newp", "[", 
+          RowBox[{"[", 
+           RowBox[{"2", ",", "All"}], "]"}], "]"}], "^", "2"}]}], "]"}]}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"meanDist", "=", 
+      RowBox[{"Mean", "[", "dist", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"scale", "=", 
+      RowBox[{"N", "[", 
+       RowBox[{
+        RowBox[{"Sqrt", "[", "2", "]"}], "/", "meanDist"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"T", "=", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"scale", ",", "0", ",", 
+          RowBox[{
+           RowBox[{"-", "scale"}], "*", 
+           RowBox[{"c", "[", 
+            RowBox[{"[", "1", "]"}], "]"}]}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "scale", ",", 
+          RowBox[{
+           RowBox[{"-", "scale"}], "*", 
+           RowBox[{"c", "[", 
+            RowBox[{"[", "2", "]"}], "]"}]}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"newpts", "=", 
+      RowBox[{"T", ".", "points"}]}], ";"}]}], "\[IndentingNewLine]", 
+   "]"}]}]}], "Input"],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "homography", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"homography", "[", 
+   RowBox[{"x1_", ",", "x2_"}], "]"}], ":=", "\[IndentingNewLine]", 
+  RowBox[{"Block", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"pt1", "=", "x1"}], ",", 
+      RowBox[{"pt2", "=", "x2"}]}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"normalize", "[", "pt1", "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"T1", "=", "T"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"newpt1", "=", "newpts"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"normalize", "[", "pt2", "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"T2", "=", "T"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"newpt2", "=", "newpts"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Npts", "=", 
+      RowBox[{
+       RowBox[{"Dimensions", "[", "newpt1", "]"}], "[", 
+       RowBox[{"[", "2", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"A", "=", 
+      RowBox[{"ConstantArray", "[", 
+       RowBox[{"0", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"3", "*", "Npts"}], ",", "9"}], "}"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"zero", "=", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"i", "=", "1"}], ",", 
+       RowBox[{"i", "<=", "Npts"}], ",", 
+       RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"X", "=", 
+         RowBox[{
+          RowBox[{"Transpose", "[", "newpt1", "]"}], "[", 
+          RowBox[{"[", "i", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"x", "=", 
+         RowBox[{"newpt2", "[", 
+          RowBox[{"[", 
+           RowBox[{"1", ",", "i"}], "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"y", "=", 
+         RowBox[{"newpt2", "[", 
+          RowBox[{"[", 
+           RowBox[{"2", ",", "i"}], "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"w", "=", 
+         RowBox[{"newpt2", "[", 
+          RowBox[{"[", 
+           RowBox[{"3", ",", "i"}], "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"A", "[", 
+          RowBox[{"[", 
+           RowBox[{
+            RowBox[{"3", "*", "i"}], "-", "2"}], "]"}], "]"}], "=", 
+         RowBox[{"Join", "[", 
+          RowBox[{"zero", ",", 
+           RowBox[{
+            RowBox[{"-", "w"}], "*", "X"}], ",", 
+           RowBox[{"y", "*", "X"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"A", "[", 
+          RowBox[{"[", 
+           RowBox[{
+            RowBox[{"3", "*", "i"}], "-", "1"}], "]"}], "]"}], "=", 
+         RowBox[{"Join", "[", 
+          RowBox[{
+           RowBox[{"w", "*", "X"}], ",", "zero", ",", 
+           RowBox[{
+            RowBox[{"-", "x"}], "*", "X"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"A", "[", 
+          RowBox[{"[", 
+           RowBox[{"3", "*", "i"}], "]"}], "]"}], "=", 
+         RowBox[{"Join", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "y"}], "*", "X"}], ",", 
+           RowBox[{"x", "*", "X"}], ",", "zero"}], "]"}]}], ";"}]}], 
+      "\[IndentingNewLine]", "]"}], " ", ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"U", ",", "S", ",", "V"}], "}"}], "=", 
+      RowBox[{"SingularValueDecomposition", "[", "A", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"H", "=", 
+      RowBox[{"ArrayReshape", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Transpose", "[", "V", "]"}], "[", 
+         RowBox[{"[", "9", "]"}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"3", ",", "3"}], "}"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"H", "=", 
+      RowBox[{
+       RowBox[{"Inverse", "[", "T2", "]"}], ".", "H", ".", "T1"}]}], ";"}]}], 
+   "\[IndentingNewLine]", "]"}]}]}], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Kalibr\[AAcute]ci\[OAcute]:", "Subchapter",
+ CellChangeTimes->{{3.703174300003894*^9, 3.703174302253179*^9}}],
+
+Cell["\<\
+Beolvassuk a kalibr\[AAcute]ci\[OAcute]s k\[EAcute]pet. A Coordinates Tool \
+men\[UDoubleDot]pontot kiv\[AAcute]lasztjuk, majd bejel\[ODoubleDot]lj\
+\[UDoubleDot]k a k\[EAcute]pi s\[IAcute]k n\[EAcute]gy pontj\[AAcute]t. A \
+inga s\[IAcute]kj\[AAcute]n egy 10-10 cm oldal\[UAcute] n\[EAcute]gyzet \
+sarokpontjait v\[AAcute]lasztjuk ki. A Copy leg\[ODoubleDot]rd\[UDoubleDot]l\
+\[ODoubleAcute] list\[AAcute]j\[AAcute]b\[OAcute]l kiv\[AAcute]lasztjuk, hogy \
+Copy Coordinates, \[EAcute]s bem\[AAcute]soljuk egy list\[AAcute]ba. Az el\
+\[ODoubleAcute]bb eml\[IAcute]tett folyamatot el\[EAcute]g egyszer \
+v\[EAcute]grehajtani, mert a kiv\[AAcute]lasztott pontokat \
+elt\[AAcute]roljuk. Tov\[AAcute]bb\[AAcute] meghat\[AAcute]rozzuk a homogr\
+\[AAcute]fia m\[AAcute]trixot az el\[ODoubleAcute]bbi pontban implement\
+\[AAcute]lt algoritmussal.\
+\>", "Text",
+ CellChangeTimes->{{3.70317443265097*^9, 3.703174716623212*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "kallibr\[AAcute]ci\[OAcute]s", " ", "k\[EAcute]pb\[ODoubleAcute]l", " ", 
+    "meghat\[AAcute]rozzuk", " ", "a", " ", "koordin\[AAcute]t\[AAcute]kat"}],
+    "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"calibrateTemp", "=", 
+     RowBox[{
+     "Import", "[", 
+      "\"\</home/alex/Documents/Egyetem/MSc/Pendulum/Calibrate/callibrate.png\
+\>\"", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"calibrate", "=", 
+     RowBox[{"ImageResize", "[", 
+      RowBox[{"calibrateTemp", ",", "width"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ImageCoordinates", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"248.`", ",", "176.`"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"352.`", ",", "174.`"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"352.`", ",", "313.`"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"248.`", ",", "318.`"}], "}"}]}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"WorldCoordinates", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0.1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0.1", ",", "0.1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0.1", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}]}], "}"}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.703174764505171*^9, 3.703174800834722*^9}, {
+  3.7031748721845217`*^9, 3.703174877425151*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Homog\[EAcute]n", " ", "koordin\[AAcute]ta", " ", "rendszerbe", " ", 
+    "\[AAcute]tt\[EAcute]r\[EAcute]s"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ones", "=", 
+     RowBox[{"{", 
+      RowBox[{"ConstantArray", "[", 
+       RowBox[{"1", ",", 
+        RowBox[{
+         RowBox[{"Dimensions", "[", "ImageCoordinates", "]"}], "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], "]"}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"HomImageCoordinates", "=", 
+     RowBox[{"Join", "[", 
+      RowBox[{
+       RowBox[{"Transpose", "[", "ImageCoordinates", "]"}], ",", "ones"}], 
+      "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"HomWorldCoordinates", "=", 
+     RowBox[{"Join", "[", 
+      RowBox[{
+       RowBox[{"Transpose", "[", "WorldCoordinates", "]"}], ",", "ones"}], 
+      "]"}]}], ";"}]}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"homography", "[", 
+  RowBox[{"HomImageCoordinates", ",", "HomWorldCoordinates"}], "]"}]], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["M\[EAcute]r\[EAcute]si pontok:", "Subchapter",
+ CellChangeTimes->{{3.7031749685765142`*^9, 3.7031749703092947`*^9}}],
+
+Cell["\<\
+A beolvasott k\[EAcute]peket az algoritmus tov\[AAcute]bbi r\[EAcute]sz\
+\[EAcute]re  binariz\[AAcute]lni kell egy kiv\[AAcute]lasztott sz\
+\[UDoubleAcute]r\[ODoubleAcute] alapj\[AAcute]n. A piros \[EAcute]s z\
+\[ODoubleDot]ld sz\[IAcute]nkomponensek ar\[AAcute]nya alapj\[AAcute]n \
+binariz\[AAcute]lunk. A dilat\[AAcute]ci\[OAcute] \
+alkalmaz\[AAcute]s\[AAcute]t sz\[UDoubleDot]ks\[EAcute]gesnek l\[AAcute]ttam, \
+mert a meghat\[AAcute]rozott k\[ODoubleDot]r alakzat belseje zajos volt. \
+Viszont az alakzat b\[ODoubleAcute]v\[IAcute]t\[EAcute]ssel \
+elt\[UDoubleAcute]ntek a zajok, amelyek dilat\[AAcute]ci\[OAcute] \
+n\[EAcute]lk\[UDoubleDot]l bezavartak volna az alakzat keres\[EAcute]sben. A \
+k\[ODoubleDot]r k\[ODoubleDot]z\[EAcute]ppontok koordin\[AAcute]t\[AAcute]it \
+meghat\[AAcute]rozzuk a ComponentMeasurements \
+f\[UDoubleDot]ggv\[EAcute]nnyel. Illetve a homogr\[AAcute]fia \
+m\[AAcute]trixszal \[AAcute]ttranszform\[AAcute]ljuk a pontokat az inga  \
+koordin\[AAcute]ta-rendszer\[EAcute]be. A m\[EAcute]r\[EAcute]si sz\
+\[ODoubleDot]gek meghat\[AAcute]rozhat\[OAcute]ak a trigonometrikus azonoss\
+\[AAcute]gb\[OAcute]l.\
+\>", "Text",
+ CellChangeTimes->{
+  3.703174980521832*^9, {3.703175046421542*^9, 3.703175056308896*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"K\[EAcute]pek", " ", "binariz\[AAcute]l\[AAcute]sa"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"bw", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Binarize", "[", 
+        RowBox[{"#", ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"#", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], ">", 
+           RowBox[{
+            RowBox[{"#", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], "+", "0.17"}]}], "&"}]}], "]"}], 
+       "&"}], "/@", "ImageList"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", "dilat\[AAcute]ci\[OAcute]", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"bw2", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Dilation", "[", 
+        RowBox[{"#", ",", 
+         RowBox[{"DiskMatrix", "[", "4", "]"}]}], "]"}], "&"}], "/@", 
+      "bw"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"k\[ODoubleDot]r", " ", "komponensek", " ", "keres\[EAcute]se"}], 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"temp", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"ComponentMeasurements", "[", 
+         RowBox[{"#", ",", 
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<Centroid\>\"", " ", ",", "\"\<EquivalentDiskRadius\>\""}], 
+           "}"}]}], "]"}], "[", 
+        RowBox[{"[", 
+         RowBox[{"1", ",", "2"}], "]"}], "]"}], "&"}], "/@", "bw2"}]}], ";"}],
+    "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"centers", "=", 
+     RowBox[{"temp", "[", 
+      RowBox[{"[", 
+       RowBox[{"All", ",", "1"}], "]"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"radiuses", "=", 
+     RowBox[{"temp", "[", 
+      RowBox[{"[", 
+       RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.703175389203923*^9, 3.703175395147584*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Homog\[EAcute]n", " ", "koordin\[AAcute]ta", " ", "rendszerbe", " ", 
+    "\[AAcute]tt\[EAcute]r\[EAcute]s"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ones", "=", 
+     RowBox[{"{", 
+      RowBox[{"ConstantArray", "[", 
+       RowBox[{"1", ",", 
+        RowBox[{
+         RowBox[{"Dimensions", "[", "centers", "]"}], "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], "]"}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"HomCenters", "=", 
+     RowBox[{"Join", "[", 
+      RowBox[{
+       RowBox[{"Transpose", "[", "centers", "]"}], ",", "ones"}], "]"}]}], 
+    ";"}], " "}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"K\[EAcute]p", "\[Rule]", 
+    RowBox[{
+    "Vil\[AAcute]g", " ", "koordin\[AAcute]ta", " ", 
+     "transzform\[AAcute]ci\[OAcute]"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"HomTransferedCenters", "=", 
+    RowBox[{"H", ".", "HomCenters"}]}], ";"}], " "}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Inhomog\[EAcute]n", " ", "koordin\[AAcute]ta", " ", "rendszerbe", " ", 
+    "visszat\[EAcute]r\[EAcute]s"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"HomTransferedCenters", "[", 
+      RowBox[{"[", 
+       RowBox[{"1", ",", "All"}], "]"}], "]"}], "=", 
+     RowBox[{
+      RowBox[{"HomTransferedCenters", "[", 
+       RowBox[{"[", 
+        RowBox[{"1", ",", "All"}], "]"}], "]"}], "/", 
+      RowBox[{"HomTransferedCenters", "[", 
+       RowBox[{"[", 
+        RowBox[{"3", ",", "All"}], "]"}], "]"}]}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"HomTransferedCenters", "[", 
+      RowBox[{"[", 
+       RowBox[{"2", ",", "All"}], "]"}], "]"}], "=", 
+     RowBox[{
+      RowBox[{"HomTransferedCenters", "[", 
+       RowBox[{"[", 
+        RowBox[{"2", ",", "All"}], "]"}], "]"}], "/", 
+      RowBox[{"HomTransferedCenters", "[", 
+       RowBox[{"[", 
+        RowBox[{"3", ",", "All"}], "]"}], "]"}]}]}], ";"}]}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "phi", " ", "sz\[ODoubleDot]gek", " ", "meghat\[AAcute]roz\[AAcute]sa", 
+    " ", "sz\[ODoubleDot]gf\[UDoubleDot]ggv\[EAcute]nnyel"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"phis", "=", 
+    RowBox[{"ArcTan", "[", 
+     RowBox[{
+      RowBox[{"HomTransferedCenters", "[", 
+       RowBox[{"[", 
+        RowBox[{"1", ",", "All"}], "]"}], "]"}], "/", 
+      RowBox[{"HomTransferedCenters", "[", 
+       RowBox[{"[", 
+        RowBox[{"2", ",", "All"}], "]"}], "]"}]}], "]"}]}], ";"}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "phi", " ", "sz\[ODoubleDot]gekhez", " ", "tartoz\[OAcute]", " ", "t", " ",
+     "id\[ODoubleAcute]", " ", "\[EAcute]rt\[EAcute]kek"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"timeStamp", "=", 
+    RowBox[{"N", "[", 
+     RowBox[{"Table", "[", 
+      RowBox[{"i", ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "0", ",", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"1", "/", "fps"}], ")"}], "*", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"Dimensions", "[", "phis", "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}], "-", "1"}], ")"}]}], ",", 
+         RowBox[{"1", "/", "fps"}]}], "}"}]}], "]"}], "]"}]}], 
+   ";"}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"m\[EAcute]r\[EAcute]si", " ", "adatok"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"data", "=", 
+     RowBox[{"{", 
+      RowBox[{"timeStamp", ",", "phis"}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"data", "=", 
+     RowBox[{"Transpose", "[", "data", "]"}]}], ";"}]}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Az", " ", "id\[ODoubleAcute]f\[UDoubleDot]ggv\[EAcute]ny\[EAcute]ben", 
+    " ", "a", " ", "csillap\[IAcute]tott", " ", 
+    RowBox[{"kileng\[EAcute]sek", "."}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"ListLinePlot", "[", "data", "]"}]}]], "Input",
+ CellChangeTimes->{{3.703175638867571*^9, 3.703175640314782*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Identifik\[AAcute]ci\[OAcute]", "Subchapter",
+ CellChangeTimes->{{3.703175667571672*^9, 3.703175669698127*^9}}],
+
+Cell["\<\
+A k,l csillap\[IAcute]t\[AAcute]si t\[EAcute]nyez\[ODoubleAcute], \[EAcute]s \
+a hossz param\[EAcute]terekre param\[EAcute]teresen megoldjuk a differenci\
+\[AAcute]l egyenletet. A phi kezdeti \[EAcute]rt\[EAcute]k az a sz\
+\[ODoubleDot]g, ahonnan az ing\[AAcute]t ind\[IAcute]tjuk, amely a phi lista \
+els\[ODoubleAcute] elem\[EAcute]t is jelenti. Tov\[AAcute]bb\[AAcute] a k,l \
+param\[EAcute]tert meghat\[AAcute]rozzuk a FindFit \
+f\[UDoubleDot]ggv\[EAcute]nnyel.\
+\>", "Text",
+ CellChangeTimes->{{3.70317568797126*^9, 3.703175699098442*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"g", "=", "9.81"}], ";", 
+  RowBox[{"m", "=", 
+   RowBox[{"2.91", "*", 
+    RowBox[{"10", "^", 
+     RowBox[{"-", "3"}]}]}]}], ";", 
+  RowBox[{"phiInit", "=", 
+   RowBox[{"phis", "[", 
+    RowBox[{"[", "1", "]"}], "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "A", " ", "sz\[ODoubleDot]gelfordul\[AAcute]s", " ", "param\[EAcute]teres",
+     " ", "meghat\[AAcute]roz\[AAcute]sa", " ", "k", " ", 
+    "csillap\[IAcute]t\[AAcute]si", " ", "t\[EAcute]nyez\[ODoubleAcute]", " ",
+     "\[EAcute]s", " ", "l", " ", "hossz", " ", 
+    "f\[UDoubleDot]ggv\[EAcute]ny\[EAcute]ben"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Clear", "[", "solPend", "]"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"solPendFunc", "[", 
+      RowBox[{"g_", ",", "m_", ",", "phiInit_"}], "]"}], ":=", 
+     "\[IndentingNewLine]", 
+     RowBox[{"solPend", "=", 
+      RowBox[{"ParametricNDSolveValue", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{"\[Phi]", "''"}], "[", "t", "]"}], "+", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"g", "/", "l"}], ")"}], "*", 
+             RowBox[{"Sin", "[", 
+              RowBox[{"\[Phi]", "[", "t", "]"}], "]"}]}], "+", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"k", "/", "m"}], ")"}], "*", 
+             RowBox[{
+              RowBox[{"\[Phi]", "'"}], "[", "t", "]"}]}]}], "\[Equal]", "0"}],
+           ",", 
+          RowBox[{
+           RowBox[{"\[Phi]", "[", "0", "]"}], "\[Equal]", "phiInit"}], ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"\[Phi]", "'"}], "[", "0", "]"}], "\[Equal]", "0"}]}], 
+         "}"}], ",", "\[Phi]", ",", 
+        RowBox[{"{", 
+         RowBox[{"t", ",", "0", ",", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"1", "/", "fps"}], ")"}], "*", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Dimensions", "[", "phis", "]"}], "[", 
+              RowBox[{"[", "1", "]"}], "]"}], "-", "1"}], ")"}]}]}], "}"}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"k", ",", "l"}], "}"}]}], "]"}]}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"solPendFunc", "[", 
+     RowBox[{"g", ",", "m", ",", "phiInit"}], "]"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.703175786842121*^9, 3.703175789210095*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"k", ",", 
+    RowBox[{"l", " ", "meghat\[AAcute]roz\[AAcute]sa"}]}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"fit", "=", 
+     RowBox[{"FindFit", "[", 
+      RowBox[{"data", ",", 
+       RowBox[{
+        RowBox[{"solPend", "[", 
+         RowBox[{"k", ",", "l"}], "]"}], "[", "t", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"k", ",", "0.001"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"l", ",", "0.2"}], "}"}]}], "}"}], ",", "t"}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"solPend", "[", 
+       RowBox[{
+        RowBox[{"fit", "[", 
+         RowBox[{"[", 
+          RowBox[{"1", ",", "2"}], "]"}], "]"}], ",", 
+        RowBox[{"fit", "[", 
+         RowBox[{"[", 
+          RowBox[{"2", ",", "2"}], "]"}], "]"}]}], "]"}], "[", "t", "]"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "5"}], "}"}], ",", 
+     RowBox[{"Epilog", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Red", ",", 
+        RowBox[{"PointSize", "[", "Medium", "]"}], ",", 
+        RowBox[{"Point", "[", "data", "]"}]}], "}"}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7031757616361847`*^9, 3.703175806039109*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Anim\[AAcute]ci\[OAcute]", "Subchapter",
+ CellChangeTimes->{{3.703175909546363*^9, 3.703175910441515*^9}}],
+
+Cell["\<\
+Az alkalmaz\[AAcute]somhoz legv\[EAcute]gs\[ODoubleAcute]sorban k\[EAcute]sz\
+\[IAcute]tettem egy anim\[AAcute]ci\[OAcute]t. Az anim\[AAcute]ci\[OAcute]n \
+megfigyelhet\[ODoubleAcute] a k\[EAcute]t inga k\[ODoubleDot]zel azonos mozg\
+\[AAcute]sa.\
+\>", "Text",
+ CellChangeTimes->{{3.70317790391818*^9, 3.703177942222643*^9}, {
+  3.7031779756407957`*^9, 3.7031779799334784`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fullT", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "/", "fps"}], ")"}], "*", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Dimensions", "[", "phis", "]"}], "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "-", "1"}], ")"}]}]}], ";"}]], "Input",\
+
+ CellChangeTimes->{{3.7031759114970503`*^9, 3.703175919163692*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Sz\[ODoubleDot]gsebess\[EAcute]g", " ", 
+    "kisz\[AAcute]m\[IAcute]t\[AAcute]sa"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"ClearAll", "[", "solPendFunc2", "]"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"solPendFunc2", "[", 
+      RowBox[{"L_", ",", "g_", ",", "m_", ",", "phiInit_", ",", "k_"}], "]"}],
+      ":=", "\[IndentingNewLine]", 
+     RowBox[{"solPend2", "=", 
+      RowBox[{"NDSolveValue", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{"\[Phi]", "''"}], "[", "t", "]"}], "+", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"g", "/", "L"}], ")"}], "*", 
+             RowBox[{"Sin", "[", 
+              RowBox[{"\[Phi]", "[", "t", "]"}], "]"}]}], "+", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"k", "/", "m"}], ")"}], "*", 
+             RowBox[{
+              RowBox[{"\[Phi]", "'"}], "[", "t", "]"}]}]}], "\[Equal]", "0"}],
+           ",", 
+          RowBox[{
+           RowBox[{"\[Phi]", "[", "0", "]"}], "\[Equal]", "phiInit"}], ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"\[Phi]", "'"}], "[", "0", "]"}], "\[Equal]", "0"}]}], 
+         "}"}], ",", 
+        RowBox[{"\[Phi]", "'"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"t", ",", "0", ",", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"1", "/", "fps"}], ")"}], "*", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Dimensions", "[", "phis", "]"}], "[", 
+              RowBox[{"[", "1", "]"}], "]"}], "-", "1"}], ")"}]}]}], "}"}]}], 
+       "]"}]}]}], ";", 
+    RowBox[{"solPendFunc2", "[", 
+     RowBox[{
+      RowBox[{"fit", "[", 
+       RowBox[{"[", 
+        RowBox[{"2", ",", "2"}], "]"}], "]"}], ",", "g", ",", "m", ",", 
+      "phiInit", ",", 
+      RowBox[{"fit", "[", 
+       RowBox[{"[", 
+        RowBox[{"1", ",", "2"}], "]"}], "]"}]}], "]"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.7031759357544823`*^9, 3.703175936661354*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Az", " ", "inga", " ", "grafikus", " ", "objektum"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"drawPendulum", "[", 
+    RowBox[{"L_", ",", "r_", ",", "\[Phi]_", ",", "\[Omega]_"}], "]"}], ":=", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Graphics", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"InfiniteLine", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"1", ",", "0"}], "}"}]}], "}"}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"verLine", "=", 
+        RowBox[{"Line", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", 
+             RowBox[{"-", "L"}]}], "}"}]}], "}"}], "]"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"\[Phi]Vec", "=", 
+        RowBox[{"Arrow", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", 
+             RowBox[{
+              RowBox[{"-", "L"}], "/", "2"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"0.12", "\[Phi]"}], ",", 
+             RowBox[{
+              RowBox[{"-", "L"}], "/", "2"}]}], "}"}]}], "}"}], "]"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"GeometricTransformation", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Line", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", 
+                RowBox[{"-", "L"}]}], "}"}]}], "}"}], "]"}], ",", 
+           RowBox[{"Disk", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"0", ",", 
+               RowBox[{"-", "L"}]}], "}"}], ",", "r"}], "]"}], ",", 
+           RowBox[{"\[Omega]Vec", "=", 
+            RowBox[{"Arrow", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"0", ",", 
+                 RowBox[{"-", "L"}]}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"0.05", "\[Omega]"}], ",", 
+                 RowBox[{"-", "L"}]}], "}"}]}], "}"}], "]"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"Thick", ",", "Blue", ",", "\[Omega]Vec"}], "}"}]}], 
+          "}"}], ",", 
+         RowBox[{"RotationMatrix", "[", "\[Phi]", "]"}]}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"Thick", ",", "Dashed", ",", "Blue", ",", "verLine"}], "}"}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"Thick", ",", "Red", ",", "\[Phi]Vec"}], "}"}]}], 
+      "\[IndentingNewLine]", "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"1.2", "L"}]}]}], "\[IndentingNewLine]", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.703175954242065*^9, 3.7031759569935427`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "list\[AAcute]ban", " ", "gy\[UDoubleDot]jtj\[UDoubleDot]k", " ", "az", 
+    " ", "anim\[AAcute]ci\[OAcute]", " ", "elemeit"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ImageForAnimation", "=", 
+     RowBox[{"Table", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Show", "[", 
+        RowBox[{
+         RowBox[{"ImageList", "[", 
+          RowBox[{"[", "i", "]"}], "]"}], ",", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", 
+           RowBox[{"Green", ",", 
+            RowBox[{"Circle", "[", 
+             RowBox[{
+              RowBox[{"centers", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], ",", 
+              RowBox[{"radiuses", "[", 
+               RowBox[{"[", "i", "]"}], "]"}]}], "]"}]}], "}"}], "]"}]}], 
+        "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "imgs", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}], ",", "1"}], "}"}]}], "]"}]}], ";"}],
+    "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"GraphicPendulumList", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"drawPendulum", "[", 
+        RowBox[{
+         RowBox[{"fit", "[", 
+          RowBox[{"[", 
+           RowBox[{"2", ",", "2"}], "]"}], "]"}], ",", "0.02", ",", 
+         RowBox[{
+          RowBox[{"solPend", "[", 
+           RowBox[{
+            RowBox[{"fit", "[", 
+             RowBox[{"[", 
+              RowBox[{"1", ",", "2"}], "]"}], "]"}], ",", 
+            RowBox[{"fit", "[", 
+             RowBox[{"[", 
+              RowBox[{"2", ",", "2"}], "]"}], "]"}]}], "]"}], "[", "t", "]"}],
+          ",", 
+         RowBox[{"solPend2", "[", "t", "]"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "0", ",", "fullT", ",", 
+         RowBox[{"1", "/", "fps"}]}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"AnimateObjects", "=", 
+     RowBox[{"{", 
+      RowBox[{"ImageForAnimation", ",", "GraphicPendulumList"}], "}"}]}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.7031761110688267`*^9, 3.703176227537977*^9}, {
+   3.703176322147072*^9, 3.703176335657815*^9}, {3.7031763948814497`*^9, 
+   3.7031763981188297`*^9}, {3.703176590160288*^9, 3.703176642648898*^9}, {
+   3.7031768923024197`*^9, 3.703176892851013*^9}, {3.70317699027623*^9, 
+   3.703176995929615*^9}, 3.703177027309292*^9, {3.703177057441442*^9, 
+   3.7031770583315496`*^9}, {3.703177301196027*^9, 3.703177320126853*^9}, {
+   3.703177413702611*^9, 3.703177428983882*^9}, {3.703177582598008*^9, 
+   3.703177708013335*^9}, {3.703177774296927*^9, 3.7031777768814297`*^9}, {
+   3.703177881055251*^9, 3.7031778855906687`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", "Anim\[AAcute]ci\[OAcute]", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ListAnimate", "[", 
+     RowBox[{"#", ",", "fps"}], "]"}], "&"}], "/@", 
+   "AnimateObjects"}]}]], "Input",
+ CellChangeTimes->{{3.703177888389043*^9, 3.703177895951823*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["\[CapitalODoubleDot]sszefoglal\[AAcute]s", \
+"Chapter"]], "Section",
  CellChangeTimes->{{3.699979342477171*^9, 3.699979350997841*^9}}],
 
-Cell["Ide j\[ODoubleDot]n az \[ODoubleDot]sszefoglal\[AAcute]s.", "Text",
- CellChangeTimes->{{3.699979509715002*^9, 3.699979519890717*^9}}]
+Cell["\<\
+Az algoritmus meghat\[AAcute]rozta az inga hossz\[AAcute]t \[EAcute]s a \
+csillap\[IAcute]t\[AAcute]si t\[EAcute]nyez\[ODoubleAcute]j\[EAcute]t. A m\
+\[EAcute]rt hosszal k\[ODoubleDot]zel azonos volt a becs\[UDoubleDot]lt \
+hossz. A csillap\[IAcute]t\[AAcute]si t\[EAcute]nyez\[ODoubleAcute]t leellen\
+\[ODoubleAcute]rizni nem lehetett, viszont az Identifik\[AAcute]ci\[OAcute] \
+pontban kirajzolt illesztett g\[ODoubleDot]rbe \[EAcute]s az anim\[AAcute]ci\
+\[OAcute] alapj\[AAcute]n l\[AAcute]that\[OAcute]lag a szoftver megfelel\
+\[ODoubleAcute] param\[EAcute]tereket becs\[UDoubleDot]lt.\
+\>", "Text",
+ CellChangeTimes->{{3.699979509715002*^9, 3.699979519890717*^9}, {
+  3.7031797390155*^9, 3.7031797796310577`*^9}, {3.703179915733185*^9, 
+  3.703180065601226*^9}, {3.70318025837083*^9, 3.703180271751514*^9}, {
+  3.703180301849783*^9, 3.703180306502902*^9}, {3.7031803566560097`*^9, 
+  3.70318039750476*^9}, {3.703180480120654*^9, 3.7031804818629837`*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["Hivatkoz\[AAcute]sok", "Section",
- CellChangeTimes->{{3.6999793781347237`*^9, 3.699979381051906*^9}}],
+Cell[TextData[StyleBox["Hivatkoz\[AAcute]sok", "Chapter"]], "Section",
+ CellChangeTimes->{{3.6999793781347237`*^9, 3.699979381051906*^9}, 
+   3.703163997430271*^9}],
 
 Cell[CellGroupData[{
 
-Cell[TextData[StyleBox["",
+Cell[TextData[StyleBox["Csizmadia L\[AAcute]szl\[OAcute]: Az inga mozg\
+\[AAcute]s\[AAcute]nak matematikai modellez\[EAcute]se, \
+http://www.math.u-szeged.hu/~csizmadia/Pendulumea.pdf",
  FontSlant->"Italic"]], "ItemNumbered",
  CellChangeTimes->{{3.6999794107127037`*^9, 3.699979417737268*^9}, {
-   3.699979455067196*^9, 3.699979481039226*^9}, 3.700037381399279*^9}],
+   3.699979455067196*^9, 3.699979481039226*^9}, 3.700037381399279*^9, {
+   3.703178955982635*^9, 3.703178987336926*^9}}],
 
-Cell[TextData[StyleBox["",
+Cell[TextData[StyleBox["Hartley and Zisserman: Multiple View Geometry in \
+Computer Vision, pp. 88-91",
  FontSlant->"Italic"]], "ItemNumbered",
  CellChangeTimes->{{3.6999794107127037`*^9, 3.699979417737268*^9}, {
-   3.699979455067196*^9, 3.6999795027790413`*^9}, 3.7000373925828323`*^9}]
+   3.699979455067196*^9, 3.6999795027790413`*^9}, 3.7000373925828323`*^9, {
+   3.7031787446007442`*^9, 3.7031787587321377`*^9}}],
+
+Cell[TextData[StyleBox["Peter Kovesi: MATLAB and Octave Functions for \
+Computer Vison and Image Proccessing, htp://www.peterkovesi.com/matlabfns/",
+ FontSlant->"Italic"]], "ItemNumbered",
+ CellChangeTimes->{{3.6999794107127037`*^9, 3.699979417737268*^9}, {
+   3.699979455067196*^9, 3.6999795027790413`*^9}, 3.7000373925828323`*^9, {
+   3.7031787446007442`*^9, 3.703178764325282*^9}}]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
 WindowToolbars->"EditBar",
-WindowSize->{1301, 744},
-WindowMargins->{{0, Automatic}, {Automatic, 28}},
+WindowSize->{1366, 744},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -120,23 +1244,75 @@ Cell[CellGroupData[{
 Cell[580, 22, 203, 3, 93, "Title"],
 Cell[786, 27, 270, 4, 75, "Text"],
 Cell[CellGroupData[{
-Cell[1081, 35, 146, 2, 65, "Section"],
-Cell[1230, 39, 1202, 17, 77, "Text"]
+Cell[1081, 35, 146, 2, 66, "Chapter"],
+Cell[1230, 39, 1122, 16, 77, "Text"],
+Cell[CellGroupData[{
+Cell[2377, 59, 133, 1, 72, "Section"],
+Cell[2513, 62, 1524, 22, 99, "Text"]
+}, Open  ]],
+Cell[4052, 87, 316, 4, 72, "Section"],
+Cell[CellGroupData[{
+Cell[4393, 95, 104, 1, 47, "Subchapter"],
+Cell[4500, 98, 1159, 19, 99, "Text"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2469, 61, 102, 1, 65, "Section"],
-Cell[2574, 64, 125, 1, 33, "Text"]
-}, Open  ]],
-Cell[2714, 68, 159, 2, 65, "Section"],
-Cell[CellGroupData[{
-Cell[2898, 74, 125, 1, 51, "Section"],
-Cell[3026, 77, 139, 1, 33, "Text"]
+Cell[5696, 122, 154, 2, 63, "Subchapter"],
+Cell[5853, 126, 730, 12, 55, "Text"],
+Cell[6586, 140, 170, 3, 35, "Input"],
+Cell[6759, 145, 991, 26, 95, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3202, 83, 107, 1, 65, "Section"],
+Cell[7787, 176, 106, 1, 63, "Subchapter"],
+Cell[7896, 179, 1003, 16, 55, "Text"],
+Cell[8902, 197, 5003, 144, 396, "Input"],
+Cell[13908, 343, 3991, 105, 558, "Input"]
+}, Open  ]],
 Cell[CellGroupData[{
-Cell[3334, 88, 206, 3, 33, "ItemNumbered"],
-Cell[3543, 93, 210, 3, 33, "ItemNumbered"]
+Cell[17936, 453, 115, 1, 63, "Subchapter"],
+Cell[18054, 456, 927, 14, 77, "Text"],
+Cell[18984, 472, 1559, 45, 125, "Input"],
+Cell[20546, 519, 934, 27, 104, "Input"],
+Cell[21483, 548, 122, 2, 35, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21642, 555, 122, 1, 63, "Subchapter"],
+Cell[21767, 558, 1249, 20, 99, "Text"],
+Cell[23019, 580, 1887, 57, 182, "Input"],
+Cell[24909, 639, 693, 21, 77, "Input"],
+Cell[25605, 662, 336, 9, 51, "Input"],
+Cell[25944, 673, 1052, 31, 72, "Input"],
+Cell[26999, 706, 567, 16, 52, "Input"],
+Cell[27569, 724, 778, 23, 56, "Input"],
+Cell[28350, 749, 390, 13, 77, "Input"],
+Cell[28743, 764, 376, 8, 52, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29156, 777, 117, 1, 64, "Subchapter"],
+Cell[29276, 780, 554, 9, 55, "Text"],
+Cell[29833, 791, 273, 9, 32, "Input"],
+Cell[30109, 802, 2224, 60, 148, "Input"],
+Cell[32336, 864, 1378, 41, 76, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33751, 910, 112, 1, 64, "Subchapter"],
+Cell[33866, 913, 388, 7, 33, "Text"],
+Cell[34257, 922, 374, 12, 34, "Input"],
+Cell[34634, 936, 2142, 60, 124, "Input"],
+Cell[36779, 998, 3158, 86, 283, "Input"],
+Cell[39940, 1086, 2769, 69, 147, "Input"],
+Cell[42712, 1157, 309, 8, 56, "Input"],
+Cell[CellGroupData[{
+Cell[43046, 1169, 158, 2, 72, "Section"],
+Cell[43207, 1173, 970, 14, 55, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[44214, 1192, 164, 2, 72, "Section"],
+Cell[CellGroupData[{
+Cell[44403, 1198, 415, 6, 33, "ItemNumbered"],
+Cell[44821, 1206, 341, 5, 33, "ItemNumbered"],
+Cell[45165, 1213, 384, 5, 33, "ItemNumbered"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
